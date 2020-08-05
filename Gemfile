@@ -32,6 +32,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker', "~> 2.8"
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -63,3 +67,20 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'unicorn'
 end
+
+gem "haml-rails", ">= 1.0", '<= 2.0.1'
+gem 'font-awesome-sass'
+gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'active_hash'
+gem 'ransack'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem "omniauth-rails_csrf_protection"
+gem 'payjp'
+gem 'ancestry'
+gem 'fog-aws'
