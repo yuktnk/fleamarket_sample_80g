@@ -123,19 +123,19 @@
 ## items テーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null:false|
-|explanation|text|null:false|
+|name|string|null: false|
+|explanation|text|null: false|
 |condition_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |delivery_fee_id|references|null: false, foreign_key: true|
 |prefecture_code|integer|null: false|
 |preparation_day_id|references|null: false, foreign_key: true|
-|category_id|references|null:false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
-|seller_id|references|null:false, foreign_key: true|
-|buyer_id|references|foreign_key: true|
-|image_id|references|foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: true|
+|image_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :category
