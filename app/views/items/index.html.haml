@@ -3,11 +3,18 @@
 .Main
   .MainVisual
     .Content
-      .Content__title
-        人生を変えるフリマアプリ
-      .Content__text
+      %h2.Content__title
+        <br>人生を変えるフリマアプリ
+      %p.Content__text
         FURIMAはだれでもかんたんに出品・購入できる<br>フリマアプリです
       .Content__btn
+        .Content__btn--apple
+          = link_to '#' do
+            = image_tag 'pict/app-store.svg', alt: '', height: '', width: '180px', class: ''
+        .Content__btn--google
+          = link_to '#' do
+            = image_tag 'pict/google-play.svg', alt: '', height: '', width: '180px', class: ''
+
 
 
 
