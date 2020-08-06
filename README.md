@@ -107,7 +107,7 @@
 ## brands テーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|-------|
+|name|string|null: false|
 ### Association
 - has_many :items
 
@@ -135,7 +135,6 @@
 |brand_id|references|foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
-|image_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :category
