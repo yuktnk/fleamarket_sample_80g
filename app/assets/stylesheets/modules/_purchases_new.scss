@@ -1,0 +1,74 @@
+.Main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  &__header {
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: skyblue;
+  }
+  &__header-image {
+    height: 49px;
+    width: 185px;
+  }
+  &__purchases {
+    width: 700px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: gray;
+    &__details {
+      padding: 32px, 16px;
+    }
+    &__details__title {
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+      padding: 16px;
+      line-height: 2;
+    }
+    &__items {
+      padding: 32px 16px;
+      border-top: 1px solid whitesmoke;
+      &__inner {
+        margin: 0 auto;
+        max-width: 375px;
+        &__products {
+          display: flex;
+          height: 64px;
+          &__image {
+            display: flex;
+            height: 80px;
+            width: 80px;
+            justify-content: center;
+            align-items: center;
+          }
+          &__text {
+            width: 100%;
+            margin-left: 16px;
+
+            &__name {
+              font-size: 14px;
+              line-height: 1.4em;
+              margin-bottom: 8px;
+            }
+            &__price {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// ここはspanを別で装飾
+.Shipping__style {
+  font-size: 12px;
+}
+.Shipping__price {
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 8px;
+}

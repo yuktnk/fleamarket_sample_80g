@@ -1,5 +1,25 @@
 .Main-container
   %section.Main-container__header
     = link_to 'root_path', class:"Main-container__header-logo" do
-      = image_tag 'logo/logo.png'
-
+      = image_tag 'logo/logo.png', alt: "icon", class:"Main-container__header-image"
+  .Main-container__purchases
+    %section.Main-container__purchases__details
+      %h2.Main-container__purchases__details__title
+        購入内容の確認
+    %section.Main-container__purchases__items
+      .Main-container__purchases__items__inner
+        .Main-container__purchases__items__inner__products
+          %h3.Main-container__purchases__items__inner__products__image
+            =image_tag 'pict/sample1.png', size: "80x80", alt:"オムライス"
+          .Main-container__purchases__items__inner__products__text
+            %p.Main-container__purchases__items__inner__products__text__name
+              商品名(男は大抵好きなケチャオムライス)
+            %p.Main-container__purchases__items__inner__products__text__price
+              %span.Shipping__style
+                送料込み (税込)
+              %span.Shipping__price
+                ¥2,000
+    %section.Main-container__purchases__chackout
+      .Main-container__purchases__total-price
+      %span
+        支払い金額
