@@ -1,0 +1,240 @@
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  color: #333;
+}
+a {
+  text-decoration: none;
+  color: #3ccace;
+}
+h2 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+h3 {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4em;
+}
+.Main {
+  height: 100%;
+  background-color: #f8f8f8;
+  &__logo {
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__center {
+    &__container {
+      background-color: #fff;
+      border-bottom: 2px solid #f8f8f8;
+      width:700px;
+      margin: 0 auto;
+      padding: 40px;
+      &__required {
+        background-color: #ff0211;
+        color: #fff;
+        font-size: 12px;
+        padding: 0 4px;
+        border-radius: 2px;
+        display: inline-block;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin: 0;
+      }
+      &__optional {
+        background-color: #bfbfbf;
+        color: #fff;
+        font-size: 12px;
+        padding: 0 4px;
+        border-radius: 2px;
+        display: inline-block;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin: 0;
+      }
+      &__product_content {
+      }
+      &__max_sheets {
+      }
+      &__image_field {
+        height: 150px;
+        margin-top: 8px;
+        padding: 0 4px;
+        border: 1px dashed #ccc;
+        background-color: #f8f8f8;
+        cursor: pointer;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      &__product_name {
+      }
+      .input_field {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: inherit;
+        height: 48px;
+        padding: 0 16px;
+        margin: 16px 0;
+        display: flex;
+        align-items: center;
+        color: #bfbfbf;
+      }
+      &__product_explanation {
+      }
+      .explanation_field {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: inherit;
+        height: 126px;
+        padding: 0 16px;
+        margin: 16px 0;
+        display: flex;
+        align-items: center;
+        color: #bfbfbf;
+      }
+      &__product_explanation_counter {
+        color: #888;
+        font-size: 12px;
+        line-height: 1.4em;
+        text-align: right;
+      }
+      &__product_details {
+        margin-bottom: 24px;
+      }
+      &__product_category {
+      }
+      .select_wrap {
+        .select {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-family: inherit;
+          font-size: inherit;
+          height: 48px;
+          padding: 0 16px;
+          margin: 16px 0;
+          display: flex;
+          align-items: center;
+          // color: #bfbfbf;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+      &__product_bland {
+      }
+      &__product_condition {
+      }
+      &__about {
+        display: flex;
+        &__delivery {
+          margin-bottom: 24px;
+        }
+        &__price {
+          margin-bottom: 24px;
+        }
+      }
+      &__question {
+        margin-left: 4px;
+      }
+      &__delivery_fee {
+      }
+      &__prefecture {
+      }
+      &__preparation_days {
+      }
+      &__selling_price_contents {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        height: 48px;
+        &__price {
+          margin-right: auto;
+        }
+        &__yen {
+          font-size: 14px;
+          margin-right: 8px;
+        }
+        &__price_field {
+          .input_price {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            height: 48px;
+            margin: 0;
+            outline: none;
+            padding: 0 16px;
+            width: 200px;
+            text-align: right;
+          }
+        }
+        &__selling_commission {
+          &__field {
+          }
+        }
+      }
+      &__sell_contents {
+        width: 360px;
+        margin: 0 auto 32px;
+        &__sell_button {
+          .button_blue {
+            width: 100%;
+            border: none;
+            background-color: #3ccace;
+            font-size: 17px;
+            min-height: 48px;
+            padding: 0 24px;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -o-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+          }
+          .button_blue:hover {
+            background-color: #3b9395;
+          }
+        }
+        &__save_as_draft {
+          .button_gray {
+            width: 100%;
+            border: none;
+            font-size: 17px;
+            min-height: 48px;
+            padding: 0 24px;
+            margin-top: 24px;
+            border-radius: 4px;
+            color: #333;
+            cursor: pointer;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -o-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+          }
+          .button_gray:hover {
+            background-color: #888;
+          }
+        }
+        &__return_to_home {
+          margin-top: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
