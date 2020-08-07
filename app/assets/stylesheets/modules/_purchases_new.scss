@@ -1,4 +1,4 @@
-.Main-container {
+.MainContainer {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -10,7 +10,7 @@
     justify-content: center;
     background-color: skyblue;
   }
-  &__header-image {
+  &__headerImage {
     height: 49px;
     width: 185px;
   }
@@ -32,6 +32,8 @@
     &__items {
       padding: 32px 16px;
       border-top: 1px solid whitesmoke;
+      max-width: 375px;
+      margin: 0 auto;
       &__inner {
         margin: 0 auto;
         max-width: 375px;
@@ -61,6 +63,38 @@
         }
       }
     }
+    &__checkout {
+      border-top: 1px solid whitesmoke;
+      padding: 32px 16px;
+      max-width: 375px;
+      margin: 0 auto;
+      &__total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      &__logo {
+        display: flex;
+        &__usePoint {
+          vertical-align: middle;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          font-size: 14px;
+        }
+        &__usePoint2 {
+          vertical-align: middle;
+          margin-left: 16px;
+          line-height: 1.6em;
+          font-size: 12px;
+          text-align: right;
+          flex: 1 1 0%;
+        }
+      }
+    }
   }
 }
 // ここはspanを別で装飾
@@ -71,4 +105,12 @@
   font-size: 15px;
   font-weight: 600;
   margin-left: 8px;
+}
+.TotalPrice {
+  font-size: 24px;
+}
+
+.Logo {
+  margin-right: 4px;
+  vertical-align: middle;
 }
