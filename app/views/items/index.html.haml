@@ -1,25 +1,296 @@
 .Header
 
 .Main
-  .MainVisual
+  .TopVisual
     .Content
-      %h2.Content__title
+      %h2.Content__Title
         <br>人生を変えるフリマアプリ
-      %p.Content__text
+      %p.Content__Text
         FURIMAはだれでもかんたんに出品・購入できる<br>フリマアプリです
-      .Content__btn
-        .Content__btn--apple
+      .Content__Btn
+        .Content__Btn--Apple
           = link_to '#' do
-            = image_tag 'pict/app-store.svg', alt: '', height: '', width: '180px', class: ''
-        .Content__btn--google
+            = image_tag 'pict/app-store.svg', alt: 'AppStore', width: '180px'
+        .Content__Btn--Google
           = link_to '#' do
-            = image_tag 'pict/google-play.svg', alt: '', height: '', width: '180px', class: ''
+            = image_tag 'pict/google-play.svg', alt: 'GooglePlay', width: '180px'
+
+  .Introduction
+    %h2.Introduction__Title
+      FURIMAが選ばれる3つの理由
+      .UnderLine
+    %ul.Introduction__Items
+      %li.Introduction__Items--Item
+        .Image
+          %span.Number 1
+          = image_tag 'pict/pict-reason-01.jpg', alt: '', width: '100%'
+        %h3.Subtitle
+          %span 3分
+          ですぐに出品
+        %p.Description スマホで入力するだけで簡単に出品できる！
+      %li.Introduction__Items--Item
+        .Image
+          %span.Number 2
+          = image_tag 'pict/pict-reason-02.jpg', alt: '', width: '100%'
+        %h3.Subtitle
+          %span シンプル
+          で使いやすい
+        %p.Description めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.Introduction__Items--Item.last
+        .Image
+          %span.Number 3
+          = image_tag 'pict/pict-reason-03.jpg', alt: '', width: '100%'
+        %h3.Subtitle
+          手数料
+          %span 業界最安
+        %p.Description 最大3％でお得に出品&購入！
+
+  .MiddleVisual
+    .Content
+      %h2.Content__Title
+        会員数日本一位
+      %p.Content__Text
+        FURIMAは、フリマアプリで最も人気。<br>出品・購入回数も業界最多です！<br>ほしかったあの商品に出会えるかもしれません。
+      .Content__Btn
+        .Content__Btn--Apple
+          = link_to '#' do
+            = image_tag 'pict/app-store.svg', alt: 'AppStore', width: '180px'
+        .Content__Btn--Google
+          = link_to '#' do
+            = image_tag 'pict/google-play.svg', alt: 'GooglePlay', width: '180px'
 
 
 
+  .Feature
+    %h2.Feature__Title
+      FURIMAの特徴
+      .UnderLine
+    %ul.Feature__Items
+      %li.Feature__Items--Item
+        .Image
+          = image_tag 'icon/icon-01.png'
+        %h3.Subtitle
+          簡単に売り買いできる
+        %p.Description
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+
+      %li.Feature__Items--Item
+        .Image
+          = image_tag 'icon/icon-03.png'
+        %h3.Subtitle
+          売上金は即日振込みに対応
+        %p.Description
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+
+      %li.Feature__Items--Item
+        .Image
+          = image_tag 'icon/icon-04.png'
+        %h3.Subtitle
+          様々な支払いに対応
+        %p.Description
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+  .PickupContainer
+    %h2.PickupContainer__Title
+      ピックアップカテゴリー
+    %h3.PickupContainer__Subtitle
+      = link_to '#' do
+        新規投稿商品
+    %ul.PickupContainer__Items
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG', alt: '', height: '150px', width: '220px'
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG', alt: ''
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: ''
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png', alt: ''
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png', alt: ''
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+
+  .PickupContainer
+    %h2.PickupContainer__Title
+      ピックアップブランド
+    %h3.PickupContainer__Subtitle
+      = link_to '#' do
+        アーカイバ
+    %ul.PickupContainer__Items
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG', alt: '', height: '150px', width: '220px'
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG', alt: ''
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: ''
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png', alt: ''
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
+      %li.PickupContainer__Items--Item
+        = link_to '#' do
+          .Image
+            = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png', alt: ''
+          .DetailBox
+            .Name
+              テストタイトル
+            .Details
+              %ul
+                %li
+                  金額
+                %li
+                  = icon('fa', 'star likeIcon')
+                  3
+              %p
+                (税込)
 
 
+.BottomVisual
+  .Content
+    %h2.Content__Title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.Content__Text
+      今すぐ無料ダウンロード！
+    .Content__Btn
+      .Content__Btn--Apple
+        = link_to '#' do
+          = image_tag 'pict/app-store.svg', alt: 'AppStore', width: '180px'
+      .Content__Btn--Google
+        = link_to '#' do
+          = image_tag 'pict/google-play.svg', alt: 'GooglePlay', width: '180px'
 
-.AppBanner
+= link_to '#' do
+  .PurchaseBtn
+    .PurchaseBtn__Text
+      出品する
+    .PurchaseBtn__Icon
+      = image_tag 'icon/icon_camera.png', alt: '出品する'
+
 
 .Footer
