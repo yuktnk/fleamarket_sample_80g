@@ -38,7 +38,7 @@
         例）2010年頃に1万円で購入したレザージャケットです。黒で傷はありませんので、比較的美品だと思います。
       .Main__center__container__product_explanation_counter
         0/1000
-    -# 商品の詳細・ブランド・商品の状態
+    -# 商品の詳細・ブランド・商品の状態（サイズの表示はifで分岐させてください）
     .Main__center__container
       %h2.Main__center__container__product_details
         商品の詳細
@@ -49,7 +49,13 @@
       .select_wrap
         %select{name: "category", class: "select"}
           %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-          
+      %h2.Main__center__container__product_size
+        サイズ
+        %span.Main__center__container__required
+          必須
+      .select_wrap
+        %select{name: "category", class: "select"}
+          %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
     .Main__center__container
       %h2.Main__center__container__product_bland
         ブランド
@@ -146,4 +152,3 @@
         などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
         = link_to '加盟店規約', '#', target: '_blank'
         に同意したことになります。
-
