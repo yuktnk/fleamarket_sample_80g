@@ -56,10 +56,6 @@ h3 {
         line-height: 1.4em;
         margin: 0;
       }
-      &__productContent {
-      }
-      &__maxSheets {
-      }
       &__imageField {
         height: 150px;
         margin-top: 8px;
@@ -73,8 +69,6 @@ h3 {
         align-items: center;
         justify-content: center;
       }
-      &__productName {
-      }
       .inputField {
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -86,8 +80,6 @@ h3 {
         display: flex;
         align-items: center;
         color: #bfbfbf;
-      }
-      &__productExplanation {
       }
       .explanationField {
         border: 1px solid #ccc;
@@ -110,8 +102,6 @@ h3 {
       &__productDetails {
         margin-bottom: 24px;
       }
-      &__productCategory {
-      }
       .selectWrap {
         .select {
           border: 1px solid #ccc;
@@ -128,13 +118,6 @@ h3 {
           cursor: pointer;
         }
       }
-      &__productSize {
-
-      }
-      &__productBland {
-      }
-      &__productCondition {
-      }
       &__about {
         display: flex;
         &__delivery {
@@ -146,12 +129,6 @@ h3 {
       }
       &__question {
         margin-left: 4px;
-      }
-      &__deliveryFee {
-      }
-      &__prefecture {
-      }
-      &__preparationDays {
       }
       &__sellingPriceContents {
         display: flex;
