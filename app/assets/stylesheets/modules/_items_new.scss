@@ -33,7 +33,7 @@ h3 {
       margin: 0 auto;
       padding: 40px;
       &__required {
-        background-color: #ff0211;
+        background-color: #feb340;
         color: #fff;
         font-size: 12px;
         padding: 0 4px;
@@ -229,6 +229,7 @@ h3 {
           }
           .button_gray:hover {
             background-color: #888;
+            color: #fff;
           }
         }
         &__return_to_home {
@@ -237,6 +238,43 @@ h3 {
           align-items: center;
           justify-content: center;
         }
+      }
+    }
+  }
+}
+// モバイル版
+// ----------------------------------
+@media (max-width: 767px) {
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4em;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.4em;
+  }
+  .Main {
+    width: max-content;
+  }
+  .Main__center__container__image_field--icon {
+    font-size: 24px;
+  }
+  .Main__center__container__image_field p {
+    display: none;
+  }
+  .Main__center__container__sell_contents {
+    width: 100%;
+    margin: 0 auto 32px;
+    &__sell_button {
+      .button_blue {
+        font-size: 24px;
+      }
+    }
+    &__save_as_draft {
+      .button_gray {
+        font-size: 24px;
       }
     }
   }
