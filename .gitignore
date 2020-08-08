@@ -31,5 +31,6 @@ yarn-debug.log*
 .yarn-integrity
 public/uploads/*
 
-
+# .DS_Store banished!
+.DS_Store
 
