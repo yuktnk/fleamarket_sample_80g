@@ -38,3 +38,34 @@
             ポイントの使用
           %p.MainContainer__purchases__checkout__logo__usePoint2
             所持ポイント：P0
+    %section.MainContainer__purchases__payMethod
+      .MainContainer__purchases__payMethod__inner
+        .MainContainer__purchases__payMethod__inner__title
+          %h3.MainContainer__purchases__payMethod__inner__title__way
+            支払い方法
+          = link_to '変更する','#', class: ".MainContainer__purchases__payMethod__inner__title__way__link"
+        .MainContainer__purchases__payMethod__inner__cardInfo
+          %p クレジットカード
+          %p ************0000
+          %p 
+            有効期限 04 / 22
+          = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/visa-91c71914c6ae23d33f896e60bb1e3859.svg', alt:'visaアイコン', size:"48x16", class: "Visa-icon"
+    %section.MainContainer__purchases__address
+      .MainContainer__purchases__address__inner
+        .MainContainer__purchases__address__inner__title
+          %h3.MainContainer__purchases__address__inner__title__details
+            配送先
+          = link_to '変更する', '#', class: "MainContainer__purchases__address__inner__title__details__link"
+        .MainContainer__purchases__address__inner__detailAdress
+          %p 〒000-0000
+          %p 東京都 港区  赤坂1-29-4 マッスルハウス
+          %p ニンニク 臭男
+    %section.MainContainer__purchases__decide
+      .MainContainer__purchases__decide__btn
+        =button_to '購入する', '#', class: "MainContainer__purchases__decide__btn__link"
+  -# %section.MainContainer__footer
+  -#   .MainContainer__footer__list
+  -#     %ul.MainContainer__footer__list__name
+  -#       %li プライバシーポリシー
+  -#       %li メルカリ利用規約
+  -#       %li 特定商取引に関する表記
