@@ -1,71 +1,72 @@
-.MainContainer
-  %section.MainContainer__header
-    = link_to 'root_path', class:"MainContainer__headerLogo" do
-      = image_tag 'logo/logo.png', alt: "icon", class:"MainContainer__headerImage"
-  .MainContainer__purchases
-    %section.MainContainer__purchases__details
-      %h2.MainContainer__purchases__details__title
-        購入内容の確認
-    %section.MainContainer__purchases__items
-      .MainContainer__purchases__items__inner
-        .MainContainer__purchases__items__inner__products
-          %h3.MainContainer__purchases__items__inner__products__image
-            = image_tag 'pict/sample1.png', size: "80x80", alt:"オムライス"
-          .MainContainer__purchases__items__inner__products__text
-            %p.MainContainer__purchases__items__inner__products__text__name
-              商品名(男は大抵好きなオムライス)
-            %p.MainContainer__purchases__items__inner__products__text__price
-              %span.Shipping__style
-                送料込み (税込)
-              %span.Shipping__price
-                ¥2,000
-    %section.MainContainer__purchases__checkout
-      .MainContainer__purchases__checkout__total
-        %span
-          支払い金額
-        %span.TotalPrice
-          ¥2,000
-      %label.MainContainer__purchases__checkout__points
-        -# %label.MainContainer__purchases__checkout__points_use disabled-class
-          -# %span.Check_box
-            -# %span.Style__input
-              -# =image_tag
-              %p.MainContainer__purchases__checkout__points__text
-                -# ポイントの使用
-        .MainContainer__purchases__checkout__logo
-          = image_tag 'icon/logoicon.png', alt:"ロゴアイコン", size: "14x14", class: "Logo"
-          %p.MainContainer__purchases__checkout__logo__usePoint
-            ポイントの使用
-          %p.MainContainer__purchases__checkout__logo__usePoint2
-            所持ポイント：P0
-    %section.MainContainer__purchases__payMethod
-      .MainContainer__purchases__payMethod__inner
-        .MainContainer__purchases__payMethod__inner__title
-          %h3.MainContainer__purchases__payMethod__inner__title__way
-            支払い方法
-          = link_to '変更する','#', class: ".MainContainer__purchases__payMethod__inner__title__way__link"
-        .MainContainer__purchases__payMethod__inner__cardInfo
-          %p クレジットカード
-          %p ************0000
-          %p 
-            有効期限 04 / 22
-          = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/visa-91c71914c6ae23d33f896e60bb1e3859.svg', alt:'visaアイコン', size:"48x16", class: "Visa-icon"
-    %section.MainContainer__purchases__address
-      .MainContainer__purchases__address__inner
-        .MainContainer__purchases__address__inner__title
-          %h3.MainContainer__purchases__address__inner__title__details
-            配送先
-          = link_to '変更する', '#', class: "MainContainer__purchases__address__inner__title__details__link"
-        .MainContainer__purchases__address__inner__detailAdress
-          %p 〒000-0000
-          %p 東京都 港区  赤坂1-29-4 マッスルハウス
-          %p ニンニク 臭男
-    %section.MainContainer__purchases__decide
-      .MainContainer__purchases__decide__btn
-        =button_to '購入する', '#', class: "MainContainer__purchases__decide__btn__link"
-  -# %section.MainContainer__footer
-  -#   .MainContainer__footer__list
-  -#     %ul.MainContainer__footer__list__name
-  -#       %li プライバシーポリシー
-  -#       %li メルカリ利用規約
-  -#       %li 特定商取引に関する表記
+.PurchasesNew
+  .MainContainer
+    %section.MainContainer__header
+      = link_to 'root_path', class:"MainContainer__headerLogo" do
+        = image_tag 'logo/logo.png', alt: "icon", class:"MainContainer__headerImage"
+    .MainContainer__purchases
+      %section.MainContainer__purchases__details
+        %h2.MainContainer__purchases__details__title
+          購入内容の確認
+      %section.MainContainer__purchases__items
+        .MainContainer__purchases__items__inner
+          .MainContainer__purchases__items__inner__products
+            %h3.MainContainer__purchases__items__inner__products__image
+              = image_tag 'pict/sample1.png', size: "80x80", alt:"オムライス"
+            .MainContainer__purchases__items__inner__products__text
+              %p.MainContainer__purchases__items__inner__products__text__name
+                商品名(男は大抵好きなオムライス)
+              %p.MainContainer__purchases__items__inner__products__text__price
+                %span.Shipping__style
+                  送料込み (税込)
+                %span.Shipping__price
+                  ¥2,000
+      %section.MainContainer__purchases__checkout
+        .MainContainer__purchases__checkout__total
+          %span
+            支払い金額
+          %span.TotalPrice
+            ¥2,000
+        %label.MainContainer__purchases__checkout__points
+          -# %label.MainContainer__purchases__checkout__points_use disabled-class
+            -# %span.Check_box
+              -# %span.Style__input
+                -# =image_tag
+                %p.MainContainer__purchases__checkout__points__text
+                  -# ポイントの使用
+          .MainContainer__purchases__checkout__logo
+            = image_tag 'icon/logoicon.png', alt:"ロゴアイコン", size: "14x14", class: "Logo"
+            %p.MainContainer__purchases__checkout__logo__usePoint
+              ポイントの使用
+            %p.MainContainer__purchases__checkout__logo__usePoint2
+              所持ポイント：P0
+      %section.MainContainer__purchases__payMethod
+        .MainContainer__purchases__payMethod__inner
+          .MainContainer__purchases__payMethod__inner__title
+            %h3.MainContainer__purchases__payMethod__inner__title__way
+              支払い方法
+            = link_to '変更する','#', class: ".MainContainer__purchases__payMethod__inner__title__way__link Change__link"
+          .MainContainer__purchases__payMethod__inner__cardInfo
+            %p クレジットカード
+            %p ************0000
+            %p 
+              有効期限 04 / 22
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/visa-91c71914c6ae23d33f896e60bb1e3859.svg', alt:'visaアイコン', size:"48x16", class: "Visa-icon"
+      %section.MainContainer__purchases__address
+        .MainContainer__purchases__address__inner
+          .MainContainer__purchases__address__inner__title
+            %h3.MainContainer__purchases__address__inner__title__details
+              配送先
+            = link_to '変更する', '#', class: "MainContainer__purchases__address__inner__title__details__link Change__link"
+          .MainContainer__purchases__address__inner__detailAdress
+            %p 〒000-0000
+            %p 東京都 港区  赤坂1-29-4 マッスルハウス
+            %p ニンニク 臭男
+      %section.MainContainer__purchases__decide
+        .MainContainer__purchases__decide__btn
+          =button_to '購入する', '#', class: "MainContainer__purchases__decide__btn__link"
+    -# %section.MainContainer__footer
+    -#   .MainContainer__footer__list
+    -#     %ul.MainContainer__footer__list__name
+    -#       %li プライバシーポリシー
+    -#       %li メルカリ利用規約
+    -#       %li 特定商取引に関する表記
