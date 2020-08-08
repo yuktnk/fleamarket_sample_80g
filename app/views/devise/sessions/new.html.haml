@@ -1,0 +1,50 @@
+.SignInPage
+  .Main
+    .Logo
+      = link_to '#' do
+        = image_tag 'logo/logo.png', alt: 'furima', height: '49', width: '185'
+    .Container
+      .SignUp
+        %p.SignUp__title
+          アカウントをお持ちでない方はこちら
+        = link_to '#' do
+          .SignUp__btn
+            新規会員登録
+      .SNSSignIn
+        = link_to '#' do
+          .SNSSignIn__google
+            .SNSSignIn__google--logo
+              ロゴ
+            .SNSSignIn__google--text
+              Googleでログイン
+        = link_to '#' do
+          .SNSSignIn__facebook
+            .SNSSignIn__facebook--logo
+              ロゴ
+            .SNSSignIn__facebook--text
+              Facebookでログイン
+        = link_to '#' do
+          .SNSSignIn__apple
+            .SNSSignIn__apple--logo
+              ロゴ
+            .SNSSignIn__apple--text
+              Appleでログイン
+      .SignInForm
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .FormField
+            .FormField__email
+              = f.email_field :email, placeholder: "メールアドレス", autofocus: true, class: 'emailDecoration'
+            .FormField__password
+              = f.password_field :password, placeholder: "パスワード", autocomplete: "off", class: 'passwordDecoration'
+            .FormField__robot
+              ここに「私はロボットではありません」という確認欄が入る（後日実装する）
+            .FormField__submit
+              = f.submit "ログイン", class: 'submitDecoration'
+        .PasswordForgot
+          =link_to '#' do
+            パスワードをお忘れの方
+
+  .Footer
+
+
+
