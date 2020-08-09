@@ -26,7 +26,7 @@ body{
           padding: 0;
           margin: 0;
 
-          .itemBox{
+          .ItemBox{
             padding: 24px 40px 40px;
             background-color: #fff;
 
@@ -36,7 +36,7 @@ body{
               font-size: 24px;
             }
 
-            .itemBox__body{
+            &__body{
               margin: 16px 0 0;
               ul{
                 display: flex;
@@ -79,7 +79,7 @@ body{
               }
             }
 
-            .itemBox__price{
+            &__price{
               margin: 24px 0 24px;
               text-align: center;
               display: flex;
@@ -89,7 +89,7 @@ body{
                 font-weight: bold;
                 margin: 0 10px 0 0;
               }                                   //¥20000
-              .itemBox__priceDetail{
+              .ItemBox__priceDetail{
                 span{font-size: 16px;
                 }                                 //(税込) 送料込み
               }
@@ -177,7 +177,7 @@ body{
             }
           }
 
-          .commentBox{
+          .CommentBox{
             padding: 24px;
             background-color: #fff;
             margin: 10px 0;
