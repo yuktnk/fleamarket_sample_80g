@@ -1,0 +1,291 @@
+.UsersShow {
+  body {
+    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+    color: #333;
+  }
+  a {
+    text-decoration: none;
+    color: #3ccace;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.4em;
+  }
+  .Wrapper {
+    width: 100vw;
+    height: 100%;
+    background-color: #f8f8f8;
+    // パンくずリスト
+    .BreadCrumbs {
+      background-color: #fff;
+      border-bottom: 2px solid #f8f8f8;
+      height: 48px;
+      box-shadow: 0 3px 3px 0 #ccc;
+      &__list {
+        height: 100%;
+        width: 1020px;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        &__link:hover {
+          text-decoration: underline;
+          opacity: 0.5;
+        }
+        .angleRight {
+          margin: 0 8px;
+        }
+      }
+    }
+    // メイン画面
+    .Main {
+      width: 1020px;
+      margin: 40px auto 0;
+      padding: 0 0 40px;
+      display: flex;
+      // background-color: antiquewhite;
+      // サイドバー
+      .SideBar {
+        width: 280px;
+        margin-right: 40px;
+        .SideBarNav {
+          &__listTitle {
+            margin: 40px 0 10px 10px;
+          }
+          &__list {
+            &__item {
+              background-color: #fff;
+              position: relative;
+              min-height: 48px;
+              padding: 16px;
+              display: block;
+              font-size: 14px;
+              color: #333;
+              border-top: 1px solid #f8f8f8;
+              .angleRight {
+                .icon {
+                  position: absolute;
+                  top: 50%;
+                  right: 16px;
+                  color: #ccc;
+                  font-size: 20px;
+                  // -webkit-transform: translate(0, -50%);
+                  transform: translate(0, -50%);
+                  // -webkit-transition: all ease-out .2s;
+                  // transition: all ease-out .2s;
+                }
+                
+              }
+              
+            }
+            &__item:hover {
+              background-color: #fafafa;
+              transition: all ease-out .2s;
+            }
+          }
+        }
+      }
+      // ユーザー情報
+      .Container {
+        width: 700px;
+        .UserInfo {
+          position: relative;
+          padding: 20px;
+          background: url("pict/bg-topMiddleDl-pict.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          height: 155px;
+          // background-color: #3ccace;
+          text-align: center;
+          a {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translate(0, -50%);
+          }
+          a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+          }
+          &__name {
+          }
+          &__numbers {
+            margin-top: 8px;
+          }
+        }
+        // お知らせとtodo
+        .NewsAndTodos {
+          &__tabs {
+            height: 74px;
+            display: flex;
+            li {
+              width: 50%;
+              text-align: center;
+              background-color: #eee;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              h3 {
+                width: 100%;
+                font-weight: bold;
+                a {
+                  position: relative;
+                  display: block;
+                  color: #333;
+                  font-size: 16px;
+                  line-height: 72px;
+                  width: 100%;
+                }
+              }
+            }
+            .active {
+              background-color: #fff;
+              border-top: 2px solid #3ccace;
+            }
+          }
+          .TabContents {
+            font-size: 14px;
+            background-color: #fff;
+            .Notifications {
+              li {
+                border-bottom: 1px solid #f8f8f8;
+                position: relative;
+              }
+              &__link {
+                display: flex;
+                min-height: 80px;
+                padding: 16px;
+                color: #333;
+                figure {
+                  position: relative;
+                  width: 48px;
+                  height: 48px;
+                }
+                &__image {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                  z-index: 1;
+                  width: 48px;
+                  height: 48px;
+                  
+                }
+                &__body {
+                  margin: 0 40px 0 20px;
+                  width: 440px;
+                  &__text {
+                    overflow: hidden;
+                    display: block;
+                    display: -webkit-box;
+                    max-height: 4.4em;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    line-height: 1.5;
+                  }
+                  time {
+                    i {
+                      .icon {
+                        margin-right: 8px;
+                      }
+                      .date {
+                        font-style: normal;
+                      }
+                    }
+                  }
+                }
+                .angleRight {
+                  position: absolute;
+                  top: 50%;
+                  right: 16px;
+                  font-size: 20px;
+                  transform: translate(0, -50%);
+                }
+              }
+              .GoToMypageList {
+                padding: 16px;
+                a {
+                  display: block;
+                  height: 56px;
+                  margin: 0 auto;
+                  background: #eee;
+                  color: #333;
+                  line-height: 56px;
+                  text-align: center;
+                }
+              }
+              &__link:hover {
+                background-color: #fafafa;
+                transition: all ease-out .2s;
+              }
+            }
+          }
+        }
+        .PurchasedItems {
+          .TabIntroduction {
+            padding: 0 4%;
+            // background: #fafafa;
+            font-size: 16px;
+            line-height: 72px;
+          }
+          &__tabs {
+            height: 74px;
+            display: flex;
+            li {
+              width: 50%;
+              text-align: center;
+              background-color: #eee;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              h3 {
+                width: 100%;
+                font-weight: bold;
+                a {
+                  position: relative;
+                  display: block;
+                  color: #333;
+                  font-size: 16px;
+                  line-height: 72px;
+                  width: 100%;
+                }
+              }
+            }
+            .active {
+              background-color: #fff;
+              border-top: 2px solid #3ccace;
+            }
+          }
+          .TabContents {
+            font-size: 14px;
+            background-color: #fff;
+            .TransactionNow {
+              &__notFound {
+                padding: 160px 0 60px;
+                background: url("logo/logo.png");
+                background-repeat: no-repeat;
+                background-position: center 40px;
+                background-size: 185px 49px;
+                text-align: center;
+                // font-size: 16px;
+                color: #ccc;
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
