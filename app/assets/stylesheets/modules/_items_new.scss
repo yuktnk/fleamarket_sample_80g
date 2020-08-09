@@ -1,24 +1,21 @@
-body {
-  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-  color: #333;
-}
-a {
-  text-decoration: none;
-}
-h2 {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4em;
-}
-h3 {
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.4em;
-}
 .ItemsNew {
+  body {
+    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+    color: #333;
+  }
   a {
     text-decoration: none;
     color: #3ccace;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.4em;
   }
   .Main {
     height: 100%;
