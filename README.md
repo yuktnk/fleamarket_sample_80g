@@ -39,7 +39,11 @@
 |first_name|string|null: false|
 |family_name_furigana|string|null: false|
 |first_name_furigana|string|null: false|
-|birthday|date|null: false|
+|birth_day|date|null: false|
+|family_name_to_deliver|string|null: false|
+|first_name_to_deliver|string|null: false|
+|family_name_to_deliver_furigana|string|null: false|
+|first_name_to_deliver_furigana|string|null: false|
 |postal_code|integer|null: false|
 |prefecture|string|null: false|
 |municipalities|string|null: false|

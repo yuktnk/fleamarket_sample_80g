@@ -44,79 +44,79 @@
                 お名前(全角)
                 %span 必須
               .FormField__box--input
-                = f.text_field :nickname, placeholder: '例）山田', class: 'inputZoneHalf'
-                = f.text_field :nickname, placeholder: '例）彩', class: 'inputZoneHalf'
+                = f.text_field :family_name, placeholder: '例）山田', class: 'inputZoneHalf'
+                = f.text_field :first_name, placeholder: '例）彩', class: 'inputZoneHalf'
 
             .FormField__box
               .FormField__box--subtitle
                 お名前カナ(全角)
                 %span 必須
               .FormField__box--input
-                = f.text_field :nickname, placeholder: '例）ヤマダ', class: 'inputZoneHalf'
-                = f.text_field :nickname, placeholder: '例）アヤ', class: 'inputZoneHalf'
+                = f.text_field :family_name_furigana, placeholder: '例）ヤマダ', class: 'inputZoneHalf'
+                = f.text_field :first_name_furigana, placeholder: '例）アヤ', class: 'inputZoneHalf'
 
             .FormField__box
               .FormField__box--subtitle
                 生年月日
                 %span 必須
               .FormField__box--input
-                != sprintf(f.date_select(:nickname, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+                != sprintf(f.date_select(:birth_day, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
 
             .FormField__box
               .FormField__box--subtitle
                 送付先氏名(全角)
                 %span 必須
               .FormField__box--input
-                = f.text_field :nickname, placeholder: '例）山田', class: 'inputZoneHalf'
-                = f.text_field :nickname, placeholder: '例）彩', class: 'inputZoneHalf'
+                = f.text_field :family_name_to_deliver, placeholder: '例）山田', class: 'inputZoneHalf'
+                = f.text_field :first_name_to_deliver, placeholder: '例）彩', class: 'inputZoneHalf'
 
             .FormField__box
               .FormField__box--subtitle
                 送付先氏名カナ(全角)
                 %span 必須
               .FormField__box--input
-                = f.text_field :nickname, placeholder: '例）ヤマダ', class: 'inputZoneHalf'
-                = f.text_field :nickname, placeholder: '例）アヤ', class: 'inputZoneHalf'
+                = f.text_field :family_name_to_deliver_furigana, placeholder: '例）ヤマダ', class: 'inputZoneHalf'
+                = f.text_field :first_name_to_deliver_furigana, placeholder: '例）アヤ', class: 'inputZoneHalf'
 
             .FormField__box
               .FormField__box--subtitle
                 郵便番号
                 %span 必須
               .FormField__box--input
-                = f.text_field :nickname, autofocus: true, placeholder: '例）000-0000', class: 'inputZone'
+                = f.text_field :postal_code, autofocus: true, placeholder: '例）000-0000', class: 'inputZone'
 
             .FormField__box
               .FormField__box--subtitle
                 都道府県
                 %span 必須
               .FormField__box--input
-                = f.text_field :nickname, autofocus: true, placeholder: '例）東京都', class: 'inputZone'
+                = f.text_field :prefecture, autofocus: true, placeholder: '例）東京都', class: 'inputZone'
 
             .FormField__box
               .FormField__box--subtitle
                 市区町村
                 %span 必須
               .FormField__box--input
-                = f.text_field :nickname, autofocus: true, placeholder: '例）新宿区西新宿', class: 'inputZone'
+                = f.text_field :municipalities, autofocus: true, placeholder: '例）新宿区西新宿', class: 'inputZone'
 
             .FormField__box
               .FormField__box--subtitle
                 番地
                 %span 必須
               .FormField__box--input
-                = f.text_field :nickname, autofocus: true, placeholder: '例）0丁目0-0', class: 'inputZone'
+                = f.text_field :address, autofocus: true, placeholder: '例）0丁目0-0', class: 'inputZone'
 
             .FormField__box
               .FormField__box--subtitle
                 建物名・部屋番号
               .FormField__box--input
-                = f.text_field :nickname, autofocus: true, placeholder: '例）○○マンション000号室', class: 'inputZone'
+                = f.text_field :building, autofocus: true, placeholder: '例）○○マンション000号室', class: 'inputZone'
 
             .FormField__box
               .FormField__box--subtitle
                 お届け先電話番号
               .FormField__box--input
-                = f.text_field :nickname, autofocus: true, placeholder: '例）000-0000-0000', class: 'inputZone'
+                = f.text_field :phone_number, autofocus: true, placeholder: '例）000-0000-0000', class: 'inputZone'
 
             .FormField__submit
               = f.submit "アカウントを作成", class: 'submitDecoration'
