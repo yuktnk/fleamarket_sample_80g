@@ -1,25 +1,5 @@
 # READ ME
 
-## profilesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_furigana|string|null: false|
-|first_name_furigana|string|null: false|
-|year|integer|null: false|
-|month|integer|null:false|
-|day|integer|null:false|
-|postal_code|integer|null: false|
-|prefecture|string|null: false|
-|municipalities|string|null: false|
-|address|string|null: false|
-|building|string||
-|phone_number|integer||
-|user_id|references|null:false, foreign_key: true|
-### Association
-- belongs_to :user
-
 ## credit_cards
 |Column|Type|Options|
 |------|----|-------|
@@ -55,6 +35,19 @@
 |nickname|string|index: true, null: false, unique: true|
 |email|string|index: true, null: false, unique: true|
 |encrypted_password|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_furigana|string|null: false|
+|first_name_furigana|string|null: false|
+|birth_year|integer|null: false|
+|birth-month|integer|null:false|
+|birth_day|integer|null:false|
+|postal_code|integer|null: false|
+|prefecture|string|null: false|
+|municipalities|string|null: false|
+|address|string|null: false|
+|building|string||
+|phone_number|integer||
 ### Association
 - has_many :bought_item, foreign_key: "seller_id", class_name: "Item"
 - has_many :sold_item, foreign_key: "buyer_id", class_name: "Item"
@@ -65,7 +58,6 @@
 - has_many :user_evaluations, dependent: :destroy
 - has_many :orders
 - has_many :news, dependent: :destroy
-- has_one :profile, dependent: :destroy
 
 ## ordersテーブル
 |Column|Type|Options|
