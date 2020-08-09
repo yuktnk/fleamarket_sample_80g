@@ -39,15 +39,13 @@
 |first_name|string|null: false|
 |family_name_furigana|string|null: false|
 |first_name_furigana|string|null: false|
-|birth_year|integer|null: false|
-|birth-month|integer|null:false|
-|birth_day|integer|null:false|
+|birthday|date|null: false|
 |postal_code|integer|null: false|
 |prefecture|string|null: false|
 |municipalities|string|null: false|
 |address|string|null: false|
 |building|string||
-|phone_number|integer||
+|phone_number|string||
 ### Association
 - has_many :bought_item, foreign_key: "seller_id", class_name: "Item"
 - has_many :sold_item, foreign_key: "buyer_id", class_name: "Item"
