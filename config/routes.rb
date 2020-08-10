@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'logout', to: 'users#logout'
   resources :items, only: [:index, :new]
   resources :users, only: [:show]
+  resources :credit_cards, only: :new
 end
