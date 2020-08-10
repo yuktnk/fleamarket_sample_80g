@@ -1,0 +1,31 @@
+%header.Header
+  .Header__inner
+    .Header__inner__main
+      %h1.Header__inner__main__icon
+        = link_to '#', class:"Header__inner__main__icon__link" do
+          = image_tag 'logo/logo.png', alt:"ロゴアイコン", class: "Header__inner__main__icon__link__img"
+      
+      .Header__inner__main__searchbox
+        = form_with url:'#' do |form|
+          -# %input utf8など入る
+          %input.Header__inner__main__searchbox__input#searchInput{name: "key", placeholder: "キーワードから探す"}
+          %button{type: "submit", class:"search-box-btn"}
+            .Header__inner__main__searchbox__input__icon
+              = image_tag 'http://furima.tokyo/assets/icon-search-60a83ada85216fe00789cd16065281694d9a08948275fef83683fadcf131d84d.svg', class:"search-btn"
+            %input{type: "hidden", name:"AuthenticityToken"}
+        %ul.Header__inner__main__searchbox__result
+    
+    .Header__inner__nav
+      %ul.Header__inner__nav__listsleft
+        %li.Header__inner__nav__listsleft__item.Header__inner__nav__listsleft__item__first 
+          = link_to 'カテゴリー', '#'
+        
+        %li.Header__inner__nav__listsleft__item
+          = link_to 'ブランド', '#'
+          -# %ul.burandsPulldown
+      
+      %ul.Header__inner__nav__listsright
+        %li.Header__inner__nav__listsright__login
+          = link_to 'ログイン','#'
+        %li.Header__inner__nav__listsright__newlogin
+          = link_to '新規会員登録', '#'

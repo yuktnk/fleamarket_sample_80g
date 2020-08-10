@@ -1,0 +1,266 @@
+body{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  margin: 0;
+  padding: 0;
+  
+
+  .Main{
+    background-color: #f8f8f8;
+
+    .showMain{
+      padding: 40px;
+      margin: 0 auto;
+
+      .contentLeftqq{
+        padding: 0;
+        margin: 0;
+        // この人は何のためにいるのか不明
+      }
+
+      .contentRight{
+        width: 700px;
+        margin: 0 auto;
+
+        .topContent{
+          padding: 0;
+          margin: 0;
+
+          .ItemBox{
+            padding: 24px 40px 40px;
+            background-color: #fff;
+
+            h2{                     //product2
+              text-align: center;
+              font-weight: bold;
+              font-size: 24px;
+            }
+
+            &__body{
+              margin: 16px 0 0;
+              ul{
+                display: flex;
+                position: relative;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li{
+                  display: flex;
+                  flex-direction: column;
+                  width: 560px;
+                  align-items: center;
+                  margin: 0 auto;
+                  img{
+                    object-fit: cover;
+                    height: 346px;
+                    width: 100%;
+                    vertical-align: bottom;
+                  }
+                  ul{
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 10px;
+                    position: relative;
+                    li{
+                      width: 25%;
+                      margin: 0 10px 0 0;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      img{
+                        object-fit: cover;
+                        height: 87px;
+                        width: 100%;
+                        vertical-align: bottom;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            &__price{
+              margin: 24px 0 24px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              span{
+                font-size: 46px;
+                font-weight: bold;
+                margin: 0 10px 0 0;
+              }                                   //¥20000
+              .ItemBox__priceDetail{
+                span{font-size: 16px;
+                }                                 //(税込) 送料込み
+              }
+            }
+            
+            .itemDetail{
+              line-height: 1.5;
+              font-size: 18px;
+              margin-bottom: 30px;
+            }                                  //親譲りの無鉄砲で小供の~
+
+            .table{
+              margin-bottom: 20px;
+              table{
+                width: 100%;
+                height: 375px;
+                border-collapse: collapse;
+                border: 1px solid #f8f8f8;
+                border-spacing: 0;
+                tbody{
+                  display: table-row-group;
+                  vertical-align: middle;
+                  border-color: inherit;
+                  tr{
+                    display: table-row;
+                    vertical-align: inherit;
+                    border-color: inherit;
+                    th{
+                      width: 20%;
+                      background-color: #eee;
+                      font-weight: 400;
+                      padding: 8px;
+                      border: 1px solid #dedede;
+                      font-size: 14px;
+                      text-align: center;
+                    }                                  //出品者 カテゴリー ブランド 商品のサイズ 商品の状態 配送料の負担 発送元の地域 発送日の目安
+                    td{
+                      width: 61%;
+                      padding: 15px 15px;
+                      border: 1px solid #dedede;
+                      font-size: 14px;
+                      a{
+                        text-decoration: none;
+                        color: #3CCACE;
+                      }         //メンズ ジャケット/アウター ノーカラージャケット 青森県
+                      br{}        // /(改行)
+                    }                                  //hoge 新品/未使用 着払い（購入者負担） 1-2日で発送
+                  }
+                }
+              }
+            }
+
+            .optionalArea{
+              display: flex;
+              justify-content: space-between;
+              ul{
+                margin: 10px 0 0;
+                display: flex;
+                li#likeBtn.optionalBtn.likeBtn{
+                  margin-right: auto;
+                  padding: 6px 10px;
+                  border-radius: 40px;
+                  color: #3CCACE;
+                  border: 1px solid #ffb340;
+                  i{}                                   //お気に入り 0
+                }
+                
+              }
+              ul.optional{
+                margin: 10px 0 0;
+                display: flex;
+                li.optionalBtn{
+                  font-size: 14px;
+                  a{
+                    padding: 6px 10px;
+                    display: inline-block;
+                    border-radius: 4px;
+                    color: #333;
+                    border: 1px solid #333;
+                    text-decoration: none;
+                    i{}                                 //不適切な商品の通報
+                  }
+                }
+              }
+            }
+          }
+
+          .CommentBox{
+            padding: 24px;
+            background-color: #fff;
+            margin: 10px 0;
+            text-align: center;
+            ul{
+              list-style: none;
+            }
+            form{
+              input{    
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+              }
+              textarea{
+                width: 100%;
+                min-height: 104px;
+                padding: 10px;
+              }
+              p{
+                padding: 8px;
+                font-size: 14px;
+                background-color: #f8f8f8;
+                margin: 10px 0;
+                text-align: left;
+                //相手のことを考え丁寧なコメントを心がけましょう。
+                br{}            // /
+                //不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              }
+              br{}              // /
+              button{
+                line-height: 48px;
+                background: #3CCACE;
+                border: 1px solid #3CCACE;
+                color: #fff;
+                width: 60%;
+                font-size: 18px;
+                border-radius: 100px;
+                i{}
+                // コメントする
+              }
+            }
+          }
+
+        }
+
+        ul.links{
+          list-style: none;
+          li.left{
+            float: left;
+            a{
+              text-decoration: none;
+              color: #3CCACE;
+              i{}
+              span{}
+              // 前の商品
+            }
+          }
+          li.right{
+            float: right;
+            a{
+              text-decoration: none;
+              color: #3CCACE;
+              span{}               // 後ろの商品
+              i{}
+            }
+          }
+        }
+        ul.links::after{
+          display: block;
+          content: "";
+          clear: both;
+        }
+        .relatedItems{
+          a{
+            display: block;
+            margin: 24px 0 8px;
+            color: #3CCACE;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 22px;
+            position: relative;
+          }                      // メンズをもっと見る
+        }
+      }
+    }
+  }
+}
