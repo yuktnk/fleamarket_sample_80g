@@ -1,0 +1,58 @@
+.FooterPage
+  .BottomVisual
+    .Content
+      %h2.Content__title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.Content__text
+        今すぐ無料ダウンロード！
+      .Content__btn
+        .Content__btn--apple
+          = link_to '#' do
+            = image_tag 'pict/app-store.svg', alt: 'AppStore', width: '180px'
+        .Content__btn--google
+          = link_to '#' do
+            = image_tag 'pict/google-play.svg', alt: 'GooglePlay', width: '180px'
+  .Footer
+    .Contents
+      .Contents__content
+        %h2 FURIMAについて
+        %ul 
+          %li
+            = link_to '#' do
+              会社概要（運営会社）
+          %li
+            = link_to '#' do
+              プライバシーポリシー
+          %li
+            = link_to '#' do
+              FURIMA利用規約
+          %li
+            = link_to '#' do
+              ポイントに関する特約
+      .Contents__content
+        %h2 FURIMAを見る
+        %ul
+          %li
+            = link_to '#' do
+              カテゴリー一覧
+          %li
+            = link_to '#' do
+              ブランド一覧
+      .Contents__content
+        %h2 ヘルプ＆ガイド
+        %ul 
+          %li
+            = link_to '#' do
+              FURIMAガイド
+          %li
+            = link_to '#' do
+              FURIMAロゴ利用ガイドライン
+          %li
+            = link_to '#' do
+              お知らせ
+
+
+    .LogoZone
+      = link_to '#' do
+        = image_tag 'logo/logo-white.png', alt: '', height: '', width: '160px', class: ''
+      %p © FURIMA
