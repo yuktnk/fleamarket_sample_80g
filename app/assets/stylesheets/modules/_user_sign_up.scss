@@ -1,0 +1,93 @@
+.SignUpPage{
+  .Main {
+    min-height: 1080px;
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .Logo {
+      height: 128px;
+      padding: 40px;
+    }
+    .Container {
+      background-color: #fff;
+      width: 700px;
+      padding: 0 0 40px;
+      .Title {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 32px;
+        text-align: center;
+        border-bottom: solid 1px #f3f3f3;
+      }
+      .CreateAcount {
+        .FormField {
+          width: 343px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          &__box {
+            width: 100%;
+            margin: 24px 0 0;
+            &--subtitle {
+              font-size: 14px;
+              font-weight: bold;
+              span {
+                font-size: 12px;
+                font-weight: normal;
+                padding: 2px 4px;
+                margin: 0 0 0 8px;
+                color: white;
+                background-color: #3ccace;
+                border-radius: 2px;
+              }
+            }
+            &--input {
+              width: 100%;
+              margin: 8px 0 0;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .inputZone {
+                height: 48px;
+                width: 100%;
+                padding: 0 0 0 16px;
+                border-radius: 4px;
+                border: 1px solid lightgray;
+              }
+              .inputZoneHalf {
+                height: 48px;
+                width: 160px;
+                padding: 0 0 0 16px;
+                border-radius: 4px;
+                border: 1px solid lightgray;
+              }
+              .year,.month,.day {
+                height: 48px;
+                width: 80px;
+                padding: 0 0 0 16px;
+                border-radius: 4px;
+                border: 1px solid lightgray;
+              }
+            }
+          }
+          &__submit {
+            width: 100%;
+            margin: 24px 0 0;
+            .submitDecoration {
+              height: 50px;
+              width: 343px;
+              border-radius: 4px;
+              font-size: 14px;
+              color: white;
+              background-color: #3ccace;
+              border: 1px solid #3ccace;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
