@@ -1,109 +1,76 @@
-body {
-  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-  color: #333;
-}
-a {
-  text-decoration: none;
-  color: #3ccace;
-}
-h2 {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4em;
-}
-h3 {
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.4em;
-}
-.Main {
-  height: 100%;
-  background-color: #f8f8f8;
-  &__logo {
-    height: 128px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.ItemsNew {
+  body {
+    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+    color: #333;
   }
-  &__center {
-    &__container {
-      background-color: #fff;
-      border-bottom: 2px solid #f8f8f8;
-      width:700px;
-      margin: 0 auto;
-      padding: 40px;
-      &__required {
-        background-color: #feb340;
-        color: #fff;
-        font-size: 12px;
-        padding: 0 4px;
-        border-radius: 2px;
-        display: inline-block;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin: 0;
-      }
-      &__optional {
-        background-color: #bfbfbf;
-        color: #fff;
-        font-size: 12px;
-        padding: 0 4px;
-        border-radius: 2px;
-        display: inline-block;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.4em;
-        margin: 0;
-      }
-      &__imageField {
-        height: 150px;
-        margin-top: 8px;
-        padding: 0 4px;
-        border: 1px dashed #ccc;
-        background-color: #f8f8f8;
-        cursor: pointer;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      .inputField {
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-family: inherit;
-        font-size: inherit;
-        height: 48px;
-        padding: 0 16px;
-        margin: 16px 0;
-        display: flex;
-        align-items: center;
-        color: #bfbfbf;
-      }
-      .explanationField {
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-family: inherit;
-        font-size: inherit;
-        height: 126px;
-        padding: 0 16px;
-        margin: 16px 0;
-        display: flex;
-        align-items: center;
-        color: #bfbfbf;
-      }
-      &__productExplanationCounter {
-        color: #888;
-        font-size: 12px;
-        line-height: 1.4em;
-        text-align: right;
-      }
-      &__productDetails {
-        margin-bottom: 24px;
-      }
-      .selectWrap {
-        .select {
+  a {
+    text-decoration: none;
+    color: #3ccace;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.4em;
+  }
+  .Main {
+    height: 100%;
+    background-color: #f8f8f8;
+    &__logo {
+      height: 128px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__center {
+      &__container {
+        background-color: #fff;
+        border-bottom: 2px solid #f8f8f8;
+        width:700px;
+        margin: 0 auto;
+        padding: 40px;
+        &__required {
+          background-color: #feb340;
+          color: #fff;
+          font-size: 12px;
+          padding: 0 4px;
+          border-radius: 2px;
+          display: inline-block;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 0;
+        }
+        &__optional {
+          background-color: #bfbfbf;
+          color: #fff;
+          font-size: 12px;
+          padding: 0 4px;
+          border-radius: 2px;
+          display: inline-block;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 0;
+        }
+        &__imageField {
+          height: 150px;
+          margin-top: 8px;
+          padding: 0 4px;
+          border: 1px dashed #ccc;
+          background-color: #f8f8f8;
+          cursor: pointer;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .inputField {
           border: 1px solid #ccc;
           border-radius: 4px;
           font-family: inherit;
@@ -113,145 +80,183 @@ h3 {
           margin: 16px 0;
           display: flex;
           align-items: center;
-          // color: #bfbfbf;
-          width: 100%;
-          cursor: pointer;
+          color: #bfbfbf;
         }
-      }
-      &__about {
-        display: flex;
-        &__delivery {
+        .explanationField {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-family: inherit;
+          font-size: inherit;
+          height: 126px;
+          padding: 0 16px;
+          margin: 16px 0;
+          display: flex;
+          align-items: center;
+          color: #bfbfbf;
+        }
+        &__productExplanationCounter {
+          color: #888;
+          font-size: 12px;
+          line-height: 1.4em;
+          text-align: right;
+        }
+        &__productDetails {
           margin-bottom: 24px;
         }
-        &__price {
-          margin-bottom: 24px;
-        }
-      }
-      &__question {
-        margin-left: 4px;
-      }
-      &__sellingPriceContents {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 12px;
-        height: 48px;
-        &__price {
-          margin-right: auto;
-        }
-        &__yen {
-          font-size: 14px;
-          margin-right: 8px;
-        }
-        &__priceField {
-          .input_price {
+        .selectWrap {
+          .select {
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box;
             font-family: inherit;
             font-size: inherit;
             height: 48px;
-            margin: 0;
-            outline: none;
             padding: 0 16px;
-            width: 200px;
-            text-align: right;
-          }
-        }
-        &__sellingCommission {
-          &__field {
-          }
-        }
-      }
-      &__sellContents {
-        width: 360px;
-        margin: 0 auto 32px;
-        &__sellButton {
-          .buttonBlue {
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            // color: #bfbfbf;
             width: 100%;
-            border: none;
-            background-color: #3ccace;
-            font-size: 17px;
-            min-height: 48px;
-            padding: 0 24px;
-            border-radius: 4px;
-            color: #fff;
             cursor: pointer;
-            -webkit-transition: 0.5s;
-            -moz-transition: 0.5s;
-            -o-transition: 0.5s;
-            -ms-transition: 0.5s;
-            transition: 0.5s;
-          }
-          .buttonBlue:hover {
-            background-color: #3b9395;
           }
         }
-        &__saveAsDraft {
-          .buttonGray {
-            width: 100%;
-            border: none;
-            font-size: 17px;
-            min-height: 48px;
-            padding: 0 24px;
-            margin-top: 24px;
-            border-radius: 4px;
-            color: #333;
-            cursor: pointer;
-            -webkit-transition: 0.5s;
-            -moz-transition: 0.5s;
-            -o-transition: 0.5s;
-            -ms-transition: 0.5s;
-            transition: 0.5s;
+        &__about {
+          display: flex;
+          &__delivery {
+            margin-bottom: 24px;
           }
-          .buttonGray:hover {
-            background-color: #888;
-            color: #fff;
+          &__price {
+            margin-bottom: 24px;
           }
         }
-        &__returnToHome {
-          margin-top: 24px;
+        &__question {
+          margin-left: 4px;
+          &__icon {
+            color: #3ccace;
+          }
+        }
+        &__sellingPriceContents {
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: space-between;
+          padding-bottom: 12px;
+          height: 48px;
+          &__price {
+            margin-right: auto;
+          }
+          &__yen {
+            font-size: 14px;
+            margin-right: 8px;
+          }
+          &__priceField {
+            .input_price {
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              font-family: inherit;
+              font-size: inherit;
+              height: 48px;
+              margin: 0;
+              outline: none;
+              padding: 0 16px;
+              width: 200px;
+              text-align: right;
+            }
+          }
+          &__sellingCommission {
+            &__field {
+            }
+          }
+        }
+        &__sellContents {
+          width: 360px;
+          margin: 0 auto 32px;
+          &__sellButton {
+            .buttonBlue {
+              width: 100%;
+              border: none;
+              background-color: #3ccace;
+              font-size: 17px;
+              min-height: 48px;
+              padding: 0 24px;
+              border-radius: 4px;
+              color: #fff;
+              cursor: pointer;
+              -webkit-transition: 0.5s;
+              -moz-transition: 0.5s;
+              -o-transition: 0.5s;
+              -ms-transition: 0.5s;
+              transition: 0.5s;
+            }
+            .buttonBlue:hover {
+              background-color: #3b9395;
+            }
+          }
+          &__saveAsDraft {
+            .buttonGray {
+              width: 100%;
+              border: none;
+              font-size: 17px;
+              min-height: 48px;
+              padding: 0 24px;
+              margin-top: 24px;
+              border-radius: 4px;
+              color: #333;
+              cursor: pointer;
+              -webkit-transition: 0.5s;
+              -moz-transition: 0.5s;
+              -o-transition: 0.5s;
+              -ms-transition: 0.5s;
+              transition: 0.5s;
+            }
+            .buttonGray:hover {
+              background-color: #888;
+              color: #fff;
+            }
+          }
+          &__returnToHome {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
       }
     }
   }
-}
-// モバイル版
-// ----------------------------------
-@media (max-width: 767px) {
-  h2 {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.4em;
-  }
-  h3 {
-    font-size: 24px;
-    font-weight: normal;
-    line-height: 1.4em;
-  }
-  .Main {
-    width: max-content;
-  }
-  .Main__center__container__imageField--icon {
-    font-size: 24px;
-  }
-  .Main__center__container__imageField p {
-    display: none;
-  }
-  .Main__center__container__sellContents {
-    width: 100%;
-    margin: 0 auto 32px;
-    &__sellButton {
-      .buttonBlue {
-        font-size: 24px;
-      }
+  // モバイル版
+  // ----------------------------------
+  @media (max-width: 767px) {
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.4em;
     }
-    &__saveAsDraft {
-      .buttonGray {
-        font-size: 24px;
+    h3 {
+      font-size: 24px;
+      font-weight: normal;
+      line-height: 1.4em;
+    }
+    .Main {
+      width: max-content;
+    }
+    .Main__center__container__imageField--icon {
+      font-size: 24px;
+    }
+    .Main__center__container__imageField p {
+      display: none;
+    }
+    .Main__center__container__sellContents {
+      width: 100%;
+      margin: 0 auto 32px;
+      &__sellButton {
+        .buttonBlue {
+          font-size: 24px;
+        }
+      }
+      &__saveAsDraft {
+        .buttonGray {
+          font-size: 24px;
+        }
       }
     }
   }
