@@ -130,6 +130,6 @@
         -# ログアウトボタン(method: :deleteつける)
         .LogoutSection
           .LogoutSection__buttonField
-            = link_to '#', class: 'LogoutSection__buttonField__button' do
+            = link_to destroy_user_session_path, method: :delete, class: 'LogoutSection__buttonField__button' do
               %button{type: "", class: "buttonBlue"}
                 ログアウト
