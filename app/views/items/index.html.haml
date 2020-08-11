@@ -270,11 +270,4 @@
                 %p
                   (税込)
   = render "footer"
-
-
-  = link_to '#' do
-    .PurchaseBtn
-      .PurchaseBtn__text
-        出品する
-      .PurchaseBtn__icon
-        = image_tag 'icon/icon_camera.png', alt: '出品する'
+  = render "item_new_btn"
