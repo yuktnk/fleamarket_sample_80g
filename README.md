@@ -134,7 +134,6 @@
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :category
 - has_many :item_images, dependent: :destroy
 - has_many :likes, through: :likes
 - has_many :comment, dependent: :destroy
