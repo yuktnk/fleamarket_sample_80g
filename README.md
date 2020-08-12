@@ -194,6 +194,13 @@
 ### Association
 - has_many :items
 
+## prefectures テーブル(active_hash)
+|Column|Type|Options|
+|------|----|-------|
+|prefecture|string|null: false|
+### Association
+- has_many :items
+
 ## sizes テーブル(active_hash)
 |Column|Type|Options|
 |------|----|-------|
