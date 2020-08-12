@@ -96,12 +96,12 @@ describe User do
 
     # ユーザー本名のふりがなは全角で入力させる
     it "is invalid if half width（半角はエラー）" do
-      user = build(:user, family_name_furigana: "")
+      user = build(:user, family_name_furigana: "ﾊﾝｶｸ")
       user.valid?
       expect(user.errors[:family_name_furigana]).to include("全角ひらがな、全角カタカナのみで入力して下さい")
     end
     it "is invalid if half width（半角はエラー）" do
-      user = build(:user, first_name_furigana: "")
+      user = build(:user, first_name_furigana: "ﾊﾝｶｸ")
       user.valid?
       expect(user.errors[:first_name_furigana]).to include("全角ひらがな、全角カタカナのみで入力して下さい")
     end
