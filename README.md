@@ -45,7 +45,7 @@
 |family_name_to_deliver_furigana|string|null: false|
 |first_name_to_deliver_furigana|string|null: false|
 |postal_code|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|| (active_hash)
 |municipalities|string|null: false|
 |address|string|null: false|
 |building|string||
@@ -60,6 +60,7 @@
 - has_many :user_evaluations, dependent: :destroy
 - has_many :orders
 - has_many :news, dependent: :destroy
+- belongs_to_active_hash: prefecture
 
 ## ordersテーブル
 |Column|Type|Options|
@@ -82,7 +83,7 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
-|evaluation_id|references|null: false, foreign_key: true|
+|evaluation_id|integer|| (active_hash)
 |review|text||
 ### Association
 - belongs_to :user
@@ -124,11 +125,11 @@
 |brand_id|references|foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
-|item_condition_id|integer|null: false| (active_hash)
-|delivery_fee_id|integer|null: false| (active_hash)
-|preparation_day_id|integer|null: false| (active_hash)
-|prefecture_id|integer|null: false| (active_hash)
-|size_id|integer|null: false| (active_hash)
+|item_condition_id|integer|| (active_hash)
+|delivery_fee_id|integer|| (active_hash)
+|preparation_day_id|integer|| (active_hash)
+|prefecture_id|integer|| (active_hash)
+|size_id|integer|| (active_hash)
 ### Association
 - belongs_to :user
 - belongs_to :category
