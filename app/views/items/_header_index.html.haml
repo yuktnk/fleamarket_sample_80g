@@ -2,7 +2,7 @@
   .Header__inner
     .Header__inner__main
       %h1.Header__inner__main__icon
-        = link_to '#', class:"Header__inner__main__icon__link" do
+        = link_to root_path, class:"Header__inner__main__icon__link" do
           = image_tag 'logo/logo.png', alt:"ロゴアイコン", class: "Header__inner__main__icon__link__img"
       
       .Header__inner__main__searchbox
@@ -25,7 +25,11 @@
           -# %ul.burandsPulldown
       
       %ul.Header__inner__nav__listsright
-        %li.Header__inner__nav__listsright__login
-          = link_to 'ログイン','#'
-        %li.Header__inner__nav__listsright__newlogin
-          = link_to '新規会員登録', '#'
+        - unless user_signed_in?
+          %li.Header__inner__nav__listsright__login
+            = link_to 'ログイン', new_user_session_path, class: "post"
+          %li.Header__inner__nav__listsright__newlogin
+            = link_to '新規会員登録', new_user_registration_path, class: "post"
+        - if user_signed_in?
+          %li.Header__inner__nav__listsright__myPage
+            = link_to 'マイページ', "/users/#{current_user.id}"
