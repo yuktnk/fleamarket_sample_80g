@@ -45,7 +45,7 @@
 |family_name_to_deliver_furigana|string|null: false|
 |first_name_to_deliver_furigana|string|null: false|
 |postal_code|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|| (active_hash)
 |municipalities|string|null: false|
 |address|string|null: false|
 |building|string||
@@ -60,6 +60,7 @@
 - has_many :user_evaluations, dependent: :destroy
 - has_many :orders
 - has_many :news, dependent: :destroy
+- belongs_to_active_hash: prefecture
 
 ## ordersテーブル
 |Column|Type|Options|
@@ -82,7 +83,7 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
-|evaluation_id|references|null: false, foreign_key: true|
+|evaluation_id|integer|| (active_hash)
 |review|text||
 ### Association
 - belongs_to :user
@@ -119,16 +120,16 @@
 |------|----|-------|
 |name|string|null: false|
 |explanation|text|null: false|
-|condition_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
-|delivery_fee_id|references|null: false, foreign_key: true|
-|prefecture_code|integer|null: false|
-|preparation_day_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
-|size_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
+|item_condition_id|integer|| (active_hash)
+|delivery_fee_id|integer|| (active_hash)
+|preparation_day_id|integer|| (active_hash)
+|prefecture_id|integer|| (active_hash)
+|size_id|integer|| (active_hash)
 ### Association
 - belongs_to :user
 - belongs_to :category
@@ -138,10 +139,10 @@
 - has_many :comment, dependent: :destroy
 - has_one :user_evaluation
 - has_one :order
-- belongs_to_active_hash: condition
+- belongs_to_active_hash: item_condition
 - belongs_to_active_hash: delivery_fee
 - belongs_to_active_hash: preparation_day
-- belongs_to_active_hash: category
+- belongs_to_active_hash: prefecture
 - belongs_to_active_hash: size
 
 ## todos
@@ -190,6 +191,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |preparation_day|string|null: false|
+### Association
+- has_many :items
+
+## prefectures テーブル(active_hash)
+|Column|Type|Options|
+|------|----|-------|
+|prefecture|string|null: false|
 ### Association
 - has_many :items
 
