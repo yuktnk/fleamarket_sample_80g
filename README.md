@@ -119,29 +119,30 @@
 |------|----|-------|
 |name|string|null: false|
 |explanation|text|null: false|
-|condition_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
-|delivery_fee_id|references|null: false, foreign_key: true|
-|prefecture_code|integer|null: false|
-|preparation_day_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
-|size_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
+|item_condition_id|integer|null: false| (active_hash)
+|delivery_fee_id|integer|null: false| (active_hash)
+|preparation_day_id|integer|null: false| (active_hash)
+|prefecture_id|integer|null: false| (active_hash)
+|size_id|integer|null: false| (active_hash)
 ### Association
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
+- belongs_to :category
 - has_many :item_images, dependent: :destroy
 - has_many :likes, through: :likes
 - has_many :comment, dependent: :destroy
 - has_one :user_evaluation
 - has_one :order
-- belongs_to_active_hash: condition
+- belongs_to_active_hash: item_condition
 - belongs_to_active_hash: delivery_fee
 - belongs_to_active_hash: preparation_day
-- belongs_to_active_hash: category
+- belongs_to_active_hash: prefecture
 - belongs_to_active_hash: size
 
 ## todos
