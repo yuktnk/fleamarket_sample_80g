@@ -65,6 +65,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
+|ancestry|string||
 ### Association
 - has_many :items
 
@@ -92,7 +93,7 @@
 ## brands テーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string||
 ### Association
 - has_many :items
 
@@ -111,10 +112,12 @@
 |name|string|null: false|
 |explanation|text|null: false|
 |price|integer|null: false|
+
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|foreign_key: true|
+
 |item_condition_id|integer|| (active_hash)
 |delivery_fee_id|integer|| (active_hash)
 |preparation_day_id|integer|| (active_hash)
