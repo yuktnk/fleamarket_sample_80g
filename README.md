@@ -1,6 +1,6 @@
 # READ ME
 
-## cards
+## credit_cards
 
 | Column      | Type       | Options                       |
 | ----------- | ---------- | ----------------------------- |
@@ -66,7 +66,7 @@
 - has_many :comments
 - has_many :points, dependent: :destroy
 - has_many :likes, through: :likes
-- has_many :cards, dependent: :destroy
+- has_many :credit_cards, dependent: :destroy
 - has_many :user_evaluations, dependent: :destroy
 - has_many :orders
 - has_many :news, dependent: :destroy
