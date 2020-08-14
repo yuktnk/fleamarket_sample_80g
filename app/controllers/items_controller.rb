@@ -11,6 +11,25 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.new
+    # セレクトボックスの初期値設定
+    @category_parent_array = ["選択してください"]
+    # データベースから親カテゴリのみ抽出して配列にする
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.category
+    end
+  end
+
+  # 以下全て、formatはjsonのみ
+  # 親カテゴリが選択された後に動くアクション
+  def get_category_children
+    # 選択された親カテゴリに紐づく子カテゴリの配列を取得する
+    @category_children = Category.find_by(category: "#{params[:parent_category]}", ancestry: nil).children
+  end
+
+  # 子カテゴリが選択された後に動くアクション
+  def get_category_grandchildren
+    # 選択された子カテゴリに紐づく孫カテゴリの配列を取得する
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
