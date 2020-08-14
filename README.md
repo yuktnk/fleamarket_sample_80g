@@ -66,7 +66,7 @@
 - has_many :comments
 - has_many :points, dependent: :destroy
 - has_many :likes, through: :likes
-- has_one :credit_cards, dependent: :destroy
+- has_one :credit_card, dependent: :destroy
 - has_many :user_evaluations, dependent: :destroy
 - has_many :orders
 - has_many :news, dependent: :destroy
