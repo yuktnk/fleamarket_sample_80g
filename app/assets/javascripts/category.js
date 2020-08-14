@@ -93,57 +93,56 @@ $(function() {
       $('#brand_wrapper').remove();
     }
   });
-  // // サイズセレクトボックスのオプションを作成
-  // function appendSizeOption(size) {
-  //   let html = `<option value="${size.size}">${size.size}</option>`;
-  //   return html;
-  // }
-  // // サイズ・ブランド入力欄の表示作成
-  // function appendSizeBox(insertHTML) {
-  //   let sizeSelectHtml = '';
-  //   sizeSelectHtml = `<div class="listing-product-detail__size" id= 'size_wrapper'>
-  //                       <label class="Main__center__container__productCategory" for="サイズ">サイズ</label>
-  //                       <span class='Main__center__container__required'>必須</span>
-  //                       <div class='selectWrap__added--size'>
-  //                         <div class='selectWrapBox'>
-  //                           <select class="select" id="size" name="size_id>
-  //                             <option value="---">---</option>
-  //                             ${insertHTML}
-  //                           <select>
-  //                           <i class='fas fa-chevron-down selectWrapBox--arrow-down'></i>
-  //                         </div>
-  //                       </div>
-  //                     </div>`;
-  //   $('.Main__center__container__categoryWrapper').append(sizeSelectHtml);
-  // }
-  // // 孫カテゴリ選択後のイベント
-  // $('.Main__center__container__categoryWrapper').on('change', '#grandchild_category', function() {
-  //   let grandchildId = $('#grandchild_category option:selected').data('category'); //選択された孫カテゴリのidを取得
-  //   if (grandchildId != "---"){ //孫カテゴリーが初期値でないことを確認
-  //     $.ajax({
-  //       url: 'get_size',
-  //       type: 'GET',
-  //       data: { grandchild_id: grandchildId },
-  //       dataType: 'json'
-  //     })
-  //     .done(function(sizes) {
-  //       console.log(sizes)
-  //       $('#size_wrapper').remove(); //孫が変更された時、サイズ欄以下を削除する
-  //       $('#brand_wrapper').remove();
-  //       if (sizes.length != 0) {
-  //         let insertHTML = '';
-  //         sizes.forEach(function(size) {
-  //           insertHTML += appendSizeOption(size);
-  //         });
-  //         appendSizeBox(insertHTML);
-  //       }
-  //     })
-  //     .fail(function() {
-  //       alert('サイズ取得に失敗しました')
-  //     })
-  //   }else{
-  //     $('#size_wrapper').remove(); //孫カテゴリが初期値になった時、サイズ欄以下を削除する
-  //     $('#brand_wrapper').remove();
-  //   }
-  // });
+  // サイズセレクトボックスのオプションを作成
+  function appendSizeOption(size) {
+    let html = `<option value="${size.size}">${size.size}</option>`;
+    return html;
+  }
+  // サイズ・ブランド入力欄の表示作成
+  function appendSizeBox(insertHTML) {
+    let sizeSelectHtml = '';
+    sizeSelectHtml = `<div class="listing-product-detail__size" id= 'size_wrapper'>
+                        <label class="Main__center__container__productCategory" for="サイズ">サイズ</label>
+                        <span class='Main__center__container__required'>必須</span>
+                        <div class='selectWrap__added--size'>
+                          <div class='selectWrapBox'>
+                            <select class="select" id="size" name="size_id>
+                              <option value="---">---</option>
+                              ${insertHTML}
+                            <select>
+                          </div>
+                        </div>
+                      </div>`;
+    $('.Main__center__container__categoryWrapper').append(sizeSelectHtml);
+  }
+  // 孫カテゴリ選択後のイベント
+  $('.Main__center__container__categoryWrapper').on('change', '#grandchild_category', function() {
+    let grandchildId = $('#grandchild_category option:selected').data('category'); //選択された孫カテゴリのidを取得
+    if (grandchildId != "---"){ //孫カテゴリーが初期値でないことを確認
+      $.ajax({
+        url: 'get_size',
+        type: 'GET',
+        data: { grandchild_id: grandchildId },
+        dataType: 'json'
+      })
+      .done(function(sizes) {
+        console.log(sizes)
+        $('#size_wrapper').remove(); //孫が変更された時、サイズ欄以下を削除する
+        $('#brand_wrapper').remove();
+        if (sizes.length != 0) {
+          let insertHTML = '';
+          sizes.forEach(function(size) {
+            insertHTML += appendSizeOption(size);
+          });
+          appendSizeBox(insertHTML);
+        }
+      })
+      .fail(function() {
+        alert('サイズ取得に失敗しました')
+      })
+    }else{
+      $('#size_wrapper').remove(); //孫カテゴリが初期値になった時、サイズ欄以下を削除する
+      $('#brand_wrapper').remove();
+    }
+  });
 });
