@@ -18,19 +18,31 @@
           .Main__center__container__maxSheets
             最大10枚までアップロードできます
           .Main__center__container__imageField
-            = icon('fas', 'camera',  class: "Main__center__container__imageField--icon")
-            = f.fields_for :item_images do |i|
-              = i.file_field :src
+            #image-box
+              #previews
+                - if @item.persisted?  # 利用したインスタンスがもしデータベースに保存済みならばtrueを、そうでない場合はfalseを返す
+                  - @item.item_images.each_with_index do |image, i|   # 繰り返し処理をしつつ、処理された要素が何番目に処理されたか番号を振る
+                    = image_tag item_image.src.url, data: { index: i }, width: "100", height: "100"  #   jQueryで使用するためにカスタムデータ属性を設定する
+
+              = f.fields_for :item_images do |image|
+                .js-file_group( data-index = "#{image.index}" )
+                  %label
+                    = icon('fas', 'camera',  class: "Main__center__container__imageField--icon")
+                    %br/
+                    %p
+                    クリックしてファイルをアップロード
+                    = image.file_field :src, class: 'js-file'
+
+                - if @item.persisted?
+                  = item_image.check_box :_destroy, data: { index: image.index }, class: 'hidden-destroy'
+
+              - if @item.persisted?
+                .js-file_group( data-index = "#{@item.item_images.count}" )
+                  = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
+                  .js-remove 削除
 
 
 
-
-            -# %br/
-            -# %p
-            -#   ドラッグアンドドロップ
-            -# %br/
-            -# %p
-            -#   またはクリックしてファイルをアップロード
         -# 商品名・商品の説明
         .Main__center__container
           %h2.Main__center__container__productName
@@ -143,8 +155,7 @@
         .Main__center__container
           .Main__center__container__sellContents
             .Main__center__container__sellContents__sellButton
-              %button{type: "submit", class: "buttonBlue"}
-                出品する
+              = f.submit "出品する", { class: "buttonBlue" }
             .Main__center__container__sellContents__saveAsDraft
               %button{type: "submit", class: "buttonGray"}
                 下書きに保存

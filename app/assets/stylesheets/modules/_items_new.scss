@@ -58,17 +58,53 @@
           margin: 0;
         }
         &__imageField {
-          height: 150px;
+          min-height: 150px;
           margin-top: 8px;
-          padding: 0 4px;
+          padding: 16px 0;
           border: 1px dashed #ccc;
           background-color: #f8f8f8;
-          cursor: pointer;
           text-align: center;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          #image-box {
+            width: 620px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            #previews {
+              width: 620px;
+              display: flex;
+              flex-wrap: wrap;
+              .previewField {
+                margin: 0 2px 16px;
+                .js-file_group {
+                  .js-remove {
+                    color: #feb340;
+                    transition: color .5s;
+                    cursor: pointer;
+                  }
+                  .js-remove:hover {
+                    color: #3ccace;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+            .js-file_group {
+              label {
+                cursor: pointer;
+              }
+              label:hover {
+                color: #feb340;
+                cursor: pointer;
+              }
+              .js-file {
+                // display: none;
+              }
+            }
+          }
         }
         .inputField {
           border: 1px solid #ccc;

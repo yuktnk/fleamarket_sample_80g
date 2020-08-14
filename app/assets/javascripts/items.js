@@ -2,9 +2,9 @@ $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
-                    <input class="js-file" type="file"
-                    name="product[images_attributes][${num}][src]"
-                    id="product_images_attributes_${num}_src"><br>
+                      <input class="js-file" type="file"
+                      name="item[item_images_attributes][${num}][src]"
+                      id="item_item_images_attributes_${num}_src">
                   </div>`;
     return html;
   }
@@ -26,6 +26,7 @@ $(document).on('turbolinks:load', ()=> {
   fileIndex.splice(0, lastIndex);
 
   $('.hidden-destroy').hide();
+  $('.js-file').hide();
 
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
@@ -41,13 +42,14 @@ $(document).on('turbolinks:load', ()=> {
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
-      $(this).parent().remove();
+      $(this).parent().hide();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
-    if (fileIndex(fileIndex.length - 1) > 20) {
-      $('.js-file').remove();
-    }
+    // 画像が10枚になったら画像入力欄を隠す
+    // if (fileIndex[9] >= 20) {
+    //   $('.js-file').hide();
+    // }
   });
 
   $('#image-box').on('click', '.js-remove', function() {
