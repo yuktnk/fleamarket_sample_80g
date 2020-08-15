@@ -6,24 +6,30 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @category_id = @item.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
   end
   
   def new
     @item = Item.new
     @item.item_images.new
+    @category_parent_array = Category.where(ancestry: nil)
     # セレクトボックスの初期値設定
-    @category_parent_array = ["選択してください"]
-    # データベースから親カテゴリのみ抽出して配列にする
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.category
-    end
+    # @category_parent_array = ["選択してください"]
+    # # データベースから親カテゴリのみ抽出して配列にする
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.category
+    # end
   end
 
   # 以下全て、formatはjsonのみ
   # 親カテゴリが選択された後に動くアクション
   def get_category_children
     # 選択された親カテゴリに紐づく子カテゴリの配列を取得する
-    @category_children = Category.find_by(category: "#{params[:parent_category]}", ancestry: nil).children
+    @category_children = Category.find("#{params[:parent_id]}").children
   end
 
   # 子カテゴリが選択された後に動くアクション
@@ -34,13 +40,13 @@ class ItemsController < ApplicationController
 
   # 孫カテゴリが選択された後に動くアクション（サイズ）
   def get_size
-    selected_grandchild = Category.find("#{params[:grandchild_id]}") #孫カテゴリを取得
-    if related_size_parent = selected_grandchild.sizes[0] #孫カテゴリの親と紐づくサイズ（親）があれば取得
-      @sizes = related_size_parent.children #紐付いたサイズ（親）の子の配列を取得
+    selected_grandchild = Category.find("#{params[:grandchild_id]}") 
+    if related_size_parent = selected_grandchild.sizes[0] 
+      @sizes = related_size_parent.children
     else
-      selected_child = Category.find("#{params[:grandchild_id]}").parent #孫カテゴリの親を取得
-      if related_size_parent = selected_child.sizes[0] #孫カテゴリの親と紐づくサイズ（親）があれば取得
-        @sizes = related_size_parent.children #紐付いたサイズ（親）の子の配列を取得
+      selected_child = Category.find("#{params[:grandchild_id]}").parent
+      if related_size_parent = selected_child.sizes[0]
+        @sizes = related_size_parent.children
       end
     end
   end
@@ -63,7 +69,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :explanation, item_images_attributes: [:src])
+    params.require(:item).permit(:name, :price, :explanation, :category_id, :size_id, item_images_attributes: [:src])
   end
 
 end

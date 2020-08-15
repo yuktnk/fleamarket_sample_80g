@@ -63,7 +63,8 @@
               必須
             .selectWrap
               .selectWrap__box
-                = f.select :category, @category_parent_array, {}, {class: 'select', id: 'parent_category'}
+                = f.collection_select :category_id, @category_parent_array, :id, :category,{ include_blank: "選択してください"},class:"select"
+                -# = f.select :category, @category_parent_array, {}, {class: 'select', id: 'parent_category'}
                 -# %i.fas.fa-chevron-down.selectWrapBox--arrow-down
                 -# %select{name: "category", class: "select"}
                 -#   %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
