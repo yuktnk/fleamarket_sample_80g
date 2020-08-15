@@ -5,13 +5,6 @@ class ItemsController < ApplicationController
     @items = Item.includes(:item_images).order('created_at DESC')
   end
 
-  def show
-    @item = Item.find(params[:id])
-    @category_id = @item.category_id
-    @category_parent = Category.find(@category_id).parent.parent
-    @category_child = Category.find(@category_id).parent
-    @category_grandchild = Category.find(@category_id)
-  end
   
   def new
     @item = Item.new
@@ -24,20 +17,20 @@ class ItemsController < ApplicationController
     #   @category_parent_array << parent.category
     # end
   end
-
+  
   # 以下全て、formatはjsonのみ
   # 親カテゴリが選択された後に動くアクション
   def get_category_children
     # 選択された親カテゴリに紐づく子カテゴリの配列を取得する
     @category_children = Category.find("#{params[:parent_id]}").children
   end
-
+  
   # 子カテゴリが選択された後に動くアクション
   def get_category_grandchildren
     # 選択された子カテゴリに紐づく孫カテゴリの配列を取得する
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
+  
   # 孫カテゴリが選択された後に動くアクション（サイズ）
   def get_size
     selected_grandchild = Category.find("#{params[:grandchild_id]}") 
@@ -50,7 +43,7 @@ class ItemsController < ApplicationController
       end
     end
   end
-
+  
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -59,7 +52,14 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-
+  def show
+    @item = Item.find(params[:id])
+    @category_id = @item.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
+  end
+  
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
