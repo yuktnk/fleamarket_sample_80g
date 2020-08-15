@@ -4,154 +4,156 @@
     .Main__logo
       = link_to root_path do
         = image_tag 'logo/logo.png', alt: 'furima', height: '49', width: '185'
-    .Main__center
-      -# 出品画像
-      .Main__center__container
-        %h2.Main__center__container__productContent
-          出品画像
-          %span.Main__center__container__required
-            必須
-        .Main__center__container__maxSheets
-          最大10枚までアップロードできます
-        .Main__center__container__imageField
-          = icon('fas', 'camera',  class: "Main__center__container__imageField--icon")
-          %br/
-          %p
-            ドラッグアンドドロップ
-          %br/
-          %p
-            またはクリックしてファイルをアップロード
-      -# 商品名・商品の説明
-      .Main__center__container
-        %h2.Main__center__container__productName
-          商品名
-          %span.Main__center__container__required
-            必須
-        .inputField
-          40文字まで
-        %h2.Main__center__container__productExplanation
-          商品の説明
-          %span.Main__center__container__required
-            必須
-        .explanationField
-          商品の説明（必須1,000文字以内）
-          %br/
-          （色、素材、重さ、定価、注意点など）
-          %br/
-          例）2010年頃に1万円で購入したレザージャケットです。黒で傷はありませんので、比較的美品だと思います。
-        .Main__center__container__productExplanationCounter
-          0/1000
-      -# 商品の詳細・ブランド・商品の状態（サイズの表示はifで分岐させてください）
-      .Main__center__container
-        %h2.Main__center__container__productDetails
-          商品の詳細
-        %h2.Main__center__container__productCategory
-          カテゴリー
-          %span.Main__center__container__required
-            必須
-        .selectWrap
-          %select{name: "category", class: "select"}
-            %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-        %h2.Main__center__container__productSize
-          サイズ
-          %span.Main__center__container__required
-            必須
-        .selectWrap
-          %select{name: "category", class: "select"}
-            %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-      .Main__center__container
-        %h2.Main__center__container__productBland
-          ブランド
-          %span.Main__center__container__optional
-            任意
-        .inputField
-          例）ボッテガ・ヴェネタ
-        %h2.Main__center__container__productCondition
-          商品の状態
-          %span.Main__center__container__required
-            必須
-        .selectWrap
-          %select{name: "condition", class: "select"}
-            %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-      -# 配送について・配送料の負担・発送元の地域・発送までの日数
-      .Main__center__container
-        .Main__center__container__about
-          %h2.Main__center__container__about__delivery
-            配送について
-          .Main__center__container__question
-            = link_to "#", class: "" do
-              = icon('far', 'question-circle',  class: "questionIcon")
-        %h2.Main__center__container__deliveryFee
-          配送料の負担
-          %span.Main__center__container__required
-            必須
-        .selectWrap
-          %select{name: "deliveryFee", class: "select"}
-            %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-        %h2.Main__center__container__prefecture
-          発送元の地域
-          %span.Main__center__container__required
-            必須
-        .selectWrap
-          %select{name: "prefecture", class: "select"}
-            %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-        %h2.Main__center__container__preparationDays
-          発送までの日数
-          %span.Main__center__container__required
-            必須
-        .selectWrap
-          %select{name: "required", class: "select"}
-            %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-      -# 販売価格・販売手数料・販売利益
-      .Main__center__container
-        .Main__center__container__about
-          %h2.Main__center__container__about__price
-            価格 (¥300〜9,999,999)
-          .Main__center__container__question
-            = link_to "#", class: "" do
-              = icon('far', 'question-circle',  class: "Main__center__container__question__icon")
-        .Main__center__container__sellingPriceContents
-          %h2.Main__center__container__sellingPriceContents__price
-            販売価格
+    = form_with model: @item, class: "Main__form", local: true do |form|
+      .Main__center
+        -# 出品画像
+        .Main__center__container
+          %h2.Main__center__container__productContent
+            出品画像
             %span.Main__center__container__required
               必須
-          %span.Main__center__container__sellingPriceContents__yen
-            ¥
-          .Main__center__container__sellingPriceContents__priceField
-            %input{autocomplete: "off", name: "price", placeholder: "0", type: "number", value: "", class: "input_price"}
-        .Main__center__container__sellingPriceContents
-          %h3.Main__center__container__sellingPriceContents__sellingCommission
-            販売手数料 (10%)
-          %span.Main__center__container__sellingPriceContents__sellingCommission__field
-            ¥0
-        .Main__center__container__sellingPriceContents
-          %h3.Main__center__container__selling_profit
-            販売利益
-          .Main__center__container__selling_profit__field
-            ¥0
-      -# 出品する・下書きに保存・もどる
-      .Main__center__container
-        .Main__center__container__sellContents
-          .Main__center__container__sellContents__sellButton
-            %button{type: "submit", class: "buttonBlue"}
-              出品する
-          .Main__center__container__sellContents__saveAsDraft
-            %button{type: "submit", class: "buttonGray"}
-              下書きに保存
-          %h3.Main__center__container__sellContents__returnToHome
-            =link_to root_path do
-              もどる
-      -# 禁止されている行為など
-      .Main__center__container
-        %h3.Main__center__container__agreement
-          禁止されている
-          = link_to '行為', '#', target: '_blank'
-          および
-          = link_to '出品物', '#', target: '_blank'
-          を必ずご確認ください。
-          = link_to '偽ブランド品', '#', target: '_blank'
-          や
-          = link_to '盗品物', '#', target: '_blank'
-          などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
-          = link_to '加盟店規約', '#', target: '_blank'
-          に同意したことになります。
+          .Main__center__container__maxSheets
+            最大10枚までアップロードできます
+          .Main__center__container__imageField
+            = icon('fas', 'camera',  class: "Main__center__container__imageField--icon")
+            %br/
+            %p
+              ドラッグアンドドロップ
+            %br/
+            %p
+              またはクリックしてファイルをアップロード
+        -# 商品名・商品の説明
+        .Main__center__container
+          %h2.Main__center__container__productName
+            商品名
+            %span.Main__center__container__required
+              必須
+          = form.text_field :name, placeholder: '40文字まで', maxlength: 40, class: 'inputField'
+          %h2.Main__center__container__productExplanation
+            商品の説明
+            %span.Main__center__container__required
+              必須
+
+          = form.text_area :explanation, maxlength: 1000, cols: "36", rows: "27", class: 'explanationField', placeholder: '商品の説明（必須1,000文字以内）                                                                  （色、素材、重さ、定価、注意点など）                                                            例）2010年頃に1万円で購入したレザージャケットです。黒で傷はありませんので、比較的美品だと思います。'
+          %p.Main__center__container__productExplanationCounter
+            %span.now_cnt
+
+          -# = form.text_area :explanation, placeholder: '商品の説明（必須1,000文字以内）                                                                  （色、素材、重さ、定価、注意点など）                                                            例）2010年頃に1万円で購入したレザージャケットです。黒で傷はありませんので、比較的美品だと思います。', maxlength: 1000, class: 'explanationField'
+          -# .Main__center__container__productExplanationCounter
+          -#   0/1000
+
+
+        -# 商品の詳細・ブランド・商品の状態（サイズの表示はifで分岐させてください）
+        .Main__center__container
+          %h2.Main__center__container__productDetails
+            商品の詳細
+          %h2.Main__center__container__productCategory
+            カテゴリー
+            %span.Main__center__container__required
+              必須
+          .selectWrap
+            %select{name: "category", class: "select"}
+              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+          %h2.Main__center__container__productSize
+            サイズ
+            %span.Main__center__container__required
+              必須
+          .selectWrap
+            %select{name: "category", class: "select"}
+              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+        .Main__center__container
+          %h2.Main__center__container__productBland
+            ブランド
+            %span.Main__center__container__optional
+              任意
+          = form.text_field :brand, placeholder: '例）ボッテガ・ヴェネタ', maxlength: 40, class: 'inputField'
+          %h2.Main__center__container__productCondition
+            商品の状態
+            %span.Main__center__container__required
+              必須
+          .selectWrap
+            %select{name: "condition", class: "select"}
+              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+        -# 配送について・配送料の負担・発送元の地域・発送までの日数
+        .Main__center__container
+          .Main__center__container__about
+            %h2.Main__center__container__about__delivery
+              配送について
+            .Main__center__container__question
+              = link_to "#", class: "" do
+                = icon('far', 'question-circle',  class: "questionIcon")
+          %h2.Main__center__container__deliveryFee
+            配送料の負担
+            %span.Main__center__container__required
+              必須
+          .selectWrap
+            %select{name: "deliveryFee", class: "select"}
+              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+          %h2.Main__center__container__prefecture
+            発送元の地域
+            %span.Main__center__container__required
+              必須
+          .selectWrap
+            %select{name: "prefecture", class: "select"}
+              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+          %h2.Main__center__container__preparationDays
+            発送までの日数
+            %span.Main__center__container__required
+              必須
+          .selectWrap
+            %select{name: "required", class: "select"}
+              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+        -# 販売価格・販売手数料・販売利益
+        .Main__center__container
+          .Main__center__container__about
+            %h2.Main__center__container__about__price
+              価格 (¥300〜9,999,999)
+            .Main__center__container__question
+              = link_to "#", class: "" do
+                = icon('far', 'question-circle',  class: "Main__center__container__question__icon")
+          .Main__center__container__sellingPriceContents
+            %h2.Main__center__container__sellingPriceContents__price
+              販売価格
+              %span.Main__center__container__required
+                必須
+            %span.Main__center__container__sellingPriceContents__yen
+              ¥
+            .Main__center__container__sellingPriceContents__priceField
+              = form.number_field :price, placeholder: '0', step: 1, max: 9999999, min: 300, class: 'input_price'              
+          .Main__center__container__sellingPriceContents
+            %h3.Main__center__container__sellingPriceContents__sellingCommission
+              販売手数料 (10%)
+            %span.Main__center__container__sellingPriceContents__sellingCommission__field
+              ¥0
+          .Main__center__container__sellingPriceContents
+            %h3.Main__center__container__selling_profit
+              販売利益
+            .Main__center__container__selling_profit__field
+              ¥0
+        -# 出品する・下書きに保存・もどる
+        .Main__center__container
+          .Main__center__container__sellContents
+            .Main__center__container__sellContents__sellButton
+              %button{type: "submit", class: "buttonBlue"}
+                出品する
+            .Main__center__container__sellContents__saveAsDraft
+              %button{type: "submit", class: "buttonGray"}
+                下書きに保存
+            %h3.Main__center__container__sellContents__returnToHome
+              =link_to root_path do
+                もどる
+
+        -# 禁止されている行為など
+        .Main__center__container
+          %h3.Main__center__container__agreement
+            禁止されている
+            = link_to '行為', '#', target: '_blank'
+            および
+            = link_to '出品物', '#', target: '_blank'
+            を必ずご確認ください。
+            = link_to '偽ブランド品', '#', target: '_blank'
+            や
+            = link_to '盗品物', '#', target: '_blank'
+            などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
+            = link_to '加盟店規約', '#', target: '_blank'
+            に同意したことになります。
