@@ -10,12 +10,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.new
     @category_parent_array = Category.where(ancestry: nil)
-    # セレクトボックスの初期値設定
-    # @category_parent_array = ["選択してください"]
-    # # データベースから親カテゴリのみ抽出して配列にする
-    # Category.where(ancestry: nil).each do |parent|
-    #   @category_parent_array << parent.category
-    # end
   end
   
   # 以下全て、formatはjsonのみ
