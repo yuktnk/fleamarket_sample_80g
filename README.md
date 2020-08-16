@@ -65,8 +65,31 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
+|ancestry|string||
 ### Association
 - has_many :items
+- has_many :category_sizes
+- has_many :sizes, through: :category_sizes
+
+## sizes テーブル
+|Column|Type|Options|
+|------|----|-------|
+|size|string||
+|ancestry|string||
+### Association
+- has_many :items
+- has_many :category_sizes
+- has_many :categories, through: :category_sizes
+- has_ancestry
+
+## category_sizes テーブル
+|Column|Type|Options|
+|------|----|-------|
+|size_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :category
+- belongs_to :size
 
 ## user_evaluationsテーブル
 |Column|Type|Options|
@@ -119,11 +142,12 @@
 |delivery_fee_id|integer|| (active_hash)
 |preparation_day_id|integer|| (active_hash)
 |prefecture_id|integer|| (active_hash)
-|size_id|integer|| (active_hash)
+|size_id|integer||
 ### Association
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
+- belongs_to : size
 - has_many :item_images, dependent: :destroy
 - has_many :likes, through: :likes
 - has_many :comment, dependent: :destroy
@@ -132,7 +156,6 @@
 - belongs_to_active_hash: delivery_fee
 - belongs_to_active_hash: preparation_day
 - belongs_to_active_hash: prefecture
-- belongs_to_active_hash: size
 
 ## todos
 |Column|Type|Options|
