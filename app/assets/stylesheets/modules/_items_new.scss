@@ -60,50 +60,11 @@
         &__imageField {
           min-height: 150px;
           margin-top: 8px;
-          border: 1px dashed #ccc;
-          background-color: #f8f8f8;
           text-align: center;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          #image-box {
-            width: 620px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            #previews {
-              width: 620px;
-              display: flex;
-              flex-wrap: wrap;
-              .previewField {
-                margin: 0 2px 16px;
-                .js-file_group {
-                  .js-remove {
-                    color: #feb340;
-                    transition: color .5s;
-                    cursor: pointer;
-                  }
-                  .js-remove:hover {
-                    color: #3ccace;
-                    cursor: pointer;
-                  }
-                }
-              }
-            }
-            .js-file_group {
-              label {
-                cursor: pointer;
-              }
-              label:hover {
-                color: #feb340;
-                cursor: pointer;
-              }
-              .js-file {
-                // display: none;
-              }
-            }
-          }
         }
         .inputField {
           border: 1px solid #ccc;
@@ -295,54 +256,89 @@
       }
     }
   }
-  #image-box-1 {;
+  .select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: inherit;
+    height: 48px;
+    padding: 0 16px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  //以下は複数画像選択のための記述
+  //---------------------------------------
+  .item-num-0 {
+    height: 180px;
+    width: 100%;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-1 {
+    height: 180px;
+    width: 496px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-2 {
+    height: 180px;
+    width: 372px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-3 {
+    height: 180px;
+    width: 248px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-4 {
+    height: 180px;
+    width: 124px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  //下段のfile_field
+  .item-num-5 {
+    height: 180px;
+    width: 100%;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-6 {
+    height: 180px;
+    width: 496px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-7 {
+    height: 180px;
+    width: 372px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-8 {
+    height: 180px;
+    width: 248px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-9 {
+    height: 180px;
+    width: 124px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+
+  #image-box-1 {
+    width: 620px;
     min-height: 180px;
     display: flex;
     flex-wrap: wrap;
-  }
-  .item-num-0{
-    height: 180px;
-    width: 100%;
-  }
-  .item-num-1{
-    height: 180px;
-    width: 496px;
-  }
-  .item-num-2{
-    height: 180px;
-    width: 372px;
-  }
-  .item-num-3{
-    height: 180px;
-    width: 248px;
-  }
-  .item-num-4{
-    height: 180px;
-    width: 124px;
-  }
-  //下段のfile_field
-  .item-num-5{
-    height: 180px;
-    width: 100%;
-  }
-  .item-num-6{
-    height: 180px;
-    width: 496px;
-  }
-  .item-num-7{
-    height: 180px;
-    width: 372px;
-  }
-  .item-num-8{
-    height: 180px;
-    width: 248px;
-  }
-  .item-num-9{
-    height: 180px;
-    width: 124px;
-  }
-  #image-box-1 {
-    width: 620px;
   }
   .InputImages {
     height: 180px;
@@ -362,19 +358,8 @@
     }
   }
   .item-image {
-    margin: 16px 2px;
+    margin: 0 4px 16px;
+    padding: 18px 0;
   }
-  .select {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: inherit;
-    height: 48px;
-    padding: 0 16px;
-    margin: 16px 0;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    cursor: pointer;
-  }
+
 }
