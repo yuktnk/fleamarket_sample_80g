@@ -60,7 +60,6 @@
         &__imageField {
           min-height: 150px;
           margin-top: 8px;
-          padding: 16px 0;
           border: 1px dashed #ccc;
           background-color: #f8f8f8;
           text-align: center;
@@ -295,5 +294,74 @@
         }
       }
     }
+  }
+  #image-box-1 {;
+    min-height: 180px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .item-num-0{
+    height: 180px;
+    width: 100%;
+  }
+  .item-num-1{
+    height: 180px;
+    width: 496px;
+  }
+  .item-num-2{
+    height: 180px;
+    width: 372px;
+  }
+  .item-num-3{
+    height: 180px;
+    width: 248px;
+  }
+  .item-num-4{
+    height: 180px;
+    width: 124px;
+  }
+  //下段のfile_field
+  .item-num-5{
+    height: 180px;
+    width: 100%;
+  }
+  .item-num-6{
+    height: 180px;
+    width: 496px;
+  }
+  .item-num-7{
+    height: 180px;
+    width: 372px;
+  }
+  .item-num-8{
+    height: 180px;
+    width: 248px;
+  }
+  .item-num-9{
+    height: 180px;
+    width: 124px;
+  }
+  #image-box-1 {
+    width: 620px;
+  }
+  .InputImages {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    label {
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      transition: color .3s;
+      padding-top: 64px;
+    }
+    label:hover {
+      color: #feb340;
+    }
+  }
+  .item-image {
+    margin: 16px 2px;
   }
 }
