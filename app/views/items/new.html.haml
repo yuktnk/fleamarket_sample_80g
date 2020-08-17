@@ -86,20 +86,14 @@
         .Main__center__container
           %h2.Main__center__container__productDetails
             商品の詳細
-          %h2.Main__center__container__productCategory
-            カテゴリー
+          .Main__center__container__categoryWrapper
+            = f.label 'カテゴリー', class: 'Main__center__container__productCategory'
+            -#   カテゴリーとサイズ（サイズは孫カテゴリを選択したらカテゴリによって表示されます）
             %span.Main__center__container__required
               必須
-          .selectWrap
-            %select{name: "category", class: "select"}
-              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
-          %h2.Main__center__container__productSize
-            サイズ
-            %span.Main__center__container__required
-              必須
-          .selectWrap
-            %select{name: "category", class: "select"}
-              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+            .selectWrap
+              .selectWrap__box
+                = f.collection_select :category_id, @category_parent_array, :id, :category,{ include_blank: "選択してください"},class:"select"
         .Main__center__container
           %h2.Main__center__container__productBland
             ブランド
