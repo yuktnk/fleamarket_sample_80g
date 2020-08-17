@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :category_parent_array, only: [:new, :create, :edit, :update]
   
   def index
     @items = Item.includes(:item_images).order('created_at DESC')
@@ -9,7 +10,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.new
-    @category_parent_array = Category.where(ancestry: nil)
   end
   
   # 以下全て、formatはjsonのみ
@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
   def show
     @item = Item.find(params[:id])
     @category_id = @item.category_id
@@ -66,4 +67,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :explanation, :category_id, :size_id, item_images_attributes: [:src])
   end
 
+  def category_parent_array
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 end
