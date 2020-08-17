@@ -1,6 +1,7 @@
 .CreditCardsNew {
   body {
-    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic",
+      "メイリオ", "Meiryo", sans-serif;
     color: #333;
   }
   a {
@@ -79,13 +80,11 @@
                   // -webkit-transition: all ease-out .2s;
                   // transition: all ease-out .2s;
                 }
-                
               }
-              
             }
             &__item:hover {
               background-color: #fafafa;
-              transition: all ease-out .2s;
+              transition: all ease-out 0.2s;
             }
           }
         }
@@ -137,7 +136,7 @@
                     font-size: inherit;
                     height: 48px;
                     padding: 0 16px;
-                    margin: 16px 0;
+                    margin: 16px 0 0px 0;
                     display: flex;
                     align-items: center;
                     color: #bfbfbf;
@@ -223,13 +222,17 @@
       .Main {
         flex-direction: column-reverse;
         padding: 0 40px 40px 40px;
-        .Container, .SideBar {
+        .Container,
+        .SideBar {
           order: 0;
           width: auto;
           margin-right: 0;
         }
       }
     }
+  }
+  .Span_code {
+    padding-top: 16px;
   }
 }
 
