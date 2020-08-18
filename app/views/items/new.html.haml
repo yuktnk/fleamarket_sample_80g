@@ -123,8 +123,7 @@
             %span.Main__center__container__required
               必須
           .selectWrap
-            %select{name: "condition", class: "select"}
-              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+            = f.collection_select :item_condition_id, ItemCondition.all, :id, :condition, {include_blank: "選択してください"}, {class: "select"}
         -# 配送について・配送料の負担・発送元の地域・発送までの日数
         .Main__center__container
           .Main__center__container__about
@@ -138,22 +137,19 @@
             %span.Main__center__container__required
               必須
           .selectWrap
-            %select{name: "deliveryFee", class: "select"}
-              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+            = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :delivery_fee, {include_blank: "選択してください"}, {class: "select"}
           %h2.Main__center__container__prefecture
             発送元の地域
             %span.Main__center__container__required
               必須
           .selectWrap
-            %select{name: "prefecture", class: "select"}
-              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "選択してください"}, {class: "select"}
           %h2.Main__center__container__preparationDays
             発送までの日数
             %span.Main__center__container__required
               必須
           .selectWrap
-            %select{name: "required", class: "select"}
-              %option{"aria-selected":  "true", label: "選択してください", selected: "selected", value: ""} 選択してください
+            = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparation_day, {include_blank: "選択してください"}, {class: "select"}
         -# 販売価格・販売手数料・販売利益
         .Main__center__container
           .Main__center__container__about
