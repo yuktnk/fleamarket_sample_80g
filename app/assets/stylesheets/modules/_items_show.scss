@@ -217,7 +217,9 @@ body{
                 i{}
                 // コメントする
               }
-              .deleteBtn{
+              .RemoveUnderLine {
+                text-decoration: none;
+                .deleteBtn{
                 line-height: 48px;
                 background: lightgray;
                 border: 1px solid lightgray;
@@ -226,12 +228,13 @@ body{
                 font-size: 18px;
                 border-radius: 100px;
                 margin: 0 auto 24px;
+                display: inline-block;
                 i{}
                 // コメントする
+                }
               }
             }
           }
-
         }
 
         ul.links{
