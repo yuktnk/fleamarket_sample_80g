@@ -82,8 +82,7 @@
               %br/
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br/
-            ログイン状態で且つ、
-            - if user_signed_in? && current_user.id #== @item.seller_id
+            - if user_signed_in? && current_user.id #== @item.seller_id      あとでコメントアウトを外す
               = link_to item_path, method: :delete, class: "RemoveUnderLine" do
                 .deleteBtn
                   = icon('fa', 'trash')
