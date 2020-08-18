@@ -11,6 +11,11 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+  end
+
 
   def move_to_index
     unless user_signed_in?
