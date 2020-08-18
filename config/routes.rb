@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   resources :purchases, only: :new
   resources :credit_cards, only: [:new,:show] do
     collection do
-      post 'show', to: 'card#show'
-      post 'pay', to: 'card#pay'
-      post 'delete', to: 'card#delete'
+      post 'show', to: 'credit_cards#show'
+      post 'pay', to: 'credit_cards#pay'
+      post 'delete', to: 'credit_cards#delete'
     end
   end
 end
