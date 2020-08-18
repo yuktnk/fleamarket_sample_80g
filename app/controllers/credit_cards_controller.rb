@@ -39,7 +39,7 @@ class CreditCardsController < ApplicationController
   end
 
   def show
-    creditcard = CreditCard.where(user_id: cuurent_user.id).first
+    creditcard = CreditCard.where(user_id: current_user.id).first
     if creditcard.blank?
       redirect_to action: "new"
     else
