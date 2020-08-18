@@ -30,7 +30,7 @@ class CreditCardsController < ApplicationController
     creditcard = CreditCard.where(user_id: current_user.id).first
     if creditcard.blank?
     else
-      Payjp.api_key = ['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(creditcard.customer_id)
       customer.delete
       creditcard.delete
@@ -43,9 +43,9 @@ class CreditCardsController < ApplicationController
     if creditcard.blank?
       redirect_to action: "new"
     else
-      Payjp.api_key = ["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.creditcard.retrieve(creditcard.card_id)
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(creditcard.customer_id)
+      @default_card_information = customer.cards.retrieve(creditcard.card_id)
     end
   end
 end

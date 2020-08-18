@@ -16,7 +16,7 @@ class PurchasesController < ApplicationController
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(creditcard.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-      @default_card_information = customer.credit_cards.retrieve(creditcard.card_id)
+      @default_card_information = customer.cards.retrieve(creditcard.card_id)
     end
   end
 
