@@ -7,7 +7,7 @@ class CreditCardsController < ApplicationController
     redirect_to action: "show" if creditcard.exists?
   end
 
-  def pay
+  def pay #payjpとcreditcardのテーブル作成
     Payjp.api_key = ["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
