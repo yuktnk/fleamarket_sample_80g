@@ -58,18 +58,8 @@
 - has_many :likes, through: :likes
 - has_many :credit_cards, dependent: :destroy
 - has_many :user_evaluations, dependent: :destroy
-- has_many :orders
 - has_many :news, dependent: :destroy
 - belongs_to_active_hash: prefecture
-
-## ordersテーブル
-|Column|Type|Options|
-|------|----|———|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :item 
 
 ## categories テーブル
 |Column|Type|Options|
@@ -124,7 +114,7 @@
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
+|buyer_id|references|foreign_key: true|
 |item_condition_id|integer|| (active_hash)
 |delivery_fee_id|integer|| (active_hash)
 |preparation_day_id|integer|| (active_hash)
@@ -138,7 +128,6 @@
 - has_many :likes, through: :likes
 - has_many :comment, dependent: :destroy
 - has_one :user_evaluation
-- has_one :order
 - belongs_to_active_hash: item_condition
 - belongs_to_active_hash: delivery_fee
 - belongs_to_active_hash: preparation_day
@@ -157,7 +146,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null:false, foreign_key: true|
-|image|string|null: false|
+|src|string|null: false|
 ### Association
 - belongs_to :item
 
