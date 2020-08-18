@@ -217,6 +217,18 @@ body{
                 i{}
                 // コメントする
               }
+              .deleteBtn{
+                line-height: 48px;
+                background: lightgray;
+                border: 1px solid lightgray;
+                color: #fff;
+                width: 60%;
+                font-size: 18px;
+                border-radius: 100px;
+                margin-bottom: 24px;
+                i{}
+                // コメントする
+              }
             }
           }
 
