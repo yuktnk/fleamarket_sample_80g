@@ -23,6 +23,6 @@ class User < ApplicationRecord
   validates :municipalities, presence: true
   validates :address, presence: true
 
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :prefecture
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
