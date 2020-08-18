@@ -82,9 +82,10 @@
               %br/
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br/
-            %button.deleteBtn
-              %i.fa.fa-trash
-              この商品を削除する
+            = link_to item_path, method: :delete do
+              .deleteBtn
+                = icon('fa', 'trash')
+                この商品を削除する
             %button.commentBtn{name: "button", type: "submit"}
               %i.fa.fa-comment
               コメントする
