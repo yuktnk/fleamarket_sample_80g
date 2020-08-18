@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :items, only: [:index, :show, :new]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :purchases, only: :new
+  resources :purchases, only: [:new,:only] do
+    collection do
+      get 'index', to: 'purchases#index'
+      post 'pay', to: 'purchases#pay'
+      get 'done', to: 'purchases#done'
+    end
+  end
+  
   resources :credit_cards, only: [:new,:show] do
     collection do
       post 'show', to: 'credit_cards#show'
