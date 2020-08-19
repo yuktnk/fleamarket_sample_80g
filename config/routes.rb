@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'users/logout_path', to: 'users#logout'
   resources :users, only: [:show]
   resources :credit_cards, only: :new
-  resources :items, only: [:index, :show, :new]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :items, only: [:index, :show, :new] do
+    collection do
+      get 'search'
+    end
+  end
   resources :purchases, only: :new
 end
