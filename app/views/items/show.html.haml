@@ -82,6 +82,12 @@
                       %span さん
                     %li.CommentList__text
                       = comment.text
+                    %li.CommentList__delete
+                      - if user_signed_in? && current_user.id == comment.user.id
+                        -# = link_to "/items/:item_id/comments/#{comment.id}", method: :delete do
+                        = link_to item_comment_path(comment.item.id, comment.id), method: :delete do
+
+                          = icon('fa', 'trash')
             .CommentForm
               = form_with model: [@item, @comment], local: true do |f|
                 = f.text_area :text, placeholder: 'コメント入力欄'

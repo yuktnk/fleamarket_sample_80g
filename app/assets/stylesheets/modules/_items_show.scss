@@ -206,6 +206,13 @@ body{
                     font-weight: normal;
                   }
                 }
+                .CommentList__delete {
+                  text-align: right;
+                  a {
+                    text-decoration: none;
+                    color: lightgray;
+                  }
+                }
               }
             }
             .CommentForm {
