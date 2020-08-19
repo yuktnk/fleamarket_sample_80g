@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_023323) do
+ActiveRecord::Schema.define(version: 2020_08_19_072308) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -36,13 +36,11 @@ ActiveRecord::Schema.define(version: 2020_08_19_023323) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "item_id"
-    t.text "comment"
+    t.integer "user_id"
+    t.integer "item_id"
+    t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_comments_on_item_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,11 +58,11 @@ ActiveRecord::Schema.define(version: 2020_08_19_023323) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "prefecture_id"
+    t.bigint "category_id", null: false
     t.integer "item_condition_id"
     t.integer "delivery_fee_id"
     t.integer "preparation_day_id"
     t.integer "size_id"
-    t.bigint "category_id", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
   end
 
@@ -106,8 +104,6 @@ ActiveRecord::Schema.define(version: 2020_08_19_023323) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "items"
-  add_foreign_key "comments", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "categories"
 end

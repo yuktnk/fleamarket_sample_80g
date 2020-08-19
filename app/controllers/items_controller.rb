@@ -10,6 +10,8 @@ class ItemsController < ApplicationController
   
 
   def show
+    @comment = Comment.new
+    @item = Item.find(params[:id])
   end
   
   def new
