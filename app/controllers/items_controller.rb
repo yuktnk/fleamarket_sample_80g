@@ -3,8 +3,13 @@ class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   
   def index
-    @items = Item.includes(:item_images).order('created_at DESC')
+    @items = Item.includes(:item_images).limit(5).order('created_at DESC')
+    # @items = Item.limit(5).order('created_at DESC')
+    # 画像は田中さんがマージしてから
+    # @ladies_items = Item.where(category: 2).includes(:images).order("created_at DESC").limit(5)
+    # ピックアップカテゴリー用
   end
+  
 
   
   def new
