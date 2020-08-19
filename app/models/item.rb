@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_fee
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :size
+  has_many :comments
 end
