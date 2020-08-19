@@ -22,6 +22,7 @@
               -# カード番号入力欄
               .CardInfo__content
                 = form_tag(pay_credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                  #card_token
                   %h2.CardInfo__content__name
                   %label カード番号
                   %span.CardInfo__content__name__required
@@ -77,14 +78,14 @@
                   %span.CardInfo__content__name__required
                     必須
                 .inputField
-                  = text_field_tag "cvc", "", class: "input cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+                  = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
                 .CardInfo__content__about
                   .CardInfo__content__about__question
                     = link_to "#", class: "" do
                       = icon('far', 'question-circle',  class: "Main__center__container__question__icon")
                       カード裏面の番号とは？
-                #card_token
                 .CardInfo__content__sellButton
+                  -# #card_token
                   = submit_tag "追加する", class: "buttonBlue", id: "token_submit"
                 %h3.CardInfo__content__returnToHome
                   =link_to root_path do
