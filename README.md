@@ -146,8 +146,8 @@
 |price|integer|null: false|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
-|seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
+|seller_id|integer||
+|buyer_id|integer||
 |item_condition_id|integer|| (active_hash)
 |delivery_fee_id|integer|| (active_hash)
 |preparation_day_id|integer|| (active_hash)
