@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to item_path(params[:item_id])  }
       format.json
-    # redirect_to "/items/#{comment.item.id}"
     end
   end
 

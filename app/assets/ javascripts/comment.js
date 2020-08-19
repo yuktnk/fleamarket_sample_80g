@@ -14,7 +14,7 @@ $(function(){
                 </ul>`
     return html;
   }
-  $('#new_comment').on('submit', function(e){
+  $('#NewComment').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
     console.log(this)
@@ -31,8 +31,8 @@ $(function(){
       let html = buildHTML(data);
       console.log(html);
       $('.CommentList').append(html);
-      $('.textbox').val('');
-      $('.form__submit').prop('disabled', false);
+      $('.TextBox').val('');
+      $('.SubmitAJAX').prop('disabled', false);
     })
     .fail(function(){
       alert('error');

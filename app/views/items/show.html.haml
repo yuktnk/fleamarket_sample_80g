@@ -74,8 +74,8 @@
           .CommentBox
             %h1 コメント一覧
             - if @comments
-              - @comments.each do |comment|
-                .CommentList
+              .CommentList
+                - @comments.each do |comment|
                   %ul
                     %li.CommentList__user
                       = comment.user.nickname
@@ -84,17 +84,16 @@
                       = comment.text
                     %li.CommentList__delete
                       - if user_signed_in? && current_user.id == comment.user.id
-                        -# = link_to "/items/:item_id/comments/#{comment.id}", method: :delete do
                         = link_to item_comment_path(comment.item.id, comment.id), method: :delete do
                           = icon('fa', 'trash')
             .CommentForm
-              = form_with model: [@item, @comment], local: true, id: "new_comment" do |f|
-                = f.text_area :text, placeholder: 'コメント入力欄', class: "textbox"
+              = form_with model: [@item, @comment], local: true, id: "NewComment" do |f|
+                = f.text_area :text, placeholder: 'コメント入力欄', class: "TextBox"
                 .noticeMsg
                   相手のことを考え丁寧なコメントを心がけましょう。
                   %br/
                   不快な言葉遣いなどは利用制限や退会処分となることがあります。
-                %button.commentBtn{ name: "button", type: "submit", class: "form__submit" }
+                %button.commentBtn{ name: "button", type: "submit", class: "SubmitAJAX" }
                   %i.fa.fa-comment
                   コメントする
 
