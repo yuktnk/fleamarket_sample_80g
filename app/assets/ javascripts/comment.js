@@ -1,8 +1,23 @@
 $(function(){
+  function buildHTML(comment){
+    let html = `<ul>
+                  <li class="CommentList__user">
+                    ${comment.user_name}
+                    <span>さん</span>
+                  </li>
+                  <li class="CommentList__text">
+                    ${comment.text}
+                  </li>
+                  <li class="CommentList__delete">
+                    <a rel="nofollow" data-method="delete" href="/items/${comment.item_id}/comments/${comment.comment_id}"><i class="fa fa-trash"></i>
+                  </a></li>
+                </ul>`
+    return html;
+  }
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
-    console.log(this);
     let formData = new FormData(this);
+    console.log(this)
     let url = $(this).attr('action')
     $.ajax({
       url: url,
@@ -14,7 +29,8 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.comments').append(html);
+      console.log(html);
+      $('.CommentList').append(html);
       $('.textbox').val('');
       $('.form__submit').prop('disabled', false);
     })
