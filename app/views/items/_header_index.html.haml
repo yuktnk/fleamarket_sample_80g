@@ -9,8 +9,6 @@
         = form_with(url: search_items_path, local: true, method: :get, class: "") do |f|
           -# %input utf8など入る
           = f.text_field :key, placeholder: "キーワードから探す", class: "Header__inner__main__searchbox__input", id: "searchInput"
-          -# %input.Header__inner__main__searchbox__input#searchInput{name: "key", placeholder: "キーワードから探す"}
-          -# = f.submit class: "search-box-btn", value: ""
           %button{type: "submit", class:"search-box-btn"}
             .Header__inner__main__searchbox__input__icon
               = image_tag 'http://furima.tokyo/assets/icon-search-60a83ada85216fe00789cd16065281694d9a08948275fef83683fadcf131d84d.svg', class:"search-btn"
