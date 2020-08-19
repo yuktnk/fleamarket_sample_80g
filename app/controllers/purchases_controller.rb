@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
 
   require 'payjp'
-  before_action :card_action, only: [:index, :pay]
+  before_action :set_card, only: [:index, :pay]
 
   def new
   end
@@ -34,8 +34,8 @@ class PurchasesController < ApplicationController
 
   private
 
-  def card_action
-    @credit_card = CreditCard.where(user_id: current_user.id).first
+  def set_card
+    @credit_card = CreditCard.find_by(user_id: current_user.id)
   end
 
 end
