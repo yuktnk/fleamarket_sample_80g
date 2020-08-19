@@ -72,8 +72,18 @@
                   %i.fa.fa-flag
                   不適切な商品の通報
           .CommentBox
+            .CommentList
+              %h1 コメント一覧
+              - if @comments
+                - @comments.each do |comment|
+                  %ul
+                    %li.CommentList__user
+                      = comment.user.nickname
+                      %span さん
+                    %li.CommentList__text
+                      = comment.text
+
             = form_with model: [@item, @comment], local: true do |f|
-              %ul.commentContents
               = f.text_area :text, placeholder: 'コメント入力欄'
               %p.noticeMsg
                 相手のことを考え丁寧なコメントを心がけましょう。

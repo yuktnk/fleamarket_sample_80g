@@ -177,12 +177,35 @@ body{
           }
 
           .CommentBox{
-            padding: 24px;
+            padding: 24px 0;
             background-color: #fff;
             margin: 10px 0;
             text-align: center;
-            ul{
+            .CommentList {
               list-style: none;
+              margin-bottom: 24px;
+              padding: 16px 0;
+              h1 {
+                font-size: x-large;
+                padding: 8px 0;
+              }
+              ul {
+                padding: 8px 16px;
+                margin: 16px 0;
+                border-radius: 24px;
+                text-align: left;
+                background-color: #f8f8f8;
+                li {
+                  margin: 8px;
+                }
+                .CommentList__user {
+                  font-weight: bold;
+                  span {
+                    font-size: small;
+                    font-weight: normal;
+                  }
+                }
+              }
             }
             form{
               input{    
