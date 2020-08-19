@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_images, allow_destroy: true
   
   validates_associated :item_images
-  validates :item_image_id, presence: true
+  validates :item_images, presence: true
   validates :name, presence: true
   validates :explanation, presence: true
   validates :category_id, presence: true
