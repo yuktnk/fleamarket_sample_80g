@@ -8,13 +8,13 @@ class CreditCardsController < ApplicationController
   end
 
   def pay #payjpとcreditcardのテーブル作成
-    Payjp.api_key = ["PAYJP_PRIVATE_KEY"]
-    if params['payjp-token'].blank?
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    if params["payjp-token"].blank?
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
         email: current_user.email,
-        card: params['payjp-token'],
+        card: params["payjp-token"],
         metadata: {user_id: current_user.id}
       )
       @creditcard = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
