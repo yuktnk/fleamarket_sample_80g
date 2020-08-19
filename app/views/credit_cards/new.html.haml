@@ -15,57 +15,77 @@
       .Container
         -# 上部タイトル
         %section.Title
-          %h2
-            クレジットカード情報入力
+          %h2 クレジットカード情報入力
         .Contents
           .Center
             %section.CardInfo
               -# カード番号入力欄
               .CardInfo__content
-                %h2.CardInfo__content__name
-                  カード番号
+                = form_tag(pay_credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                  #card_token
+                  %h2.CardInfo__content__name
+                  %label カード番号
                   %span.CardInfo__content__name__required
                     必須
                 .inputField
-                  %input{autocomplete: "off", maxlength: "19", name: "creditCardNo", placeholder: "半角数字のみ", type: "text", value: ""}/
-                = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/visa-91c71914c6ae23d33f896e60bb1e3859.svg', alt:'visa', size:"48x16", class: "VisaIcon"
-                = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/mastercard-8b5b68c12b7a2fc8619c71f49ef9209b.svg', alt:'mastercard', size:"48x16", class: "MasterCardIcon"
-                = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/saison-550107415f39b81fa19e87c96486ba20.svg', alt:'saison', size:"48x16", class: "SaisonIcon"
-                = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/jcb-9ea981d20008c6545aa3afd1b3da9804.svg', alt:'JCB', size:"48x16", class: "JCBIcon"
-                = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/american_express-4df44c450653b0209850070ea5cf1264.svg', alt:'american_express', size:"48x16", class: "AmexIcon"
-                = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/dinersclub-3d52fbb4b39dc998f039571f3314bfc7.svg', alt:'dinersclub', size:"48x16", class: "DinersIcon"
-                = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/discover-879b0b1c9f9a30159f09e9ef492ad349.svg', alt:'discover', size:"48x16", class: "DiscoverIcon"
-              -# 有効期限入力欄
-              .CardInfo__content
-                %h2.CardInfo__content__name
-                  有効期限
+                  = text_field_tag "number", "", class: "input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number",autocomplete: "off"
+                  -# = form.text_field :number, "", class: "input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number",autocomplete: "off"
+                  %br
+                  = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/visa-91c71914c6ae23d33f896e60bb1e3859.svg', alt:'visa', size:"48x16", class: "VisaIcon"
+                  = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/mastercard-8b5b68c12b7a2fc8619c71f49ef9209b.svg', alt:'mastercard', size:"48x16", class: "MasterCardIcon"
+                  = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/saison-550107415f39b81fa19e87c96486ba20.svg', alt:'saison', size:"48x16", class: "SaisonIcon"
+                  = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/jcb-9ea981d20008c6545aa3afd1b3da9804.svg', alt:'JCB', size:"48x16", class: "JCBIcon"
+                  = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/american_express-4df44c450653b0209850070ea5cf1264.svg', alt:'american_express', size:"48x16", class: "AmexIcon"
+                  = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/dinersclub-3d52fbb4b39dc998f039571f3314bfc7.svg', alt:'dinersclub', size:"48x16", class: "DinersIcon"
+                  = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/discover-879b0b1c9f9a30159f09e9ef492ad349.svg', alt:'discover', size:"48x16", class: "DiscoverIcon"
+                  %br
+                  .Span_code
+                  %label 有効期限
+                  %select#exp_month{name: "exp_month", type: "text"}
+                    %option{value: ""} --
+                    %option{value: "1"}01
+                    %option{value: "2"}02
+                    %option{value: "3"}03
+                    %option{value: "4"}04
+                    %option{value: "5"}05
+                    %option{value: "6"}06
+                    %option{value: "7"}07
+                    %option{value: "8"}08
+                    %option{value: "9"}09
+                    %option{value: "10"}10
+                    %option{value: "11"}11
+                    %option{value: "12"}12
+                  %span 月/
+                  %select#exp_year{name: "exp_year", type: "text"}
+                    %option{value: ""} --
+                    %option{value: "2020"}20
+                    %option{value: "2021"}21
+                    %option{value: "2022"}22
+                    %option{value: "2023"}23
+                    %option{value: "2024"}24
+                    %option{value: "2025"}25
+                    %option{value: "2026"}26
+                    %option{value: "2027"}27
+                    %option{value: "2028"}28
+                    %option{value: "2029"}29
+                  %span 年
                   %span.CardInfo__content__name__required
                     必須
-                .selectWrap
-                  %select{name: "month", class: "select"}
-                    %option{"aria-selected":  "true", label: "01", selected: "selected", value: ""}
-                  %span.limitOfMonth
-                    月
-                  %select{name: "year", class: "select"}
-                    %option{"aria-selected":  "true", label: "20", selected: "selected", value: ""}
-                  %span.limitOfYear
-                    年
-              -# セキュリティコード入力欄
-              .CardInfo__content
-                %h2.CardInfo__content__name
-                  セキュリティコード
+                  %br
+                  .Span_code
+                  %label セキュリティコード
                   %span.CardInfo__content__name__required
                     必須
                 .inputField
-                  %input{autocomplete: "off", maxlength: "19", name: "securityCode", placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/
+                  = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
                 .CardInfo__content__about
                   .CardInfo__content__about__question
                     = link_to "#", class: "" do
                       = icon('far', 'question-circle',  class: "Main__center__container__question__icon")
                       カード裏面の番号とは？
                 .CardInfo__content__sellButton
-                  %button{type: "submit", class: "buttonBlue"}
-                    追加する
+                  -# #card_token
+                  = submit_tag "追加する", class: "buttonBlue", id: "token_submit"
                 %h3.CardInfo__content__returnToHome
                   =link_to root_path do
                     もどる

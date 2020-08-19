@@ -33,3 +33,4 @@ public/uploads/*
 
 # .DS_Store banished!
 .DS_Store
+config/initializers/setting.rb
