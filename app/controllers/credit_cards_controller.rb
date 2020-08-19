@@ -1,10 +1,11 @@
 class CreditCardsController < ApplicationController
 
   require 'payjp'
+  before_action :first_action
 
   def new
-    creditcard = CreditCard.where(user_id: current_user.id)
-    redirect_to action: "show" if creditcard.exists?
+    credit_card = CreditCard.where(user_id: current_user.id)
+    redirect_to action: "show" if credit_card.exists?
   end
 
   def pay #payjpとcreditcardのテーブル作成
@@ -27,25 +28,31 @@ class CreditCardsController < ApplicationController
   end
 
   def delete
-    creditcard = CreditCard.where(user_id: current_user.id).first
-    if creditcard.blank?
+    if credit_card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(creditcard.customer_id)
+      customer = Payjp::Customer.retrieve(credit_card.customer_id)
       customer.delete
-      creditcard.delete
+      credit_card.delete
     end
       redirect_to action: "new"
   end
 
   def show
-    creditcard = CreditCard.where(user_id: current_user.id).first
+
     if creditcard.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(creditcard.customer_id)
-      @default_card_information = customer.cards.retrieve(creditcard.card_id)
+      customer = Payjp::Customer.retrieve(credit_card.customer_id)
+      @default_card_information = customer.cards.retrieve(credit_card.card_id)
     end
   end
+
+  private 
+
+  def first_action
+    credit_card = CreditCard.where(user_id: current_user.id).first
+  end
+
 end
