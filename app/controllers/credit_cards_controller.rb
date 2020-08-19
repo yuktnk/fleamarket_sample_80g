@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   require 'payjp'
-  before_action :card_action, only: [:show, :delete]
+  before_action :set_card, only: [:show, :delete]
 
 
   def new
@@ -52,8 +52,8 @@ class CreditCardsController < ApplicationController
 
   private
 
-  def card_action
-    @credit_card = CreditCard.where(user_id: current_user.id).first
+  def set_card
+    @credit_card = CreditCard.find_by(user_id: current_user.id)
   end
 
 end
