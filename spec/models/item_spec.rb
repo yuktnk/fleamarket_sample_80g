@@ -1,6 +1,6 @@
 require 'rails_helper'
 describe Item do
-  describe '.search' do
+  describe '#search' do
     it "keyがない場合、全ての商品レコードは表示できる" do
       item = create(:item)
       key = ""
