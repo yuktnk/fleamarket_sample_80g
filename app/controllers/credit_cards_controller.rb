@@ -28,9 +28,8 @@ class CreditCardsController < ApplicationController
   end
 
   def delete
-    # credit_card = CreditCard.where(user_id: current_user.id).first
+
     if @credit_card.present?
-    # else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       customer.delete
@@ -40,7 +39,7 @@ class CreditCardsController < ApplicationController
   end
 
   def show
-    # credit_card = CreditCard.where(user_id: current_user.id).first
+
     if @credit_card.blank?
       redirect_to action: "new"
     else

@@ -7,7 +7,7 @@ class PurchasesController < ApplicationController
   end
 
   def index
-    # credit_card = CreditCard.where(user_id: current_user.id).first
+
     #テーブルからpayjpの顧客IDを検索
     if @credit_card.blank?
       #登録された情報がない場合にカード登録画面に移動する
@@ -22,7 +22,7 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    # credit_card = CreditCard.where(user_id: current_user.id).first
+
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
     :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
