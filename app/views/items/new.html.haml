@@ -5,11 +5,6 @@
       = link_to root_path do
         = image_tag 'logo/logo.png', alt: 'furima', height: '49', width: '185'
     = form_with model: @item, local: true do |f|
-      -# 以下は動作確認用のform_withです。
-      = f.text_field :name, placeholder: 'name'
-      = f.text_field :explanation, placeholder: 'explanation'
-      = f.number_field :price, placeholder: 'price'
-      -# ここまでが動作確認用のform_withです。
       .Main__center
         -# 出品画像
         .Main__center__container
