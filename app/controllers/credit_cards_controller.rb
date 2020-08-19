@@ -40,7 +40,7 @@ class CreditCardsController < ApplicationController
 
   def show
 
-    if creditcard.blank?
+    if credit_card.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
