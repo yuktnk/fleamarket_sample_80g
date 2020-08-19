@@ -54,10 +54,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @category_id = @item.category_id
-    @category_parent = Category.find(@category_id).parent.parent
-    @category_child = Category.find(@category_id).parent
-    @category_grandchild = Category.find(@category_id)
+    @category_grandchild = @item.category
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
   end
   
   def move_to_index
