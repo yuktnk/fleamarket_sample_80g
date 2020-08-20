@@ -1,7 +1,7 @@
 
-$(function(){    
+$(document).on("turbolinks:load", function(){    
   $('#product_price').on('input', function(){
-    $(this).keyup(function(){
+    $(this).on('keyup change', function(){
       var inputPrice = Number($(this).val());
       if(inputPrice >= 300 && inputPrice < 10000000){
         var fee = Math.floor(inputPrice * 0.1);

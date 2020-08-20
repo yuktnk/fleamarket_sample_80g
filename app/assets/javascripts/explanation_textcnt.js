@@ -1,4 +1,4 @@
-$(function(){
+$(document).on("turbolinks:load", function(){
   //入力時のイベント    
   $('.explanationField').on('input', function(){
       //文字数を取得
