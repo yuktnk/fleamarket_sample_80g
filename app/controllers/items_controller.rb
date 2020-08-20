@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
+  before_action :set_item, only: [:show, :destroy]
   
   def index
     @items = Item.includes(:item_images).limit(3).order('created_at DESC')
@@ -50,7 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @category_grandchild = @item.category
@@ -60,6 +60,16 @@ class ItemsController < ApplicationController
   
   def search
     @search_items = Item.search(params[:key])
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+      flash[:notice] = "商品を削除しました"
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "商品の削除に失敗しました"
+    end
   end
 
 
@@ -78,4 +88,9 @@ class ItemsController < ApplicationController
   def category_parent_array
     @category_parent_array = Category.where(ancestry: nil)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end

@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get 'users/logout_path', to: 'users#logout'
   resources :users, only: [:show]
   resources :credit_cards, only: :new
-
-  resources :items, only: [:index, :show, :new, :create] do
+  resources :items, only: [:index, :show, :new, :create , :destroy] do
     resources :comments, only: [:create, :destroy]
     collection do
       get 'get_category_children', defaults: { format: 'json' }
