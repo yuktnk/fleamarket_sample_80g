@@ -91,7 +91,7 @@
                 都道府県
                 %span 必須
               .FormField__box--input
-                = f.text_field :prefecture, autofocus: true, placeholder: '例）東京都', class: 'inputZone'
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {include_blank: "選択してください"}, {class: "inputZone"}
 
             .FormField__box
               .FormField__box--subtitle

@@ -21,7 +21,8 @@ class User < ApplicationRecord
   validates :family_name_to_deliver_furigana, presence: true
   validates :first_name_to_deliver_furigana, presence: true
   validates :postal_code, presence: true
-  validates :prefecture, presence: true
+  # validates :prefecture, presence: true
+  validates :prefecture_id, presence: true
   validates :municipalities, presence: true
   validates :address, presence: true
 

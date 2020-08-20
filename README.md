@@ -68,18 +68,51 @@
 - has_many :likes, through: :likes
 - has_one :credit_card, dependent: :destroy
 - has_many :user_evaluations, dependent: :destroy
+- has_many :orders
 - has_many :news, dependent: :destroy
 - belongs_to_active_hash: prefecture
+
+## ordersテーブル
+|Column|Type|Options|
+|------|----|———|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item 
 
 ## categories テーブル
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | category | string | null: false |
+| ancestry | string |             |
 
 ### Association
 
 - has_many :items
+- has_many :category_sizes
+- has_many :sizes, through: :category_sizes
+
+## sizes テーブル
+|Column|Type|Options|
+|------|----|-------|
+|size|string||
+|ancestry|string||
+### Association
+- has_many :items
+- has_many :category_sizes
+- has_many :categories, through: :category_sizes
+- has_ancestry
+
+## category_sizes テーブル
+|Column|Type|Options|
+|------|----|-------|
+|size_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :category
+- belongs_to :size
 
 ## user_evaluations テーブル
 
@@ -131,7 +164,6 @@
 - belongs_to :user
 
 ## items テーブル
-
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
@@ -139,8 +171,8 @@
 | price              | integer    | null: false                    |
 | category_id        | references | null: false, foreign_key: true |
 | brand_id           | references | foreign_key: true              |
-| seller_id          | references | null: false, foreign_key: true |
-| buyer_id           | references | foreign_key: true              |
+| seller_id          | integer    |                                |
+| buyer_id           | integer    |                                |
 | item_condition_id  | integer    |                                | (active_hash) |
 | delivery_fee_id    | integer    |                                | (active_hash) |
 | preparation_day_id | integer    |                                | (active_hash) |
@@ -152,15 +184,16 @@
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
+- belongs_to : size
 - has_many :item_images, dependent: :destroy
 - has_many :likes, through: :likes
 - has_many :comment, dependent: :destroy
 - has_one :user_evaluation
+- has_one :order
 - belongs_to_active_hash: item_condition
 - belongs_to_active_hash: delivery_fee
 - belongs_to_active_hash: preparation_day
 - belongs_to_active_hash: prefecture
-- belongs_to_active_hash: size
 
 ## todos
 
