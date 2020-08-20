@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 2020_08_20_033217) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 255
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "category", null: false
-    t.string "ancestry"
+    t.string "category", limit: 255, null: false
+    t.string "ancestry", limit: 255
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ancestry"], name: "index_categories_on_ancestry"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2020_08_20_033217) do
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "card_id", null: false
-    t.string "customer_id", null: false
+    t.string "card_id", limit: 255, null: false
+    t.string "customer_id", limit: 255, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_033217) do
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "src"
+    t.string "src", limit: 255
     t.bigint "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_033217) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", limit: 255, null: false
     t.text "explanation", null: false
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -78,37 +78,37 @@ ActiveRecord::Schema.define(version: 2020_08_20_033217) do
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "size"
+    t.string "size", limit: 255
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "ancestry"
+    t.string "ancestry", limit: 255
     t.index ["ancestry"], name: "index_sizes_on_ancestry"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string "nickname", limit: 255, null: false
+    t.string "email", limit: 255, default: "", null: false
+    t.string "encrypted_password", limit: 255, default: "", null: false
+    t.string "reset_password_token", limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "family_name", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "family_name_furigana", default: "", null: false
-    t.string "first_name_furigana", default: "", null: false
+    t.string "family_name", limit: 255, default: "", null: false
+    t.string "first_name", limit: 255, default: "", null: false
+    t.string "family_name_furigana", limit: 255, default: "", null: false
+    t.string "first_name_furigana", limit: 255, default: "", null: false
     t.date "birth_day", null: false
     t.integer "postal_code", null: false
-    t.string "prefecture", default: "", null: false
-    t.string "municipalities", default: "", null: false
-    t.string "address", default: "", null: false
-    t.string "building"
-    t.string "phone_number"
-    t.string "family_name_to_deliver", default: "", null: false
-    t.string "first_name_to_deliver", default: "", null: false
-    t.string "family_name_to_deliver_furigana", default: "", null: false
-    t.string "first_name_to_deliver_furigana", default: "", null: false
+    t.string "prefecture", limit: 255, default: "", null: false
+    t.string "municipalities", limit: 255, default: "", null: false
+    t.string "address", limit: 255, default: "", null: false
+    t.string "building", limit: 255
+    t.string "phone_number", limit: 255
+    t.string "family_name_to_deliver", limit: 255, default: "", null: false
+    t.string "first_name_to_deliver", limit: 255, default: "", null: false
+    t.string "family_name_to_deliver_furigana", limit: 255, default: "", null: false
+    t.string "first_name_to_deliver_furigana", limit: 255, default: "", null: false
     t.integer "prefecture_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["nickname"], name: "index_users_on_nickname", unique: true
