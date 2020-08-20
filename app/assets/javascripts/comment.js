@@ -17,7 +17,6 @@ $(function(){
   $('#NewComment').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
-    console.log(this)
     let url = $(this).attr('action')
     $.ajax({
       url: url,
@@ -29,7 +28,6 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      console.log(html);
       $('.CommentList').append(html);
       $('.TextBox').val('');
       $('.SubmitAJAX').prop('disabled', false);
