@@ -2,16 +2,24 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-    respond_to do |format|
-      format.html { redirect_to item_path(params[:item_id])  }
-      format.json
+    if @comment.save
+      respond_to do |format|
+        format.json
+      end
+    else
+      redirect_back(fallback_location: root_path)
     end
+
   end
 
   def destroy
-    comment = Comment.find_by(id: params[:id], item_id: params[:item_id])
-    comment.destroy
-    redirect_back(fallback_location: root_path)
+    comment = Comment.find(params[:id])
+    unless comment.destroy
+      redirect_back(fallback_location: root_path)
+    else
+
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private

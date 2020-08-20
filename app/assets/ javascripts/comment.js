@@ -35,7 +35,7 @@ $(function(){
       $('.SubmitAJAX').prop('disabled', false);
     })
     .fail(function(){
-      alert('error');
+      alert('コメントを入力してください');
     })
   })
 })
