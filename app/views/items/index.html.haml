@@ -103,6 +103,11 @@
             = link_to "/items/#{item.id}" do
               .Image
                 = image_tag item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
+                  -# buyer_idがある（購入された）場合にSOLDのテキストが入る
+                  - if item.buyer_id.present?
+                  .Sold
+                    .Sold__text
+                      SOLD
               .DetailBox
                 .DetailBox__name
                   = item.name
@@ -116,7 +121,6 @@
                       3
                   %p
                     (税込)
-
       %h3.PickupContainer__subtitle
         = link_to '#' do
           レディース新着アイテム
@@ -126,7 +130,12 @@
             = link_to "/items/#{ladies_item.id}" do
               .Image
                 = image_tag ladies_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
-              .DetailBox
+                  -# buyer_idがある（購入された）場合にSOLDのテキストが入る
+                  - if ladies_item.buyer_id.present?
+                  .Sold
+                    .Sold__text
+                      SOLD
+
                 .DetailBox__name
                   = ladies_item.name
                 .DetailBox__details
@@ -148,6 +157,11 @@
             = link_to "/items/#{mens_item.id}" do
               .Image
                 = image_tag mens_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
+                  -# buyer_idがある（購入された）場合にSOLDのテキストが入る
+                  - if mens_item.buyer_id.present?
+                  .Sold
+                    .Sold__text
+                      SOLD
               .DetailBox
                 .DetailBox__name
                   = mens_item.name

@@ -248,6 +248,32 @@
                 height: 150px;
                 object-fit: cover;
               }
+              // buyer_idが入ったらSOLDのマークが入る
+              .Sold {
+                width: 0;
+                height: 0;
+                border-width: 120px 120px 0 0;
+                border-color: #3CCACE transparent transparent transparent;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                border-style: solid;
+                opacity: 0.9;
+                &__text{
+                  top: -90px;
+                  font-size: 30px;
+                  position: absolute;
+                  left: 0;
+                  z-index: 2;
+                  color: #fff;
+                  transform: rotate(-45deg);
+                  letter-spacing: 2px;
+                  font-weight: 600;
+                }
+              }
+              
             }
             .DetailBox {
               background-color: white;
@@ -279,5 +305,29 @@
     .PickupContainer:last-child {
       padding-bottom: 106px;
     }
+  }
+}
+.item__sold {
+  width: 0;
+  height: 0;
+  border-width: 120px 120px 0 0;
+  border-color: #3CCACE transparent transparent transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-style: solid;
+  opacity: 0.9;
+  &__text{
+    top: -90px;
+    font-size: 30px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
   }
 }

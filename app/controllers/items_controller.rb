@@ -4,10 +4,9 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.includes(:item_images).limit(3).order('created_at DESC')
-    # 画像は田中さんがマージしてから
+    # レディース新着アイテムとメンズ新着アイテム
     @ladies_items = Item.where(category: 159..346).includes(:item_images).limit(3).order("created_at DESC")
     @mens_items = Item.where(category: 347..476).includes(:item_images).limit(3).order("created_at DESC")
-    # ピックアップカテゴリー用
   end
   
 
@@ -73,7 +72,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :explanation, :category_id, :size_id, :item_condition_id, :prefecture_id, :delivery_fee_id, :preparation_day_id, item_images_attributes: [:src])
+    params.require(:item).permit(:name, :price, :explanation, :category_id, :size_id, :item_condition_id, :prefecture_id, :delivery_fee_id, :preparation_day_id, item_images_attributes: [:src]).merge(seller_id: current_user.id)
   end
 
   def category_parent_array
