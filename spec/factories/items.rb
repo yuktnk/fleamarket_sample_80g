@@ -9,7 +9,6 @@ FactoryBot.define do
     delivery_fee_id             {"1"}
     preparation_day_id          {"1"}
     size_id                     {"1"}
-
   end
 
 end
