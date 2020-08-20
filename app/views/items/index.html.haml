@@ -102,8 +102,7 @@
           %li.PickupContainer__items--item
             = link_to "/items/#{item.id}" do
               .Image
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG', alt: '', height: '150px', width: '220px'
-                -# = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG', alt: '', height: '150px', width: '220px'
+                = image_tag item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
               .DetailBox
                 .DetailBox__name
                   = item.name
@@ -118,94 +117,50 @@
                   %p
                     (税込)
 
-    .PickupContainer
-      %h2.PickupContainer__title
-        ピックアップブランド
       %h3.PickupContainer__subtitle
         = link_to '#' do
-          アーカイバ
+          レディース新着アイテム
       %ul.PickupContainer__items
-        %li.PickupContainer__items--item
-          = link_to '#' do
-            .Image
-              = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG', alt: '', height: '150px', width: '220px'
-            .DetailBox
-              .DetailBox__name
-                テストタイトル
-              .DetailBox__details
-                %ul
-                  %li
-                    金額
-                  %li
-                    = icon('fa', 'star likeIcon')
-                    3
-                %p
-                  (税込)
-        %li.PickupContainer__items--item
-          = link_to '#' do
-            .Image
-              = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG', alt: ''
-            .DetailBox
-              .DetailBox__name
-                テストタイトル
-              .DetailBox__details
-                %ul
-                  %li
-                    金額
-                  %li
-                    = icon('fa', 'star likeIcon')
-                    3
-                %p
-                  (税込)
+        - @ladies_items.each do |ladies_item|
+          %li.PickupContainer__items--item
+            = link_to "/items/#{ladies_item.id}" do
+              .Image
+                = image_tag ladies_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
+              .DetailBox
+                .DetailBox__name
+                  = ladies_item.name
+                .DetailBox__details
+                  %ul
+                    %li
+                      %span ¥
+                      = ladies_item.price.to_s(:delimited)
+                    %li
+                      = icon('fa', 'star likeIcon')
+                      3
+                  %p
+                    (税込)
+      %h3.PickupContainer__subtitle
+        = link_to '#' do
+          メンズ新着アイテム
+      %ul.PickupContainer__items
+        - @mens_items.each do |mens_item|
+          %li.PickupContainer__items--item
+            = link_to "/items/#{mens_item.id}" do
+              .Image
+                = image_tag mens_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
+              .DetailBox
+                .DetailBox__name
+                  = mens_item.name
+                .DetailBox__details
+                  %ul
+                    %li
+                      %span ¥
+                      = mens_item.price.to_s(:delimited)
+                    %li
+                      = icon('fa', 'star likeIcon')
+                      3
+                  %p
+                    (税込)
 
-        %li.PickupContainer__items--item
-          = link_to '#' do
-            .Image
-              = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: ''
-            .DetailBox
-              .DetailBox__name
-                テストタイトル
-              .DetailBox__details
-                %ul
-                  %li
-                    金額
-                  %li
-                    = icon('fa', 'star likeIcon')
-                    3
-                %p
-                  (税込)
-
-        %li.PickupContainer__items--item
-          = link_to '#' do
-            .Image
-              = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png', alt: ''
-            .DetailBox
-              .DetailBox__name
-                テストタイトル
-              .DetailBox__details
-                %ul
-                  %li
-                    金額
-                  %li
-                    = icon('fa', 'star likeIcon')
-                    3
-                %p
-                  (税込)
-        %li.PickupContainer__items--item
-          = link_to '#' do
-            .Image
-              = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png', alt: ''
-            .DetailBox
-              .DetailBox__name
-                テストタイトル
-              .DetailBox__details
-                %ul
-                  %li
-                    金額
-                  %li
-                    = icon('fa', 'star likeIcon')
-                    3
-                %p
-                  (税込)
   = render "footer"
   = render "item_new_btn"

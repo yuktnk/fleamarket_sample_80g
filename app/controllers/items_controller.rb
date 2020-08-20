@@ -4,9 +4,9 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.includes(:item_images).limit(3).order('created_at DESC')
-    # @items = Item.limit(5).order('created_at DESC')
     # 画像は田中さんがマージしてから
-    # @ladies_items = Item.where(category: 2).includes(:images).order("created_at DESC").limit(5)
+    @ladies_items = Item.where(category: 159..346).includes(:item_images).limit(3).order("created_at DESC")
+    @mens_items = Item.where(category: 347..476).includes(:item_images).limit(3).order("created_at DESC")
     # ピックアップカテゴリー用
   end
   
