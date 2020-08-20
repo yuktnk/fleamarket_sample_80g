@@ -26,7 +26,7 @@ body{
           margin: 0;
 
           .ItemBox{
-            padding: 24px 40px 40px;
+            padding: 24px 40px 24px;
             background-color: #fff;
 
             h2{                     //product2
@@ -177,7 +177,7 @@ body{
           }
 
           .CommentBox{
-            padding: 24px 0;
+            padding: 24px 0 0;
             background-color: #fff;
             margin: 10px 0;
             text-align: center;
@@ -215,6 +215,7 @@ body{
                 }
             }
             .CommentForm {
+              margin-bottom: 24px;
               textarea {
                 width: 100%;
                 min-height: 104px;
@@ -224,7 +225,7 @@ body{
                 padding: 8px;
                 font-size: 14px;
                 background-color: #f8f8f8;
-                margin: 10px 0;
+                margin: 8px 0 24px;
                 text-align: left;
               }
               .commentBtn {
@@ -237,21 +238,22 @@ body{
                 border-radius: 100px;
                 cursor: pointer;
               }
+            }
+            .DeleteBox {
+              line-height: 48px;
+              background: lightgray;
+              border: 1px solid lightgray;
+              color: #fff;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+              margin: 0 auto 24px;
+              display: inline-block;
               .RemoveUnderLine {
                 text-decoration: none;
-                .deleteBtn{
-                line-height: 48px;
-                background: lightgray;
-                border: 1px solid lightgray;
-                color: #fff;
-                width: 391px;
-                font-size: 18px;
-                border-radius: 100px;
-                margin: 0 auto 24px;
-                display: inline-block;
-                i{}
-                // コメントする
                 }
+              .deleteBtn {
+                color: white;
               }
             }
           }
