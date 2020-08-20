@@ -17,8 +17,8 @@ class CommentsController < ApplicationController
     unless comment.destroy
       redirect_back(fallback_location: root_path)
     else
-      
       redirect_back(fallback_location: root_path)
+      flash[:alert] = "削除に失敗しました"
     end
   end
 
