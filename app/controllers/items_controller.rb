@@ -10,8 +10,6 @@ class ItemsController < ApplicationController
     # ピックアップカテゴリー用
   end
   
-
-  
   def new
     @item = Item.new
     @item.item_images.new
@@ -54,6 +52,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
     @category_grandchild = @item.category
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
