@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root 'items#index'
   get 'users/logout_path', to: 'users#logout'
   resources :users, only: [:show]
-  resources :items, only: [:index, :show, :new]
+  resources :items, only: [:index, :show, :new] do
+    collection do
+      get 'search'
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :purchases, only: [:new,:only] do
     collection do

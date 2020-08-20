@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
   
   def index
-    @items = Item.limit(5).order('created_at DESC')
+    @items = Item.limit(3).order('created_at DESC')
     # 画像は田中さんがマージしてから
     # @ladies_items = Item.where(category: 2).includes(:images).order("created_at DESC").limit(5)
     # ピックアップカテゴリー用
@@ -14,6 +14,10 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
+  end
+
+  def search
+    @search_items = Item.search(params[:key])
   end
 
 
