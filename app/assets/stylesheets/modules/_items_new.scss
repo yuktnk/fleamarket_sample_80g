@@ -58,12 +58,8 @@
           margin: 0;
         }
         &__imageField {
-          height: 150px;
+          min-height: 150px;
           margin-top: 8px;
-          padding: 0 4px;
-          border: 1px dashed #ccc;
-          background-color: #f8f8f8;
-          cursor: pointer;
           text-align: center;
           display: flex;
           flex-direction: column;
@@ -71,12 +67,12 @@
           justify-content: center;
         }
         .inputField {
+          width: 620px;
           border: 1px solid #ccc;
           border-radius: 4px;
           font-family: inherit;
           font-size: inherit;
           height: 48px;
-          width: 619px;
           padding: 0 16px;
           margin: 16px 0;
           display: flex;
@@ -84,12 +80,12 @@
           // color: #bfbfbf;
         }
         .explanationField {
+          width: 620px;
           border: 1px solid #ccc;
           border-radius: 4px;
           font-family: inherit;
           font-size: inherit;
           height: 126px;
-          width: 619px;
           padding: 0 16px;
           margin: 16px 0;
           display: flex;
@@ -262,4 +258,110 @@
       }
     }
   }
+  .select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: inherit;
+    height: 48px;
+    padding: 0 16px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  //以下は複数画像選択のための記述
+  //---------------------------------------
+  .item-num-0 {
+    height: 180px;
+    width: 100%;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-1 {
+    height: 180px;
+    width: 496px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-2 {
+    height: 180px;
+    width: 372px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-3 {
+    height: 180px;
+    width: 248px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-4 {
+    height: 180px;
+    width: 124px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  //下段のfile_field
+  .item-num-5 {
+    height: 180px;
+    width: 100%;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-6 {
+    height: 180px;
+    width: 496px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-7 {
+    height: 180px;
+    width: 372px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-8 {
+    height: 180px;
+    width: 248px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+  .item-num-9 {
+    height: 180px;
+    width: 124px;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
+
+  #image-box-1 {
+    width: 620px;
+    min-height: 180px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .InputImages {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    label {
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      transition: color .3s;
+      padding-top: 64px;
+    }
+    label:hover {
+      color: #feb340;
+    }
+  }
+  .item-image {
+    margin: 0 4px 16px;
+    padding: 18px 0;
+  }
+
 }

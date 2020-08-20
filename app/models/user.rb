@@ -1,8 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_one :credit_card, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  
+
+  has_many :comments
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: {with: VALID_EMAIL_REGEX, message: "＠とドメインを含む必要があります"}
@@ -18,7 +23,8 @@ class User < ApplicationRecord
   validates :family_name_to_deliver_furigana, presence: true
   validates :first_name_to_deliver_furigana, presence: true
   validates :postal_code, presence: true
-  validates :prefecture, presence: true
+  # validates :prefecture, presence: true
+  validates :prefecture_id, presence: true
   validates :municipalities, presence: true
   validates :address, presence: true
 
