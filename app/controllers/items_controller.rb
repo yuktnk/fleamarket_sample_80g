@@ -9,8 +9,6 @@ class ItemsController < ApplicationController
     @mens_items = Item.where(category: 347..476).includes(:item_images).limit(3).order("created_at DESC")
   end
   
-
-  
   def new
     @item = Item.new
     @item.item_images.new
@@ -53,6 +51,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
     @category_grandchild = @item.category
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent

@@ -177,36 +177,57 @@ body{
           }
 
           .CommentBox{
-            padding: 24px;
+            padding: 24px 0;
             background-color: #fff;
             margin: 10px 0;
             text-align: center;
-            ul{
-              list-style: none;
+            h1 {
+              font-size: x-large;
+              padding: 8px 0;
             }
-            form{
-              input{    
-                font-family: inherit;
-                font-size: inherit;
-                font-weight: inherit;
-              }
-              textarea{
+            .CommentList {
+              padding: 16px 0;
+              
+                ul {
+                  padding: 8px 16px;
+                  margin: 16px 0;
+                  border-radius: 24px;
+                  text-align: left;
+                  background-color: #f8f8f8;
+                  li {
+                    margin: 8px;
+                  }
+                  .CommentList__user {
+                    color: #3CCACE;
+                    span {
+                      color: black;
+                      font-size: small;
+                      font-weight: normal;
+                    }
+                  }
+                  .CommentList__delete {
+                    text-align: right;
+                    a {
+                      text-decoration: none;
+                      color: lightgray;
+                    }
+                  }
+                }
+            }
+            .CommentForm {
+              textarea {
                 width: 100%;
                 min-height: 104px;
                 padding: 10px;
               }
-              p{
+              .noticeMsg {
                 padding: 8px;
                 font-size: 14px;
                 background-color: #f8f8f8;
                 margin: 10px 0;
                 text-align: left;
-                //相手のことを考え丁寧なコメントを心がけましょう。
-                br{}            // /
-                //不快な言葉遣いなどは利用制限や退会処分となることがあります。
               }
-              br{}              // /
-              button{
+              .commentBtn {
                 line-height: 48px;
                 background: #3CCACE;
                 border: 1px solid #3CCACE;
@@ -214,8 +235,7 @@ body{
                 width: 60%;
                 font-size: 18px;
                 border-radius: 100px;
-                i{}
-                // コメントする
+                cursor: pointer;
               }
             }
           }

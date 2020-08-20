@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root 'items#index'
   get 'users/logout_path', to: 'users#logout'
   resources :users, only: [:show]
+  resources :credit_cards, only: :new
+
   resources :items, only: [:index, :show, :new, :create] do
+    resources :comments, only: [:create, :destroy]
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }

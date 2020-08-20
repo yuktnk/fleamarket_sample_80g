@@ -119,7 +119,6 @@ $(function() {
         dataType: 'json'
       })
       .done(function(sizes) {
-        console.log(sizes)
         $('#size_wrapper').remove(); //孫が変更された時、サイズ欄以下を削除する
         if (sizes.length != 0) {
           let insertHTML = '';
