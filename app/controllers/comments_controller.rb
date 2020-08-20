@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     unless comment.destroy
       redirect_back(fallback_location: root_path)
     else
-
+      
       redirect_back(fallback_location: root_path)
     end
   end

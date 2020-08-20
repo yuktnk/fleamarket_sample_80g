@@ -1,0 +1,28 @@
+= render partial: "header_index"
+.TopPage
+  .Main
+    .PickupContainer
+      %h2.PickupContainer__title
+        検索結果
+      %ul.PickupContainer__items
+        - @search_items.each do |item|
+          %li.PickupContainer__items--item
+            = link_to "/items/#{item.id}" do
+              .Image
+                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG', alt: '', height: '150px', width: '220px'
+              .DetailBox
+                .DetailBox__name
+                  = item.name
+                .DetailBox__details
+                  %ul
+                    %li
+                      %span ¥
+                      = item.price.to_s(:delimited)
+                    %li
+                      = icon('fa', 'star likeIcon')
+                      3
+                  %p
+                    (税込)
+
+  = render "footer"
+  = render "item_new_btn"
