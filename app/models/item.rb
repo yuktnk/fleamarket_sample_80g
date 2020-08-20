@@ -21,5 +21,13 @@ class Item < ApplicationRecord
   belongs_to_active_hash :item_condition
   belongs_to_active_hash :delivery_fee
   belongs_to_active_hash :preparation_day
-  
+  belongs_to_active_hash :size
+
+  def self.search(search)
+    if search != ""
+      Item.where(['name LIKE(?) or explanation LIKE(?)', "%#{search}%", "%#{search}%"])
+    else
+      Item.all
+    end
+  end
 end

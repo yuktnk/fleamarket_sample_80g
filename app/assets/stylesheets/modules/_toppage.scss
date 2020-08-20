@@ -222,10 +222,12 @@
         width: 780px;
         margin: 26px auto 0;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
         &--item {
           width: 220px;
           display: inline-block;
+          margin-bottom: 40px;
           a {
             text-decoration: none;
             .Image {

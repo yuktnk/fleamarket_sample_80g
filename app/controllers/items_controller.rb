@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   
   def index
-    @items = Item.includes(:item_images).limit(5).order('created_at DESC')
+    @items = Item.includes(:item_images).limit(3).order('created_at DESC')
     # @items = Item.limit(5).order('created_at DESC')
     # 画像は田中さんがマージしてから
     # @ladies_items = Item.where(category: 2).includes(:images).order("created_at DESC").limit(5)
@@ -59,6 +59,11 @@ class ItemsController < ApplicationController
     @category_parent = @category_child.parent
   end
   
+  def search
+    @search_items = Item.search(params[:key])
+  end
+
+
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
