@@ -1,4 +1,5 @@
 //ヘッダー部分テンプレート
+= render partial: "header_index"
 //パンクズ部分テンプレート
 
 .Main
@@ -74,6 +75,12 @@
                 =link_to "#" do
                   %i.fa.fa-flag
                   不適切な商品の通報
+          .DeleteBox
+            - if user_signed_in? # && current_user.id == @item.seller_id      あとでコメントアウトを外す
+              = link_to item_path, method: :delete, class: "RemoveUnderLine" do
+                .deleteBtn
+                  = icon('fa', 'trash')
+                  この商品を削除する
           .CommentBox
             %h1 コメント一覧
             - if @comments
@@ -99,12 +106,7 @@
                 %button.commentBtn{ name: "button", type: "submit", class: "SubmitAJAX" }
                   %i.fa.fa-comment
                   コメントする
-            .DeleteBox
-              - if user_signed_in? && current_user.id #== @item.seller_id      あとでコメントアウトを外す
-                = link_to item_path, method: :delete, class: "RemoveUnderLine" do
-                  .deleteBtn
-                    = icon('fa', 'trash')
-                    この商品を削除する
+
 
       %ul.links
         %li.left
@@ -120,6 +122,8 @@
       .relatedItems
         =link_to 'メンズをもっと見る', "#"
 
-  = render "item_new_btn"
+
 
 //フッター部分テンプレート
+= render "footer"
+= render "item_new_btn"

@@ -174,8 +174,24 @@ body{
                 }
               }
             }
+            .DeleteBox {
+              line-height: 48px;
+              background: lightgray;
+              border: 1px solid lightgray;
+              color: #fff;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+              margin: 24px auto;
+              text-align: center;
+              .RemoveUnderLine {
+                text-decoration: none;
+                }
+              .deleteBtn {
+                color: white;
+              }
+            }
           }
-
           .CommentBox{
             padding: 24px 0 0;
             background-color: #fff;
@@ -237,23 +253,6 @@ body{
                 font-size: 18px;
                 border-radius: 100px;
                 cursor: pointer;
-              }
-            }
-            .DeleteBox {
-              line-height: 48px;
-              background: lightgray;
-              border: 1px solid lightgray;
-              color: #fff;
-              width: 60%;
-              font-size: 18px;
-              border-radius: 100px;
-              margin: 0 auto 24px;
-              display: inline-block;
-              .RemoveUnderLine {
-                text-decoration: none;
-                }
-              .deleteBtn {
-                color: white;
               }
             }
           }
