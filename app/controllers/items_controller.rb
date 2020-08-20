@@ -65,6 +65,13 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
+    if item.destroy
+      redirect_to root_path
+      flash[:notice] = "商品を削除しました"
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "商品の削除に失敗しました"
+    end
   end
 
 
