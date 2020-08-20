@@ -100,7 +100,7 @@
       %ul.PickupContainer__items
         - @items.each do |item|
           %li.PickupContainer__items--item
-            = link_to "/items/#{item.id}" do
+            = link_to item_path(item.id) do
               .Image
                 = image_tag item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
                   -# buyer_idがある（購入された）場合にSOLDのテキストが入る
@@ -127,7 +127,7 @@
       %ul.PickupContainer__items
         - @ladies_items.each do |ladies_item|
           %li.PickupContainer__items--item
-            = link_to "/items/#{ladies_item.id}" do
+            = link_to item_path(ladies_item.id) do
               .Image
                 = image_tag ladies_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
                   -# buyer_idがある（購入された）場合にSOLDのテキストが入る
@@ -154,7 +154,7 @@
       %ul.PickupContainer__items
         - @mens_items.each do |mens_item|
           %li.PickupContainer__items--item
-            = link_to "/items/#{mens_item.id}" do
+            = link_to item_path(mens_item.id) do
               .Image
                 = image_tag mens_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
                   -# buyer_idがある（購入された）場合にSOLDのテキストが入る
