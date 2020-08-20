@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   def destroy
     comment = Comment.find(params[:id])
-    unless comment.destroy
+    if comment.destroy
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
