@@ -83,7 +83,7 @@
 
 
 ## category_sizes テーブル
-|Column|Type|Options|
+| Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | size_id     | references | null: false, foreign_key: true |
 | category_id | references | null: false, foreign_key: true |
@@ -119,9 +119,8 @@
 ### Association
 - belongs_to :user
 - belongs_to :category
-- belongs_to :size
 - has_many :item_images, dependent: :destroy
-- has_many :comment, dependent: :destroy
+- has_many :comments, dependent: :destroy
 - belongs_to_active_hash :item_condition
 - belongs_to_active_hash :delivery_fee
 - belongs_to_active_hash :preparation_day
