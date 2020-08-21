@@ -3,18 +3,11 @@ describe Item do
 
   describe '#create' do
 
-    # # 商品の画像が必須
-    # it "is invalid without a item_images" do
-    #   item = build(:item, item_images: "")
-    #   item.valid?
-    #   expect(item.errors[:item_images]).to include("を入力してください")
-    # end
-
     # 商品の名前が必須
     it "is invalid without a name" do
       item = build(:item, name: "")
       item.valid?
-      expect(item.errors[:neme]).to include("を入力してください")
+      expect(item.errors[:name]).to include("を入力してください")
     end
 
     # 商品の説明が必須
