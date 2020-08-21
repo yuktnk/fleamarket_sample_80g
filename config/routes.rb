@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   get 'users/logout_path', to: 'users#logout'
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    collection do
+      get 'sold_items'
+    end
+  end
   resources :credit_cards, only: :new
   resources :items, only: [:index, :show, :new, :create , :destroy] do
     resources :comments, only: [:create, :destroy]
