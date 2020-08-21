@@ -2,6 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one :credit_card, dependent: :destroy
+  has_many :comments
+  has_many :items
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
@@ -11,7 +13,7 @@ class User < ApplicationRecord
   end
   
 
-  has_many :comments
+
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: {with: VALID_EMAIL_REGEX, message: "＠とドメインを含む必要があります"}
