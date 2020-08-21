@@ -1,28 +1,41 @@
 = render partial: "/items/header_index"
 .UsersIndex
-  .TopPage
-    .Main
-      .PickupContainer
-        %h2.PickupContainer__title
+  .Wrapper
+    %nav.BreadCrumbs
+      %ol.BreadCrumbs__list
+        %li
+          = link_to 'root_path', class: "BreadCrumbs__list__link" do
+            フリマ
+          %i.angleRight
+            = icon('fas', 'angle-right',  class: "icon")
+        %li
           出品中の商品一覧
-        %ul.PickupContainer__items
-          - @listed_items.each do |listed_item|
-            - if listed_item.buyer_id.blank?
-              %li.PickupContainer__items--item
-                = link_to "/items/#{listed_item.id}" do
-                  .Image
-                    = image_tag listed_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
-                  .DetailBox
-                    .DetailBox__name
-                      = listed_item.name
-                    .DetailBox__details
-                      %ul
-                        %li
-                          %span ¥
-                          = listed_item.price.to_s(:delimited)
-                        %li
-                          = icon('fa', 'star likeIcon')
-                          3
-                      %p
-                        (税込)
+    .Main
+      = render "sidebar"
+      .Container
+        .TopPage
+          .Main
+            .PickupContainer
+              %h2.PickupContainer__title
+                出品中の商品一覧
+              %ul.PickupContainer__items
+                - @listed_items.each do |listed_item|
+                  - if listed_item.buyer_id.blank?
+                    %li.PickupContainer__items--item
+                      = link_to "/items/#{listed_item.id}" do
+                        .Image
+                          = image_tag listed_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
+                        .DetailBox
+                          .DetailBox__name
+                            = listed_item.name
+                          .DetailBox__details
+                            %ul
+                              %li
+                                %span ¥
+                                = listed_item.price.to_s(:delimited)
+                              %li
+                                = icon('fa', 'star likeIcon')
+                                3
+                            %p
+                              (税込)
 = render partial: "/items/footer"
