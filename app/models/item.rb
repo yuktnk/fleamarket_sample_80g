@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_many :comments
   has_many :item_images, dependent: :destroy
-  belongs_to :category
+  belongs_to :category, optional: true
   accepts_nested_attributes_for :item_images, allow_destroy: true
   
   validates_associated :item_images
@@ -26,7 +26,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :size
 
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
-  belongs_to :seller, class_name: "User", foreign_key: "seller_id"
+  belongs_to :seller, class_name: "User", foreign_key: "seller_id", optional: true
 
   def self.search(search)
     if search != ""

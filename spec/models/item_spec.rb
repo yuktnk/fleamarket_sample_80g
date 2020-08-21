@@ -14,7 +14,7 @@ describe Item do
     it "is invalid without a name" do
       item = build(:item, name: "")
       item.valid?
-      expect(item.errors[:neme]).to include("を入力してください")
+      expect(item.errors[:name]).to include("を入力してください")
     end
 
     # 商品の説明が必須

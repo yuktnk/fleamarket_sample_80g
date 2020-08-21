@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Item_image do
+RSpec.describe ItemImage do
   describe '#create' do
 
     # 商品の画像が必須
