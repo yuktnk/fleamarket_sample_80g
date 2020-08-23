@@ -55,7 +55,6 @@
                 = f.collection_select :category_id, @category_parent_array, :id, :category,{ selected: @category_parent.id},class:"select"
                 = f.collection_select :category_id, @category_children, :id, :category,{ selected: @category_child.id}, {class:"select", id: "child_category"}
                 = f.collection_select :category_id, @category_grandchildren, :id, :category,{ selected: @category_grandchild.id},{class:"select", id: "grandchild_category"}
-                -# - if @item.size.size_id.present?
                 = f.collection_select :size_id, @sizes, :id, :size,{ selected: @size.id},{class:"select", id: "size"} if @item.size_id.present?
 
         .Main__center__container

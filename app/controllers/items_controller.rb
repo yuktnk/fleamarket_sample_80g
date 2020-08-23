@@ -62,7 +62,9 @@ class ItemsController < ApplicationController
     @category_children = @item.category.parent.parent.children
     # 紐づく孫カテゴリーの一覧を配列で取得
     @category_grandchildren = @item.category.parent.children
-    @sizes = @item.size.parent.children
+    if @item.size_id.present?
+      @sizes = @item.size.parent.children
+    end
     
   end
 
