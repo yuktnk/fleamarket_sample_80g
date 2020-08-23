@@ -37,15 +37,15 @@
                   %td hoge
                 %tr
                   %th カテゴリー
-                  - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
-                    %td
-                      = link_to "#{@category_child.category}","#"
-                      %br= link_to "#{@category_grandchild.category}","#" 
-                  -else
-                    %td
-                      = link_to "#{@category_parent.category}","#"
-                      %br= link_to "#{@category_child.category}","#"
-                      = link_to "#{@category_grandchild.category}","#"
+                  -# - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
+                  -#   %td
+                  -#     = link_to "#{@category_child.category}","#"
+                  -#     %br= link_to "#{@category_grandchild.category}","#" 
+                  -# -else
+                  %td
+                    = link_to "#{@category_parent.category}","#"
+                    %br= link_to "#{@category_child.category}","#"
+                    = link_to "#{@category_grandchild.category}","#"
                 %tr
                   %th ブランド
                   %td

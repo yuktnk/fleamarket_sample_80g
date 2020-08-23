@@ -43,10 +43,10 @@ $(document).on("turbolinks:load", function(){
       .done(function(children) {
         $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
         $('#child_category').remove(); //親が変更された時、子以下を削除する
-        $('#grandchild_category').remove(); //親が変更された時、子以下を削除する
-        $('#size').remove(); //親が変更された時、子以下を削除する
         $('#grandchildren_wrapper').remove();
+        $('#grandchild_category').remove(); //親が変更された時、子以下を削除する
         $('#size_wrapper').remove();
+        $('#size').remove(); //親が変更された時、子以下を削除する
         let insertHTML = '';
         children.forEach(function(child) {
           insertHTML += appendOption(child);
@@ -58,9 +58,9 @@ $(document).on("turbolinks:load", function(){
       })
     }else{
       $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
-      $('#child_category').remove(); //親が変更された時、子以下を削除する
-      $('#grandchild_category').remove(); //親が変更された時、子以下を削除する
+      $('#child_category').remove(); //親が変更された時、子を削除する
       $('#grandchildren_wrapper').remove();
+      $('#grandchild_category').remove(); //子が変更された時、孫を削除する
       $('#size_wrapper').remove();
       $('#size').remove();
     }
@@ -68,7 +68,7 @@ $(document).on("turbolinks:load", function(){
   // 子カテゴリー選択後のイベント
   $('.Main__center__container__categoryWrapper').on('change', '#child_category', function() {
     let childId = document.getElementById('child_category').value; //選択された子カテゴリーのvalueを取得する
-    if (childId != "" && childId != 46 && childId != 74 && childId != 134 && childId != 142 && childId != 147 && childId != 150 && childId != 158){ //子カテゴリーが初期値かつ指定のidでないことを確認
+    if (childId != ""){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/items/get_category_grandchildren/',
         type: 'GET',
