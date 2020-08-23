@@ -25,10 +25,10 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :size
 
-  class Item < ActiveRecord::Base
-    belongs_to :buyer, class_name: "User", foreign_key: "buyer_id"
-    belongs_to :seller, class_name: "User", foreign_key: "seller_id"
-  end
+  
+  belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
+  belongs_to :seller, class_name: "User", foreign_key: "seller_id"
+ 
 
   def self.search(search)
     if search != ""
