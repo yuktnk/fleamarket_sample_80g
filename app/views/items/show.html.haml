@@ -78,7 +78,7 @@
 
           - if user_signed_in?  && current_user.id != @item.seller_id
             .PurchaseBox
-              = link_to '#', class: "RemoveUnderLine" do
+              = link_to '/purchases/index', class: "RemoveUnderLine" do
                 .PurchaseButton
                   = icon('fa', 'shopping-cart')
                   この商品を購入する
