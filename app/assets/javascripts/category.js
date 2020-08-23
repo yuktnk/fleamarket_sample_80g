@@ -42,6 +42,9 @@ $(document).on("turbolinks:load", function(){
       })
       .done(function(children) {
         $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
+        $('#child_category').remove(); //親が変更された時、子以下を削除する
+        $('#grandchild_category').remove(); //親が変更された時、子以下を削除する
+        $('#size').remove(); //親が変更された時、子以下を削除する
         $('#grandchildren_wrapper').remove();
         $('#size_wrapper').remove();
         let insertHTML = '';
@@ -55,8 +58,11 @@ $(document).on("turbolinks:load", function(){
       })
     }else{
       $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+      $('#child_category').remove(); //親が変更された時、子以下を削除する
+      $('#grandchild_category').remove(); //親が変更された時、子以下を削除する
       $('#grandchildren_wrapper').remove();
       $('#size_wrapper').remove();
+      $('#size').remove();
     }
   });
   // 子カテゴリー選択後のイベント
@@ -71,7 +77,9 @@ $(document).on("turbolinks:load", function(){
       })
       .done(function(grandchildren) {
         $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除する
+        $('#grandchild_category').remove(); //子が変更された時、孫以下を削除する
         $('#size_wrapper').remove();
+        $('#size').remove();
         let insertHTML = '';
         grandchildren.forEach(function(grandchild) {
           insertHTML += appendOption(grandchild);
@@ -83,7 +91,9 @@ $(document).on("turbolinks:load", function(){
       })
     }else{
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
+      $('#grandchild_category').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
       $('#size_wrapper').remove();
+      $('#size').remove();
     }
   });
   // サイズセレクトボックスのオプションを作成
@@ -120,6 +130,7 @@ $(document).on("turbolinks:load", function(){
       })
       .done(function(sizes) {
         $('#size_wrapper').remove(); //孫が変更された時、サイズ欄以下を削除する
+        $('#size').remove(); //孫が変更された時、サイズ欄以下を削除する
         if (sizes.length != 0) {
           let insertHTML = '';
           sizes.forEach(function(size) {
@@ -133,6 +144,7 @@ $(document).on("turbolinks:load", function(){
       })
     }else{
       $('#size_wrapper').remove(); //孫カテゴリが初期値になった時、サイズ欄以下を削除する
+      $('#size').remove(); //孫カテゴリが初期値になった時、サイズ欄以下を削除する
     }
   });
 });
