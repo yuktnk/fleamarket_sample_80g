@@ -21,7 +21,8 @@
           .ItemBox__price
             %span
               ¥
-              = @item.price
+              = @item.price.to_s(:delimited)
+              -# to_s(:delimited)が価格にカンマをいれる記述
             .ItemBox__priceDetail
               %span
                 (税込)
