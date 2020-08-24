@@ -83,6 +83,7 @@ class ItemsController < ApplicationController
 
 
   def show
+    @item_images = @item.item_images
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @category_grandchild = @item.category
