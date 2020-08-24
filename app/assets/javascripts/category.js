@@ -1,4 +1,4 @@
-$(function() {
+$(document).on("turbolinks:load", function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category) {
     let html = `<option value="${category.id}">${category.category}</option>`;
@@ -42,8 +42,11 @@ $(function() {
       })
       .done(function(children) {
         $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
+        $('#child_category').remove(); //親が変更された時、子カテゴリのセレクトボックス削除
         $('#grandchildren_wrapper').remove();
+        $('#grandchild_category').remove(); //子が変更された時、孫カテゴリのセレクトボックス削除
         $('#size_wrapper').remove();
+        $('#size').remove(); //孫が変更された時、サイズのセレクトボックス削除
         let insertHTML = '';
         children.forEach(function(child) {
           insertHTML += appendOption(child);
@@ -55,14 +58,17 @@ $(function() {
       })
     }else{
       $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+      $('#child_category').remove(); //親が変更された時、子カテゴリのセレクトボックス削除
       $('#grandchildren_wrapper').remove();
+      $('#grandchild_category').remove(); //子が変更された時、孫カテゴリのセレクトボックス削除
       $('#size_wrapper').remove();
+      $('#size').remove(); //孫が変更された時、サイズのセレクトボックス削除
     }
   });
   // 子カテゴリー選択後のイベント
   $('.Main__center__container__categoryWrapper').on('change', '#child_category', function() {
     let childId = document.getElementById('child_category').value; //選択された子カテゴリーのvalueを取得する
-    if (childId != "" && childId != 46 && childId != 74 && childId != 134 && childId != 142 && childId != 147 && childId != 150 && childId != 158){ //子カテゴリーが初期値かつ指定のidでないことを確認
+    if (childId != ""){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/items/get_category_grandchildren/',
         type: 'GET',
@@ -71,7 +77,9 @@ $(function() {
       })
       .done(function(grandchildren) {
         $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除する
+        $('#grandchild_category').remove(); //子が変更された時、孫カテゴリのセレクトボックス削除
         $('#size_wrapper').remove();
+        $('#size').remove(); //孫が変更された時、サイズのセレクトボックス削除
         let insertHTML = '';
         grandchildren.forEach(function(grandchild) {
           insertHTML += appendOption(grandchild);
@@ -83,7 +91,9 @@ $(function() {
       })
     }else{
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
+      $('#grandchild_category').remove(); //子が変更された時、孫カテゴリのセレクトボックス削除
       $('#size_wrapper').remove();
+      $('#size').remove(); //孫が変更された時、サイズのセレクトボックス削除
     }
   });
   // サイズセレクトボックスのオプションを作成
@@ -120,6 +130,7 @@ $(function() {
       })
       .done(function(sizes) {
         $('#size_wrapper').remove(); //孫が変更された時、サイズ欄以下を削除する
+        $('#size').remove(); //孫が変更された時、サイズのセレクトボックス削除
         if (sizes.length != 0) {
           let insertHTML = '';
           sizes.forEach(function(size) {
@@ -133,6 +144,7 @@ $(function() {
       })
     }else{
       $('#size_wrapper').remove(); //孫カテゴリが初期値になった時、サイズ欄以下を削除する
+      $('#size').remove(); //孫が変更された時、サイズのセレクトボックス削除
     }
   });
 });

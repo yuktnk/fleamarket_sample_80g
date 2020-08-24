@@ -1,0 +1,46 @@
+= render partial: "/items/header_index"
+.UsersSoldItems
+  .Wrapper
+    %nav.BreadCrumbs
+      %ol.BreadCrumbs__list
+        %li
+          = link_to 'root_path', class: "BreadCrumbs__list__link" do
+            フリマ
+          %i.angleRight
+            = icon('fas', 'angle-right',  class: "icon")
+        %li
+          売却済みの商品一覧
+    .Main
+      = render "sidebar"
+      .Container
+        .TopPage
+          .Main
+            .PickupContainer
+              %h2.PickupContainer__title
+                売却済みの商品一覧
+              %ul.PickupContainer__items
+                - @sold_items.each do |sold_item|
+                  - if sold_item.buyer_id.present?
+                    %li.PickupContainer__items--item
+                      = link_to "/items/#{sold_item.id}" do
+                        .Image
+                          = image_tag sold_item.item_images.first.src.url, alt: '', height: '150px', width: '220px'
+                            -# buyer_idがある（購入された）場合にSOLDのテキストが入る
+                            - if sold_item.buyer_id.present?
+                            .Sold
+                              .Sold__text
+                                SOLD
+                        .DetailBox
+                          .DetailBox__name
+                            = sold_item.name
+                          .DetailBox__details
+                            %ul
+                              %li
+                                %span ¥
+                                = sold_item.price.to_s(:delimited)
+                              %li
+                                = icon('fa', 'star likeIcon')
+                                3
+                            %p
+                              (税込)
+= render partial: "/items/footer"

@@ -40,15 +40,15 @@
                     -# = @item.user.nicknameじゃないよ、class_nameで指定したsellerを使うよ
                 %tr
                   %th カテゴリー
-                  - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
-                    %td
-                      = link_to "#{@category_child.category}","#"
-                      %br= link_to "#{@category_grandchild.category}","#" 
-                  -else
-                    %td
-                      = link_to "#{@category_parent.category}","#"
-                      %br= link_to "#{@category_child.category}","#"
-                      = link_to "#{@category_grandchild.category}","#"
+                  -# - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
+                  -#   %td
+                  -#     = link_to "#{@category_child.category}","#"
+                  -#     %br= link_to "#{@category_grandchild.category}","#" 
+                  -# -else
+                  %td
+                    = link_to "#{@category_parent.category}","#"
+                    %br= link_to "#{@category_child.category}","#"
+                    = link_to "#{@category_grandchild.category}","#"
                 %tr
                   %th ブランド
                   %td
@@ -83,12 +83,26 @@
                 =link_to "#" do
                   %i.fa.fa-flag
                   不適切な商品の通報
-          .DeleteBox
-            - if user_signed_in?  && current_user.id == @item.seller_id
+
+          - if user_signed_in?  && current_user.id != @item.seller_id
+            .PurchaseBox
+              = link_to '#', class: "RemoveUnderLine" do
+                .PurchaseButton
+                  = icon('fa', 'shopping-cart')
+                  この商品を購入する
+
+          - if user_signed_in?  && current_user.id == @item.seller_id
+            .EditBox
+              = link_to '#', class: "RemoveUnderLine" do
+                .EditBtn
+                  = icon('fa', 'edit')
+                  この商品を編集する
+            .DeleteBox
               = link_to item_path, method: :delete, class: "RemoveUnderLine" do
-                .deleteBtn
+                .DeleteBtn
                   = icon('fa', 'trash')
                   この商品を削除する
+
           .CommentBox
             %h1 コメント一覧
             - if @comments
