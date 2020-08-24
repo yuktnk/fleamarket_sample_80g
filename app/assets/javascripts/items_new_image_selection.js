@@ -4,8 +4,8 @@ $(document).on("turbolinks:load", function(){
   //querySelectorでfile_fieldを取得
   var file_field = document.querySelector('input[type=file]')
 
-  //削除するためのチェックボックスを表示しない
-  // $('.hidden-destroy').hide();
+  // 削除するためのチェックボックスを非表示
+  $('.hidden-destroy').hide();
 
   // 10枚登録されていた場合にボックスを消す
   $(document).ready(function(){
@@ -58,7 +58,6 @@ $(document).on("turbolinks:load", function(){
   $(document).on("click", '.item-image__operetion--deleteHidden', function(){
     //削除を押されたプレビュー要素を取得
     var target_image = $(this).parent().parent();
-    console.log(target_image);
     
     //削除を押されたプレビューimageのfile名を取得
     var target_id = $(target_image).attr('id');
@@ -66,7 +65,6 @@ $(document).on("turbolinks:load", function(){
     var target_image_file = $('input[value="'+target_id+'"][type=hidden]');
     
     const targetIndex = target_image.data('index');
-    console.log(targetIndex);
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
