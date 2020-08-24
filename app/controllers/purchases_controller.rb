@@ -4,6 +4,7 @@ class PurchasesController < ApplicationController
   before_action :set_card, only: [:index, :pay]
 
   def new
+    # @item = Item.find(params[:id])
   end
 
   def index
@@ -23,7 +24,7 @@ class PurchasesController < ApplicationController
 
   def pay
 
-    @item = Item.find(params[:price])
+    @item = Item.find(params[:id])
     Payjp.api_key = Rails.application.credentials.pay_jp[:PAY_JP_PRIVATE_KEY]
     Payjp::Charge.create(
     amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）

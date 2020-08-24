@@ -1,0 +1,78 @@
+.PurchasesNew
+  .MainContainer
+    %section.MainContainer__header
+      = link_to items_path, class:"MainContainer__headerLogo" do
+        = image_tag 'logo/logo.png', alt: "icon", class:"MainContainer__headerImage"
+    .MainContainer__purchases
+      %section.MainContainer__purchases__details
+        %h2.MainContainer__purchases__details__title
+          購入内容の確認
+      %section.MainContainer__purchases__items
+        .MainContainer__purchases__items__inner
+          .MainContainer__purchases__items__inner__products
+            %h3.MainContainer__purchases__items__inner__products__image
+              = image_tag @item.item_images.first.src.url, alt: '画像', height: '100px', width: '100px'
+            .MainContainer__purchases__items__inner__products__text
+              %p.MainContainer__purchases__items__inner__products__text__name
+                = @item.name
+              %p.MainContainer__purchases__items__inner__products__text__price
+                %span.Shipping__style
+                  = @item.delivery_fee.delivery_fee
+                %span.Shipping__price ¥
+                = @item.price.to_s(:delimited)
+      %section.MainContainer__purchases__checkout
+        .MainContainer__purchases__checkout__total
+          %span
+            支払い金額
+          %span.TotalPrice ¥
+          = @item.price.to_s(:delimited)
+        %label.MainContainer__purchases__checkout__points
+          -# %label.MainContainer__purchases__checkout__points_use disabled-class
+            -# %span.Check_box
+              -# %span.Style__input
+                -# =image_tag
+                %p.MainContainer__purchases__checkout__points__text
+                  -# ポイントの使用
+          .MainContainer__purchases__checkout__logo
+            = image_tag 'icon/logoicon.png', alt:"ロゴアイコン", size: "14x14", class: "Logo"
+            %p.MainContainer__purchases__checkout__logo__usePoint
+              ポイントの使用
+            %p.MainContainer__purchases__checkout__logo__usePoint2
+              所持ポイント：P0
+      %section.MainContainer__purchases__payMethod
+        .MainContainer__purchases__payMethod__inner
+          .MainContainer__purchases__payMethod__inner__title
+            %h3.MainContainer__purchases__payMethod__inner__title__way
+              支払い方法: クレジットカード
+            -# = link_to '変更する','#', class: ".MainContainer__purchases__payMethod__inner__title__way__link Change__link"
+          .MainContainer__purchases__payMethod__inner__cardInfo
+            = "**** **** **** " + @default_card_information.last4
+            %br/
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+            %br/
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/visa-91c71914c6ae23d33f896e60bb1e3859.svg', alt:'visaアイコン', size:"48x16", class: "Visa-icon"
+      %section.MainContainer__purchases__address
+        .MainContainer__purchases__address__inner
+          .MainContainer__purchases__address__inner__title
+            %h3.MainContainer__purchases__address__inner__title__details
+              配送先
+            -# = link_to '変更する', '#', class: "MainContainer__purchases__address__inner__title__details__link Change__link"
+          .MainContainer__purchases__address__inner__detailAdress
+            %p
+              %span
+                〒
+                = current_user.postal_code.to_s.insert(3, "-") #郵便番号にハイフンを入れる
+            %p
+              = current_user.prefecture.prefecture
+              = current_user.municipalities
+              = current_user.address
+              = current_user.building
+            %p
+              = current_user.family_name_to_deliver
+              = current_user.first_name_to_deliver
+      %section.MainContainer__purchases__decide
+        .MainContainer__purchases__decide__btn
+          =button_to '購入する', done_item_path(@item.id), class: "MainContainer__purchases__decide__btn__link"
+    

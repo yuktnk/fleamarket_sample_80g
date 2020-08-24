@@ -6,10 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  class User < ActiveRecord::Base
-    has_many :bought_items, class_name: 'Item', foreign_key: 'buyer_id'
-    has_many :sold_items, class_name: 'Item', foreign_key: 'seller_id'
-  end
+  has_many :bought_items, class_name: 'Item', foreign_key: 'buyer_id'
+  has_many :sold_items, class_name: 'Item', foreign_key: 'seller_id'
   
 
 
@@ -33,6 +31,6 @@ class User < ApplicationRecord
   validates :municipalities, presence: true
   validates :address, presence: true
 
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :prefecture
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
