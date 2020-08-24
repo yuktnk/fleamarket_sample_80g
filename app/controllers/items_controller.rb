@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   
   def index
     @items = Item.includes(:item_images).limit(3).order('created_at DESC')
@@ -50,6 +50,37 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @category_grandchild = @item.category
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
+    @size = @item.size
+    # カテゴリー一覧を作成
+    @category = Category.find(params[:id])
+    # 紐づく孫カテゴリーの親（子カテゴリー）の一覧を配列で取得
+    @category_children = @item.category.parent.parent.children
+    # 紐づく孫カテゴリーの一覧を配列で取得
+    @category_grandchildren = @item.category.parent.children
+    # サイズ自体が存在しているかどうか
+    if @item.size_id.present?
+      @sizes = @item.size.parent.children
+    end
+    
+  end
+
+  def update
+    @item = Item.find(params[:id])
+      if @item.update_attributes(params[:item])
+        flash[:success] = "Item was successfully updated"
+        redirect_to @item
+      else
+        flash[:error] = "Something went wrong"
+        render 'edit'
+      end
+  end
+  
+
 
   def show
     @comment = Comment.new

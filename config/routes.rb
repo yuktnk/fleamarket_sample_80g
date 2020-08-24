@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :credit_cards, only: :new
-  resources :items, only: [:index, :show, :new, :create , :destroy] do
+  resources :items do
     resources :comments, only: [:create, :destroy]
     collection do
       get 'get_category_children', defaults: { format: 'json' }
