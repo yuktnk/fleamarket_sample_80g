@@ -18,8 +18,8 @@ class CreditCardsController < ApplicationController
         card: params["payjp-token"],
         metadata: {user_id: current_user.id}
       )
-      @creditcard = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @creditcard.save
+      @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @credit_card.save
         redirect_to action: "show"
       else
         redirect_to action: "pay"
