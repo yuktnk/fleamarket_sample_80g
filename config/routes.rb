@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'purchase', to: 'items#purchase'
-      post 'pay', to: 'items#pay'
+      get 'pay', to: 'items#pay'
       get 'done', to: 'items#done'
     end
   end
