@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :destroy, :purchase]
+  before_action :set_item, only: [:show, :destroy, :purchase, :done]
   
   def index
     @items = Item.includes(:item_images).limit(3).order('created_at DESC')
@@ -46,7 +46,6 @@ class ItemsController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:id])
   end
 
   
