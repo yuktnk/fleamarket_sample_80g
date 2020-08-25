@@ -18,6 +18,6 @@
       .MainContainer__text__price
         %p 支払い金額
         %span ¥
-        = @item.price 
+        = @item.price.to_s(:delimited)
       .MainContainer__text__back__toppage
         = link_to 'トップページに戻る', item_path, class:"btn" 
