@@ -12,8 +12,8 @@
     .MainContainer__text
       .MainContainer__text__message
         %h2 購入が完了しました！
-      .MainContainer__text__item
-        %p 商品名
+      %p.MainContainer__text__item
+        = @item.name
       .MainContainer__text__price
         %p 支払い金額:  13,500円(送料込み)
 
