@@ -33,21 +33,21 @@
               -# - if @item.persisted?  # 利用したインスタンスがもしデータベースに保存済みならばtrueを、そうでない場合はfalseを返す
               -#   - @item.item_images.each_with_index do |image, i|   # 繰り返し処理をしつつ、処理された要素が何番目に処理されたか番号を振る
                   -# = image_tag image.src.url, data: { index: i }, width: "100", height: "100"  #   jQueryで使用するためにカスタムデータ属性を設定する
-
-
               #image-box__container{class:"item-num-#{@images.length}"}
                 .InputImages
-                  %label{for: "img-file"}
+                  = f.fields_for :item_images do |i|
+                    .js-file_group
+                      - if @item.persisted?
+                        .js-file( data-index = "#{@item.item_images.count}" )
+                          = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][src]", id:"add-img-file-#{@item.item_images.count}", class:"add-img-file"
+                          -# .item-image__operetion--delete 削除
+                      = i.file_field :src, type: 'file', value:"", id:"img-file"
+                      - if @item.persisted?
+                        = i.check_box :_destroy, data: { index: i.index }, class: 'hidden-destroy'
+                  %label.hidden-label{for: "add-img-file-#{@item.item_images.count}"}
                     = icon('fas', 'camera')
                     %br/
                     クリックしてファイルをアップロード
-                  = f.fields_for :item_images do |i|
-                    = i.file_field :src, type: 'file', name: "item[item_images_attributes][][src]", value:"", id:"img-file", style: "display:none"
-                    - if @item.persisted?
-                      = i.check_box :_destroy, data: { index: i.index }, class: 'hidden-destroy'
-
-
-
 
 
         -# 商品名・商品の説明
