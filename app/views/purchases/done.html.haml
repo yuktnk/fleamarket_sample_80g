@@ -4,3 +4,19 @@
 
 -# .Back_toppage
 -#   = link_to 'トップページに戻る', '/'
+.PurchasesDone
+  .MainContainer
+    .MainContainer__header
+      = link_to 'root_path', class:"MainContainer__headerLogo" do
+        = image_tag 'logo/logo.png', alt: "icon", class:"MainContainer__headerImage"
+    .MainContainer__text
+      .MainContainer__text__message
+        %h2 購入が完了しました！
+      .MainContainer__text__item
+        %p 商品名
+      .MainContainer__text__price
+        %p 支払い金額:  13,500円(送料込み)
+
+      .MainContainer__text__back__toppage
+
+        = button_to 'トップページに戻る', '/', class:"btn"
