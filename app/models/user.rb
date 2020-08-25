@@ -8,8 +8,6 @@ class User < ApplicationRecord
   
   has_many :bought_items, class_name: 'Item', foreign_key: 'buyer_id'
   has_many :sold_items, class_name: 'Item', foreign_key: 'seller_id'
-  
-
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

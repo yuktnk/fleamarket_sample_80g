@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :item_images, dependent: :destroy
-  belongs_to :category
+  belongs_to :category, optional: true
   accepts_nested_attributes_for :item_images, allow_destroy: true
   
   validates_associated :item_images
