@@ -41,14 +41,11 @@ class ItemsController < ApplicationController
     customer: @credit_card.customer_id, #顧客ID
     currency:'jpy'
   )
+  @item.update!(buyer_id: current_user.id)
   redirect_to action: 'done' #完了画面に移動
   end
 
   def done
-
-    @item_purchaser = Item.find(params[:id])
-    @item_purchaser.update(buyer_id: current_user.id)
-
   end
 
   

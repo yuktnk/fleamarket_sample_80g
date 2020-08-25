@@ -74,5 +74,6 @@
               = current_user.first_name_to_deliver
       %section.MainContainer__purchases__decide
         .MainContainer__purchases__decide__btn
-          =button_to '購入する', done_item_path(@item.id), class: "MainContainer__purchases__decide__btn__link"
+          = form_tag(action: :pay, method: :post) do
+            =button_to '購入する', done_item_path(@item.id), class: "MainContainer__purchases__decide__btn__link"
     
