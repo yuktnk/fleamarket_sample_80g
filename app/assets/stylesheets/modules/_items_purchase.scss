@@ -169,6 +169,7 @@
           text-indent: 0px;
           text-shadow: none;
           cursor: pointer;
+          align-items: center;
         }
       }
     }
@@ -205,4 +206,7 @@
   text-decoration: none;
   cursor: pointer;
   outline: none;
+}
+.MainContainer__purchases__decide__btn__link p {
+  padding-top: 12px;
 }
