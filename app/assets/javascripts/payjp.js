@@ -1,5 +1,5 @@
 document.addEventListener(
-  "DOMContentLoaded",
+  "turbolinks:load",
   (e) => {
     if (document.getElementById("token_submit") != null) {
       //token_submitというidがnullの場合、下記コードを実行しない

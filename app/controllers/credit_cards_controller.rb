@@ -9,7 +9,7 @@ class CreditCardsController < ApplicationController
   end
 
   def pay #payjpとcreditcardのテーブル作成
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.pay_jp[:PAY_JP_PRIVATE_KEY]
     if params["payjp-token"].blank?
       redirect_to action: "new"
     else
@@ -18,8 +18,8 @@ class CreditCardsController < ApplicationController
         card: params["payjp-token"],
         metadata: {user_id: current_user.id}
       )
-      @creditcard = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @creditcard.save
+      @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @credit_card.save
         redirect_to action: "show"
       else
         redirect_to action: "pay"
@@ -30,7 +30,7 @@ class CreditCardsController < ApplicationController
   def delete
 
     if @credit_card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.pay_jp[:PAY_JP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       customer.delete
       @credit_card.delete
@@ -43,7 +43,7 @@ class CreditCardsController < ApplicationController
     if @credit_card.blank?
       redirect_to action: "new"
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.pay_jp[:PAY_JP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       @default_card_information = customer.cards.retrieve(@credit_card.card_id)
     end
