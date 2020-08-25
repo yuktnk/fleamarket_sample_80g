@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   require 'payjp'
-  before_action :set_card, only: [:purchase, :pay]
+  before_action :set_card, only: [:purchase, :pay, :done]
 
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def done
+    @item = Item.find(params[:id])
   end
 
   
@@ -129,6 +130,7 @@ class ItemsController < ApplicationController
   end
 
   def set_card
+    # binding.pry
     @credit_card = CreditCard.find_by(user_id: current_user.id)
   end
 
