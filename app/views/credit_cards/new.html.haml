@@ -8,7 +8,7 @@
           %i.angleRight
             = icon('fas', 'angle-right',  class: "icon")
         %li
-          マイページ
+          クレジットカード情報登録
     .Main
       = render "users/sidebar"
       
@@ -89,4 +89,4 @@
                 %h3.CardInfo__content__returnToHome
                   =link_to root_path do
                     もどる
-
+= render partial: "/items/footer"
