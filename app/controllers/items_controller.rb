@@ -43,6 +43,7 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
+    
     if @item.save
       redirect_to root_path
       flash[:notice] = "商品を出品しました"
@@ -65,6 +66,7 @@ class ItemsController < ApplicationController
 
 
   def update
+    # binding.pry
     if @item.update(item_params)
       redirect_to root_path
       flash[:notice] = "商品を編集しました"
@@ -73,7 +75,7 @@ class ItemsController < ApplicationController
       flash[:alert] = "商品の編集に失敗しました"
     end
   end
-  
+
   def search
     @search_items = Item.search(params[:key])
   end
