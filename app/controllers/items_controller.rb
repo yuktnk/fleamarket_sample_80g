@@ -131,7 +131,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :explanation, :category_id, :size_id, :item_condition_id, :prefecture_id, :delivery_fee_id, :preparation_day_id, item_images_attributes: [:src]).merge(seller_id: current_user.id)
-    # params.require(:item).permit(:name, :price, :explanation, :category_id, :size_id, :item_condition_id, :prefecture_id, :delivery_fee_id, :preparation_day_id, item_images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
   def category_parent_array
