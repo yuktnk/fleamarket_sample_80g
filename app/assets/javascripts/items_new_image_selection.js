@@ -66,7 +66,6 @@ $(document).on("turbolinks:load", function(){
 
   //（編集画面用）追加用のinputに画像を追加した際に発火するイベント
   $(document).on('change', '.add-img-file', function(e) {
-    const targetIndex = $(this).parent().data('index'); // カスタムデータ属性の取得（0, 1, 2, 3とかとか）
 
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -80,6 +79,7 @@ $(document).on("turbolinks:load", function(){
                     </div>`;
       return html;
     }
+
     // labelボタンを生成する関数
     const buildLabel = (num)=> {
       const html = `<label class="hidden-label-${num}" for="add-img-file-${num}">
@@ -89,10 +89,7 @@ $(document).on("turbolinks:load", function(){
                     </label>`;
       return html;
     }
-
-    
-    
-    
+    // プレビューを生成する関数
     const buildPreview = (num)=> {
       var html= `<div class='item-image' id="${num-1}" data-image="${file.name}">
                       <div class=' item-image__content'>
@@ -106,28 +103,27 @@ $(document).on("turbolinks:load", function(){
                     </div>`
       return html;
     }
+
+    //入力フォームを差し込む
     $('.js-file_group').append(buildFileField(fileIndex[0]));
+
+    //差し込んだ入力フォームに対応するインプっとボタンを差し替える
     $('.UploadBtn').html(buildLabel(fileIndex[0]));
-    //image_box__container要素の前にhtmlを差し込む
+
+    //プレビューを差し込む
     $('#image-box__container').before(buildPreview(fileIndex[0]));
-    console.log((fileIndex[0]));
+
     // shift()で先頭の要素を取り除く
     fileIndex.shift();
     // 末尾の数に1足した数を追加する
     fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-
-    
-
-
-    // //image-box__containerのクラスを変更し、CSSでドロップボックスの大きさを変えてやる。
-    // console.log(fileIndex[0]-1);
-    // $('#image-box__container').attr('class', `item-num-${fileIndex[0]-1}`)
 
     //image-box__containerクラスをもつdivタグのクラスを削除のたびに変更
     var num = $('.item-image').length
     $('#image-box__container').show()
     //image-box__containerのクラスを変更し、CSSでドロップボックスの大きさを変える。
     $('#image-box__container').attr('class', `item-num-${num}`)
+    //画像が10枚洗濯されたらインプットボタンを非表示にする
     if (num==10){
       $('#image-box__container').css('display', 'none')
     }
@@ -177,14 +173,14 @@ $(document).on("turbolinks:load", function(){
   $(document).on("click", '.item-image__operetion--deleteHidden', function(){
     //削除を押されたプレビュー要素を取得
     var target_image = $(this).parent().parent();
-    console.log(target_image);
+
     //削除を押されたプレビューimageのfile名を取得
     var target_id = $(target_image).attr('class');
-    console.log(target_id);
+
     var target_image_file = $('input[value="'+target_id+'"][type=hidden]');
-    console.log(target_image_file);
+
     const targetIndex = target_image.data('index');
-    console.log(targetIndex);
+
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
@@ -204,26 +200,17 @@ $(document).on("turbolinks:load", function(){
     
   })
 
-
-
   //（編集画面用）JSで追加した削除ボタンをクリックすると発火するイベント
   $(document).on("click", '.item-image__operetion--deleteAdd', function(){
     //削除を押されたプレビュー要素を取得
     var target_image = $(this).parent().parent()
-    console.log(target_image);
 
     //削除を押されたプレビューimageのfile名を取得
     var target_id = $(target_image).attr('id');
-    console.log(target_id);
-    // var target_image_file = $('input[value="'+target_id+'"][type=hidden]');
-    // console.log(target_image_file);
-    // const targetIndex = target_image.data('index');
-    // console.log(targetIndex);
-    const aaaaa = "#preview-" + target_id
-    console.log(aaaaa);
+    const NewInputRemove = "#preview-" + target_id
     //プレビューを削除
     target_image.remove()
-    $(aaaaa).remove()
+    $(NewInputRemove).remove()
     //image-box__containerクラスをもつdivタグのクラスを削除のたびに変更
     var num = $('.item-image').length
     $('#image-box__container').show()
