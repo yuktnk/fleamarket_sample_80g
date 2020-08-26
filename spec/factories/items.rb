@@ -10,6 +10,10 @@ FactoryBot.define do
     delivery_fee_id             {"1"}
     preparation_day_id          {"1"}
     size_id                     {"1"}
+
+    after(:build) do |item|
+      item.item_images << FactoryBot.build(:item_image, item: item)
+    end  
   end
 
 end
