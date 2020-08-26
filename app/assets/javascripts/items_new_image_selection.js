@@ -139,8 +139,6 @@ $(document).on("turbolinks:load", function(){
     var target_image = $(this).parent().parent()
     //削除を押されたプレビューimageのfile名を取得
     var target_name = $(target_image).data('image')
-    console.log(file_field.files);
-    console.log(file_field.files.length);
     //プレビューがひとつだけの場合、file_fieldをクリア
     if(file_field.files.length==1){
       //inputタグに入ったファイルを削除
@@ -151,8 +149,6 @@ $(document).on("turbolinks:load", function(){
       $.each(file_field.files, function(i,input){
         //削除を押された要素と一致した時、index番号に基づいてdataBoxに格納された要素を削除する
         if(input.name==target_name){
-          console.log(i);
-          console.log(dataBox.items);
           dataBox.items.remove(i) 
         }
       })
