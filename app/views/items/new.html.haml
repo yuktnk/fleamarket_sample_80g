@@ -23,10 +23,11 @@
                 = f.fields_for :item_images do |i|
                   .InputImages
                     = i.file_field :src, type: 'file', name: "item[item_images_attributes][][src]", value:"", id:"img-file", style: "display:none"
-                    %label{for: "img-file"}
-                      = icon('fas', 'camera')
-                      %br/
-                      クリックしてファイルをアップロード
+                    .UploadBtn
+                      %label{for: "img-file"}
+                        = icon('fas', 'camera')
+                        %br/
+                        クリックしてファイルをアップロード
         -# 商品名・商品の説明
         .Main__center__container
           %h2.Main__center__container__productName

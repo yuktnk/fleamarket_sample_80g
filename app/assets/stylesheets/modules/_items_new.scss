@@ -335,6 +335,12 @@
     border: 1px dashed #ccc;
     background-color: #f8f8f8;
   }
+  .item-num-10 {
+    height: 180px;
+    width: 100%;
+    border: 1px dashed #ccc;
+    background-color: #f8f8f8;
+  }
 
   #image-box-1 {
     width: 620px;
@@ -347,16 +353,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
-    label {
+    .UploadBtn {
       height: 100%;
       width: 100%;
-      cursor: pointer;
-      transition: color .3s;
       padding-top: 64px;
-    }
-    label:hover {
-      color: #feb340;
+      label {
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        transition: color .3s;
+        display: block;
+      }
+      label:hover {
+        color: #feb340;
+      }
     }
   }
   .item-image {
@@ -364,4 +374,27 @@
     padding: 18px 0;
   }
 
+  .item-image__operetion--delete {
+    cursor: pointer;
+    transition: color .3s;
+  }
+  .item-image__operetion--delete:hover {
+    color: #feb340;
+  }
+
+  .item-image__operetion--deleteHidden {
+    cursor: pointer;
+    transition: color .3s;
+  }
+  .item-image__operetion--deleteHidden:hover {
+    color: #feb340;
+  }
+
+  .item-image__operetion--deleteAdd {
+    cursor: pointer;
+    transition: color .3s;
+  }
+  .item-image__operetion--deleteAdd:hover {
+    color: #feb340;
+  }
 }

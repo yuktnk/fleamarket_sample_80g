@@ -18,15 +18,39 @@
             最大10枚までアップロードできます
           .Main__center__container__imageField
 
+
+            //元の記述
             #image-box-1
-              .item-num-0#image-box__container
-                = f.fields_for :item_images do |i|
-                  .InputImages
-                    = i.file_field :src, type: 'file', name: "item[item_images_attributes][][src]", value:"", id:"img-file", style: "display:none"
-                    %label{for: "img-file"}
+              - @images.each_with_index do |img, i|
+                .item-image( data-index = i )
+                  .item-image__content
+                    .item-image__content--icon
+                      = image_tag img.src.url, height: '116px', width: '116px'
+                      -# %img{:height => "116", :src => "${src}", :width => "116"}/
+                  .item-image__operetion
+                    .item-image__operetion--deleteHidden 削除
+
+              -# - if @item.persisted?  # 利用したインスタンスがもしデータベースに保存済みならばtrueを、そうでない場合はfalseを返す
+              -#   - @item.item_images.each_with_index do |image, i|   # 繰り返し処理をしつつ、処理された要素が何番目に処理されたか番号を振る
+                  -# = image_tag image.src.url, data: { index: i }, width: "100", height: "100"  #   jQueryで使用するためにカスタムデータ属性を設定する
+              #image-box__container{class:"item-num-#{@images.length}"}
+                .InputImages
+                  = f.fields_for :item_images do |i|
+                    .js-file_group
+                      - if @item.persisted?
+                        .js-file#preview-1( data-index = "#{@item.item_images.count}" )
+                          = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][src]", id:"add-img-file-#{@item.item_images.count}", class:"add-img-file"
+                          -# .item-image__operetion--delete 削除
+                      = i.file_field :src, type: 'file', value:"", id:"img-file", style: "display:none"
+                      - if @item.persisted?
+                        = i.check_box :_destroy, data: { index: i.index }, class: 'hidden-destroy'
+                  .UploadBtn
+                    %label.hidden-label{for: "add-img-file-#{@item.item_images.count}"}
                       = icon('fas', 'camera')
                       %br/
                       クリックしてファイルをアップロード
+
+
         -# 商品名・商品の説明
         .Main__center__container
           %h2.Main__center__container__productName

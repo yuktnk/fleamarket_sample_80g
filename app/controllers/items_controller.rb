@@ -77,6 +77,7 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
+    
     if @item.save
       redirect_to root_path
       flash[:notice] = "商品を出品しました"
@@ -124,7 +125,23 @@ class ItemsController < ApplicationController
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
   end
-  
+
+  def edit
+    @images = ItemImage.where(item_id: params[:id])
+  end
+
+
+  def update
+    # binding.pry
+    if @item.update(item_params)
+      redirect_to root_path
+      flash[:notice] = "商品を編集しました"
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "商品の編集に失敗しました"
+    end
+  end
+
   def search
     @search_items = Item.search(params[:key])
   end
@@ -149,7 +166,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :explanation, :category_id, :size_id, :item_condition_id, :prefecture_id, :delivery_fee_id, :preparation_day_id, item_images_attributes: [:src]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :price, :explanation, :category_id, :size_id, :item_condition_id, :prefecture_id, :delivery_fee_id, :preparation_day_id, item_images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
   def category_parent_array
