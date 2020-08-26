@@ -16,10 +16,15 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
       get 'search'
     end
+    member do
+      get 'purchase', to: 'items#purchase'
+      get 'pay', to: 'items#pay'
+      get 'done', to: 'items#done'
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :purchases, only: [:new,:only] do
+  resources :purchases, only: [:new] do
     collection do
       get 'index', to: 'purchases#index'
       post 'pay', to: 'purchases#pay'

@@ -76,7 +76,11 @@
               必須
             .selectWrap
               .selectWrap__box
-                = f.collection_select :category_id, @category_parent_array, :id, :category,{ include_blank: "選択してください"},class:"select"
+                = f.collection_select :category_id, @category_parent_array, :id, :category,{ selected: @category_parent.id},class:"select"
+                = f.collection_select :category_id, @category_children, :id, :category,{ selected: @category_child.id}, {class:"select", id: "child_category"}
+                = f.collection_select :category_id, @category_grandchildren, :id, :category,{ selected: @category_grandchild.id},{class:"select", id: "grandchild_category"}
+                = f.collection_select :size_id, @sizes, :id, :size,{ selected: @size.id},{class:"select", id: "size"} if @item.size_id.present?
+
         .Main__center__container
           %h2.Main__center__container__productBland
             ブランド
@@ -146,7 +150,7 @@
         .Main__center__container
           .Main__center__container__sellContents
             .Main__center__container__sellContents__sellButton
-              = f.submit "出品する", { class: "buttonBlue" }
+              = f.submit "更新する", { class: "buttonBlue" }
             .Main__center__container__sellContents__saveAsDraft
               %button{type: "submit", class: "buttonGray"}
                 下書きに保存

@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :sold_items, class_name: 'Item', foreign_key: 'seller_id'
 
 
-
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: {with: VALID_EMAIL_REGEX, message: "＠とドメインを含む必要があります"}
   validates :nickname, presence: true, uniqueness: true
@@ -30,6 +29,6 @@ class User < ApplicationRecord
   validates :municipalities, presence: true
   validates :address, presence: true
 
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :prefecture
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end

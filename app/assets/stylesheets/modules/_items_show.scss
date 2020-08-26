@@ -51,7 +51,7 @@ body{
                   margin: 0 auto;
                   img{
                     object-fit: cover;
-                    height: 346px;
+                    height: 100%;
                     width: 100%;
                     vertical-align: bottom;
                   }
@@ -61,14 +61,14 @@ body{
                     margin-top: 10px;
                     position: relative;
                     li{
-                      width: 25%;
+                      width: 100%;
                       margin: 0 10px 0 0;
                       display: flex;
                       flex-direction: column;
                       align-items: center;
                       img{
                         object-fit: cover;
-                        height: 87px;
+                        height: 100%;
                         width: 100%;
                         vertical-align: bottom;
                       }

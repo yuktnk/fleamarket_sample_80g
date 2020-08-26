@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
+  require 'payjp'
+  before_action :set_card, only: [:purchase, :pay, :done]
+
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :destroy, :purchase, :done, :edit, :update]
   
   def index
     @items = Item.includes(:item_images).limit(3).order('created_at DESC')
@@ -14,6 +17,37 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.new
   end
+
+  def purchase
+    #テーブルからpayjpの顧客IDを検索
+    if @credit_card.blank?
+      #登録された情報がない場合にカード登録画面に移動する
+      redirect_to controller: "credit_cards", action: "new"
+    else
+      Payjp.api_key = Rails.application.credentials.pay_jp[:PAY_JP_PRIVATE_KEY]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(@credit_card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(@credit_card.card_id)
+    end
+  end
+
+  def pay
+
+    @item = Item.find(params[:id])
+    Payjp.api_key = Rails.application.credentials.pay_jp[:PAY_JP_PRIVATE_KEY]
+    Payjp::Charge.create(
+    amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: @credit_card.customer_id, #顧客ID
+    currency:'jpy'
+  )
+  @item.update!(buyer_id: current_user.id)
+  redirect_to action: 'done' #完了画面に移動
+  end
+
+  def done
+  end
+
   
   # 以下全て、formatはjsonのみ
   # 親カテゴリが選択された後に動くアクション
@@ -52,7 +86,39 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @category_grandchild = @item.category
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
+    @size = @item.size
+    # カテゴリー一覧を作成
+    @category = Category.find(params[:id])
+    # 紐づく孫カテゴリーの親（子カテゴリー）の一覧を配列で取得
+    @category_children = @item.category.parent.parent.children
+    # 紐づく孫カテゴリーの一覧を配列で取得
+    @category_grandchildren = @item.category.parent.children
+    # サイズ自体が存在しているかどうか
+    if @item.size_id.present?
+      @sizes = @item.size.parent.children
+    end
+    
+  end
+
+  def update
+    @item = Item.find(params[:id])
+      if @item.update_attributes(params[:item])
+        flash[:success] = "Item was successfully updated"
+        redirect_to @item
+      else
+        flash[:error] = "Something went wrong"
+        render 'edit'
+      end
+  end
+  
+
+
   def show
+    @item_images = @item.item_images
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @category_grandchild = @item.category
@@ -109,6 +175,11 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_card
+    # binding.pry
+    @credit_card = CreditCard.find_by(user_id: current_user.id)
   end
 
 end

@@ -8,63 +8,72 @@
     .contentRight
       .topContent
         .ItemBox
-          %h2.ItemBox__name product2
+          %h2.ItemBox__name 
+            = @item.name
           .ItemBox__body
             %ul
               %li
-                =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png" 
+                = image_tag @item.item_images.first.src.url, alt: 'image1'
                 %ul
-                  %li
-                    =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", size: "75x75", alt: "image1"
-                  %li
-                    =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png", size: "75x75", alt: "image2"
-                  %li
-                    =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png", size: "75x75", alt: "image3"
+                  - @item_images.each do |item_image|
+                    %li
+                      =image_tag item_image.src.url, size: "75x75", alt: "image"
           .ItemBox__price
             %span
-              ¥20000
+              ¥
+              = @item.price.to_s(:delimited)
+              -# to_s(:delimited)が価格にカンマをいれる記述
             .ItemBox__priceDetail
               %span
                 (税込)
               %span
-                送料込み
-          .itemDetail 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+                = @item.delivery_fee.delivery_fee
+          .itemDetail{style: "white-space: pre-wrap;"}
+          -# white-space: pre-wrapで改行やスペースを認識してくれる
+            = @item.explanation
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td hoge
+                  %td 
+                    = @item.seller.nickname
+                    -# = @item.user.nicknameじゃないよ、class_nameで指定したsellerを使うよ
                 %tr
                   %th カテゴリー
-                  - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
-                    %td
-                      = link_to "#{@category_child.category}","#"
-                      %br= link_to "#{@category_grandchild.category}","#" 
-                  -else
-                    %td
-                      = link_to "#{@category_parent.category}","#"
-                      %br= link_to "#{@category_child.category}","#"
-                      = link_to "#{@category_grandchild.category}","#"
+                  -# - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
+                  -#   %td
+                  -#     = link_to "#{@category_child.category}","#"
+                  -#     %br= link_to "#{@category_grandchild.category}","#" 
+                  -# -else
+                  %td
+                    = link_to "#{@category_parent.category}","#"
+                    %br= link_to "#{@category_child.category}","#"
+                    = link_to "#{@category_grandchild.category}","#"
                 %tr
                   %th ブランド
                   %td
                 %tr
                   %th 商品のサイズ
-                  %td
+                  %td 
+                    = @item&.size&.size
+                    -# ぼっち演算子
                 %tr
                   %th 商品の状態
-                  %td 新品/未使用
+                  %td                                         
+                    = @item.item_condition.condition
                 %tr
                   %th 配送料の負担
-                  %td 着払い（購入者負担）
+                  %td 
+                    = @item.delivery_fee.delivery_fee
                 %tr
                   %th 発送元の地域
-                  %td
-                    =link_to '青森県', "#"
+                  %td 
+                    = @item.prefecture.prefecture
                 %tr
                   %th 発送日の目安
-                  %td 1-2日で発送
+                  %td 
+                    = @item.preparation_day.preparation_day
           .optionalArea
             %ul
               %li#likeBtn.optionalBtn.likeBtn
@@ -78,7 +87,7 @@
 
           - if user_signed_in?  && current_user.id != @item.seller_id
             .PurchaseBox
-              = link_to '#', class: "RemoveUnderLine" do
+              = link_to purchase_item_path(@item.id), class: "RemoveUnderLine" do
                 .PurchaseButton
                   = icon('fa', 'shopping-cart')
                   この商品を購入する
