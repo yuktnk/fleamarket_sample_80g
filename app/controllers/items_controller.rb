@@ -70,13 +70,12 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # このif文については、画像複数枚保存のカリキュラムを見て記述した
     if @item.update(item_params)
-      flash[:success] = "Item was successfully updated"
-      redirect_to @item
+      redirect_to root_path
+      flash[:notice] = "商品を編集しました"
     else
-      flash[:error] = "Something went wrong"
-      render 'edit'
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "商品の編集に失敗しました"
     end
 
     @category_grandchild = @item.category
