@@ -38,16 +38,17 @@
                   = f.fields_for :item_images do |i|
                     .js-file_group
                       - if @item.persisted?
-                        .js-file( data-index = "#{@item.item_images.count}" )
+                        .js-file#preview-1( data-index = "#{@item.item_images.count}" )
                           = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][src]", id:"add-img-file-#{@item.item_images.count}", class:"add-img-file"
                           -# .item-image__operetion--delete 削除
-                      = i.file_field :src, type: 'file', value:"", id:"img-file"
+                      = i.file_field :src, type: 'file', value:"", id:"img-file", style: "display:none"
                       - if @item.persisted?
                         = i.check_box :_destroy, data: { index: i.index }, class: 'hidden-destroy'
-                  %label.hidden-label{for: "add-img-file-#{@item.item_images.count}"}
-                    = icon('fas', 'camera')
-                    %br/
-                    クリックしてファイルをアップロード
+                  .UploadBtn
+                    %label.hidden-label{for: "add-img-file-#{@item.item_images.count}"}
+                      = icon('fas', 'camera')
+                      %br/
+                      クリックしてファイルをアップロード
 
 
         -# 商品名・商品の説明
