@@ -94,7 +94,7 @@
 
           - if user_signed_in?  && current_user.id == @item.seller_id
             .EditBox
-              = link_to '#', class: "RemoveUnderLine" do
+              = link_to edit_item_path, class: "RemoveUnderLine" do
                 .EditBtn
                   = icon('fa', 'edit')
                   この商品を編集する
