@@ -1,7 +1,7 @@
 .PurchasesDone
   .MainContainer
     .MainContainer__header
-      = link_to item_path, class:"MainContainer__headerLogo" do
+      = link_to items_path, class:"MainContainer__headerLogo" do
         = image_tag 'logo/logo.png', alt: "icon", class:"MainContainer__headerImage"
     .MainContainer__text
       .MainContainer__text__message
@@ -14,4 +14,4 @@
         %span ¥
         = @item.price.to_s(:delimited)
       .MainContainer__text__back__toppage
-        = link_to 'トップページに戻る', item_path, class:"btn" 
+        = link_to 'トップページに戻る', items_path, class:"btn" 
