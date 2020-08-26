@@ -74,7 +74,6 @@
               = current_user.first_name_to_deliver
       %section.MainContainer__purchases__decide
         .MainContainer__purchases__decide__btn
-          =button_to '購入する', done_item_path(@item.id), class: "MainContainer__purchases__decide__btn__link"
           = link_to pay_item_path(@item.id) do 
             .MainContainer__purchases__decide__btn__link
               %p 購入する
