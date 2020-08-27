@@ -14,7 +14,7 @@ FactoryBot.define do
     family_name_to_deliver_furigana  {"たなか"}
     first_name_to_deliver_furigana   {"ゆうき"}
     postal_code                      {"0002222"}
-    prefecture                       {"埼玉県"}
+    prefecture_id                    {"15"}
     municipalities                   {"戸田市"}
     address                          {"上戸田うん丁目"}
     building                         {"マンション田中101"}

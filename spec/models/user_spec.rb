@@ -147,9 +147,9 @@ describe User do
 
     # 都道府県が必須
     it "is invalid without a prefecture" do
-      user = build(:user, prefecture: "")
+      user = build(:user, prefecture_id: "")
       user.valid?
-      expect(user.errors[:prefecture]).to include("を入力してください")
+      expect(user.errors[:prefecture_id]).to include("を入力してください")
     end
 
     # 市区町村が必須

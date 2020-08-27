@@ -105,14 +105,28 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
-      if @item.update_attributes(params[:item])
-        flash[:success] = "Item was successfully updated"
-        redirect_to @item
-      else
-        flash[:error] = "Something went wrong"
-        render 'edit'
-      end
+    if @item.update(item_params)
+      redirect_to root_path
+      flash[:notice] = "商品を編集しました"
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "商品の編集に失敗しました"
+    end
+
+    @category_grandchild = @item.category
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
+    @size = @item.size
+    # カテゴリー一覧を作成
+    @category = Category.find(params[:id])
+    # 紐づく孫カテゴリーの親（子カテゴリー）の一覧を配列で取得
+    @category_children = @item.category.parent.parent.children
+    # 紐づく孫カテゴリーの一覧を配列で取得
+    @category_grandchildren = @item.category.parent.children
+    # サイズ自体が存在しているかどうか
+    if @item.size_id.present?
+      @sizes = @item.size.parent.children
+    end
   end
   
 
