@@ -48,7 +48,6 @@ class ItemsController < ApplicationController
   def done
   end
 
-  
   # 以下全て、formatはjsonのみ
   # 親カテゴリが選択された後に動くアクション
   def get_category_children
@@ -101,35 +100,8 @@ class ItemsController < ApplicationController
     if @item.size_id.present?
       @sizes = @item.size.parent.children
     end
-    
+    @images = ItemImage.where(item_id: params[:id])
   end
-
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
-      flash[:notice] = "商品を編集しました"
-    else
-      redirect_back(fallback_location: root_path)
-      flash[:alert] = "商品の編集に失敗しました"
-    end
-
-    @category_grandchild = @item.category
-    @category_child = @category_grandchild.parent
-    @category_parent = @category_child.parent
-    @size = @item.size
-    # カテゴリー一覧を作成
-    @category = Category.find(params[:id])
-    # 紐づく孫カテゴリーの親（子カテゴリー）の一覧を配列で取得
-    @category_children = @item.category.parent.parent.children
-    # 紐づく孫カテゴリーの一覧を配列で取得
-    @category_grandchildren = @item.category.parent.children
-    # サイズ自体が存在しているかどうか
-    if @item.size_id.present?
-      @sizes = @item.size.parent.children
-    end
-  end
-  
-
 
   def show
     @item_images = @item.item_images
@@ -140,12 +112,38 @@ class ItemsController < ApplicationController
     @category_parent = @category_child.parent
   end
 
-  def edit
-    @images = ItemImage.where(item_id: params[:id])
-  end
-
-
   def update
+    # updateアクションの前でないとうまく動作しない
+    # 編集画面で選択された新しいカテゴリー
+    @category_grandchild = Category.find(item_params[:category_id])
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
+    # sizeがあるかどうか？なければnilを入れる
+    if @category_grandchild.sizes.present?
+      @item.size_id = @category_grandchild.sizes[0].id
+    else
+      @item.size = nil
+    end
+
+    @size = @item.size
+    # カテゴリー一覧を作成
+    # @category = Category.find(params[:id])
+    # @category = Category.find(item_params[:category_id])
+    # 紐づく孫カテゴリーの親（子カテゴリー）の一覧を配列で取得
+    @category_children = @item.category.parent.parent.children
+    # 紐づく孫カテゴリーの一覧を配列で取得
+    @category_grandchildren = @item.category.parent.children
+    # サイズ自体が存在しているかどうか
+    if @item.size_id.present?
+      if @item.size.ancestry.present?
+        @sizes = @item.size.parent.children
+      else
+        @sizes = nil
+      end
+    else
+      @sizes = nil
+    end
+
     # binding.pry
     if @item.update(item_params)
       redirect_to root_path
@@ -169,7 +167,6 @@ class ItemsController < ApplicationController
       flash[:alert] = "商品の削除に失敗しました"
     end
   end
-
 
   def move_to_index
     unless user_signed_in?
