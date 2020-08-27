@@ -4,7 +4,7 @@
     %nav.BreadCrumbs
       %ol.BreadCrumbs__list
         %li
-          = link_to 'root_path', class: "BreadCrumbs__list__link" do
+          = link_to root_path, class: "BreadCrumbs__list__link" do
             フリマ
           %i.angleRight
             = icon('fas', 'angle-right',  class: "icon")
@@ -18,7 +18,7 @@
           = link_to do
             = image_tag 'icon/member_photo_noimage_thumb.png', alt: 'member', height: '60', width: '60'
             %h3.UserInfo__name
-              多部ちゃん
+              = current_user.nickname
             .UserInfo__numbers
               %h3.UserInfo__number__evaluation
                 評価

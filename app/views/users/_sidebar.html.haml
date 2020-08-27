@@ -2,7 +2,7 @@
   %nav.SideBarNav
     %ul.SidebarNav__list
       %li
-        = link_to '#', class: "SideBarNav__list__item active" do
+        = link_to "/users/#{current_user.id}", class: "SideBarNav__list__item active" do
           マイページ
           %i.angleRight
             = icon('fas', 'angle-right',  class: "icon")
