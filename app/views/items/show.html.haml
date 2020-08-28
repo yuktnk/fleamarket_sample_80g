@@ -113,37 +113,45 @@
                     %li.CommentList__user
                       = comment.user.nickname
                       %span さん
+                      - if @item.seller_id== comment.user.id
+                        %span (出品者)
                     %li.CommentList__text
                       = comment.text
                     %li.CommentList__delete
                       - if user_signed_in? && current_user.id == comment.user.id
                         = link_to item_comment_path(comment.item.id, comment.id), method: :delete do
                           = icon('fa', 'trash')
-            .CommentForm
-              = form_with model: [@item, @comment], local: true, id: "NewComment" do |f|
-                = f.text_area :text, placeholder: 'コメント入力欄', class: "TextBox"
-                .noticeMsg
-                  相手のことを考え丁寧なコメントを心がけましょう。
-                  %br/
-                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
-                %button.commentBtn{ name: "button", type: "submit", class: "SubmitAJAX" }
-                  %i.fa.fa-comment
-                  コメントする
+            - else
+              %p - まだコメントはありません - 
+              
+            - if user_signed_in?
+              .CommentForm
+                = form_with model: [@item, @comment], local: true, id: "NewComment" do |f|
+                  = f.text_area :text, placeholder: 'コメント入力欄', class: "TextBox"
+                  .noticeMsg
+                    相手のことを考え丁寧なコメントを心がけましょう。
+                    %br/
+                    不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                  %button.commentBtn{ name: "button", type: "submit", class: "SubmitAJAX" }
+                    %i.fa.fa-comment
+                    コメントする
+            - else
+              %p.NotLogin（コメント機能はログイン時のみご利用いただけます。）
 
 
-      %ul.links
-        %li.left
-          =link_to "#" do
-            %i.fa.fa-angle-left
-            %span
-            前の商品
-        %li.right
-          =link_to "#" do
-            %span 
-            後ろの商品
-            %i.fa.fa-angle-right
-      .relatedItems
-        =link_to 'メンズをもっと見る', "#"
+      -# %ul.links
+        -# %li.left
+        -#   =link_to "#" do
+        -#     %i.fa.fa-angle-left
+        -#     %span
+        -#     前の商品
+        -# %li.right
+        -#   =link_to "#" do
+        -#     %span 
+        -#     後ろの商品
+        -#     %i.fa.fa-angle-right
+      -# .relatedItems
+        -# =link_to 'メンズをもっと見る', "#"
 
 
 
