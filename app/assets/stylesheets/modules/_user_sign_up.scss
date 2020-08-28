@@ -12,7 +12,7 @@
     .Container {
       background-color: #fff;
       width: 700px;
-      padding: 0 0 40px;
+      padding: 0 0 56px;
       margin: 0 0 128px;
       .Title {
         font-size: 22px;
@@ -85,6 +85,14 @@
               background-color: #3ccace;
               border: 1px solid #3ccace;
               cursor: pointer;
+              -webkit-transition: 0.5s;
+              -moz-transition: 0.5s;
+              -o-transition: 0.5s;
+              -ms-transition: 0.5s;
+              transition: 0.5s;
+            }
+            .submitDecoration:hover {
+              background-color: #3b9395;
             }
           }
         }
