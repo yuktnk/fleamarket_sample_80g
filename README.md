@@ -1,10 +1,9 @@
-## 接続先情報
+# 接続先情報
 URL http://54.250.69.247  
-ID/Pass  
 ID: final_team_g  
 Pass: g_protein  
-## テスト用アカウント等
-購入者用  
+# テスト用アカウント等
+## 購入者用  
 メールアドレス: buyer_user@gmail.com  
 パスワード: buyer_user  
 ## 購入用カード情報
