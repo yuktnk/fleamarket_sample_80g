@@ -1,3 +1,19 @@
+## 接続先情報
+URL http://54.250.69.247
+ID/Pass
+ID: final_team_g
+Pass: g_protein
+## テスト用アカウント等
+購入者用
+メールアドレス: buyer_user@gmail.com
+パスワード: buyer_user
+## 購入用カード情報
+番号： 4242424242424242
+期限： Wed Apr 22 2020 00:00:00 GMT+0900 (日本標準時)
+セキュリティコード：0000
+## 出品者用
+メールアドレス名: seller_user@gmail.com
+パスワード: seller_user
 # READ ME
 
 ## credit_cards
